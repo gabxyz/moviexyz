@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  @apply min-h-screen scroll-smooth bg-slate-1 font-normal text-slate-12 antialiased selection:bg-cyan-5;
+
+  /* PWA enhancements */
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
