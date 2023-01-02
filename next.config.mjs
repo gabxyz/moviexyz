@@ -13,6 +13,16 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "image.tmdb.org",
+        port: "",
+        pathname: "/t/p/w500/**",
+      },
+    ],
+  },
   experimental: {
     fontLoaders: [
       { loader: "@next/font/google", options: { subsets: ["latin"] } },
