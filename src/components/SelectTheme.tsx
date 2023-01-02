@@ -1,5 +1,7 @@
+import { useEffect, useState } from "react";
+import type { ReactElement } from "react";
+import { useTheme } from "next-themes";
 import {
-  ArrowBottomRightIcon,
   CheckIcon,
   ChevronDownIcon,
   DesktopIcon,
@@ -7,8 +9,6 @@ import {
   SunIcon,
 } from "@radix-ui/react-icons";
 import * as Select from "@radix-ui/react-select";
-import { useTheme } from "next-themes";
-import { ReactElement, useEffect, useState } from "react";
 
 const SelectTheme = () => {
   const [mounted, setMounted] = useState(false);
