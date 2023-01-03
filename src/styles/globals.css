@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply min-h-screen scroll-smooth bg-slate-1 font-normal text-slate-12 antialiased selection:bg-cyan-5;
+  @apply min-h-screen scroll-smooth bg-slate-1 font-normal text-slate-12 antialiased selection:bg-sky-4;
 
   /* PWA enhancements */
   -webkit-overflow-scrolling: touch;

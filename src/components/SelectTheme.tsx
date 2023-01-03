@@ -36,20 +36,20 @@ const SelectTheme = () => {
 
   return (
     <Select.Root value={value} onValueChange={setResolvedTheme}>
-      <Select.Trigger className="flex h-10 items-center gap-2 rounded-md border border-gray-7 bg-gray-3 px-4 text-sm font-medium shadow-lg outline-none hover:border-gray-8 hover:bg-gray-4 motion-safe:duration-150 motion-safe:ease-productive-standard">
+      <Select.Trigger className="flex h-9 items-center gap-1.5 rounded-md border border-slate-7 bg-slate-3 px-2.5 text-sm font-medium shadow outline-none hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard">
         <Select.Value />
         <Select.Icon>
           <ChevronDownIcon />
         </Select.Icon>
       </Select.Trigger>
       <Select.Content>
-        <Select.Viewport className="rounded-md border border-gray-7 bg-gray-3 shadow-lg">
-          <Select.Group className="divide-y divide-gray-7">
+        <Select.Viewport className="rounded-md border border-slate-7 bg-slate-3 shadow">
+          <Select.Group className="divide-y divide-slate-7">
             {themes.map(({ value, icon }) => (
               <Select.Item
                 key={value}
                 value={value}
-                className="relative flex h-10 select-none items-center gap-2 px-4 text-sm font-medium  outline-none focus:bg-gray-4 motion-safe:duration-150 motion-safe:ease-productive-standard"
+                className="relative flex h-9 select-none items-center gap-1.5 px-2.5 text-sm font-medium  outline-none focus:bg-slate-5 motion-safe:duration-300 motion-safe:ease-expressive-standard"
               >
                 <Select.ItemText>
                   <div className="flex items-center gap-1.5">
