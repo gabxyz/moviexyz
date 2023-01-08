@@ -1,9 +1,15 @@
 import { useState } from "react";
 import Image from "next/image";
-import type { MovieResult } from "moviedb-promise";
+import type { MovieResponse } from "moviedb-promise";
 
-const MovieCard = ({ poster_path, title, overview }: MovieResult) => {
+const MovieCard = ({ poster_path, title, overview, genres }: MovieResponse) => {
   const [isLoading, setLoading] = useState(true);
+  const genresArr = genres
+    ?.map((item) => {
+      return item.name;
+    })
+    .slice(0, 3)
+    .join(", ");
 
   return (
     <>
@@ -20,9 +26,10 @@ const MovieCard = ({ poster_path, title, overview }: MovieResult) => {
             onLoadingComplete={() => setLoading(false)}
           />
         </div>
-        <div className="flex max-w-sm flex-col gap-2">
+        <div className="flex max-w-sm flex-col">
           <h1 className="font-semibold">{title}</h1>
-          <p className="text-slate-11">{overview}</p>
+          <p className="text-sm font-medium text-slate-11">{genresArr}</p>
+          <p className="mt-4 text-slate-11">{overview}</p>
         </div>
       </div>
     </>
