@@ -36,14 +36,14 @@ const SelectTheme = () => {
 
   return (
     <Select.Root value={value} onValueChange={setResolvedTheme}>
-      <Select.Trigger className="flex h-9 items-center gap-1.5 rounded-md border border-slate-7 bg-slate-3 px-2.5 text-sm font-medium shadow outline-none hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard">
+      <Select.Trigger className="flex h-9 items-center gap-1.5 rounded-lg border border-slate-7 bg-slate-3 px-2.5 text-sm font-medium shadow outline-none hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard">
         <Select.Value />
         <Select.Icon>
           <ChevronDownIcon />
         </Select.Icon>
       </Select.Trigger>
       <Select.Content>
-        <Select.Viewport className="rounded-md border border-slate-7 bg-slate-3 shadow">
+        <Select.Viewport className="rounded-lg border border-slate-7 bg-slate-3 shadow">
           <Select.Group className="divide-y divide-slate-7">
             {themes.map(({ value, icon }) => (
               <Select.Item
