@@ -2,6 +2,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { GearIcon } from "@radix-ui/react-icons";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import GenresToggle from "./GenresToggle";
 import SelectTheme from "./SelectTheme";
 
 const SettingsMenu = () => {
@@ -24,7 +25,7 @@ const SettingsMenu = () => {
                   damping: 25,
                   stiffness: 250,
                 }}
-                className="fixed inset-0 z-50 cursor-pointer bg-blackA-8 backdrop-blur-[1px]"
+                className="fixed inset-0 z-50 cursor-pointer bg-blackA-9 backdrop-blur-[1px]"
               >
                 <Dialog.Content asChild forceMount>
                   <motion.div
@@ -36,23 +37,32 @@ const SettingsMenu = () => {
                       damping: 25,
                       stiffness: 250,
                     }}
-                    className="relative z-50 my-8 mx-auto max-w-xl cursor-auto rounded-lg border border-slate-7 bg-slate-2 p-4 shadow-md"
+                    className="relative z-50 my-4 mx-2 max-w-xl cursor-auto rounded-xl bg-slate-2 p-4 md:my-8 md:mx-auto"
                   >
-                    <Dialog.Title className="font-semibold">
-                      settings
-                    </Dialog.Title>
-                    <Dialog.Description className="text-slate-11">
-                      select page theme and movie genres
-                    </Dialog.Description>
-                    <div>
-                      <div className="mt-10 flex items-end justify-between">
+                    <div className="flex flex-col items-center">
+                      <Dialog.Title className="text-lg font-semibold">
+                        settings
+                      </Dialog.Title>
+                      <Dialog.Description className="text-sm text-slate-11">
+                        select page theme and movie genres
+                      </Dialog.Description>
+                    </div>
+                    <div className="mt-4 divide-y divide-slate-6">
+                      <div className="flex items-end justify-between pb-4">
                         <div className="flex flex-col">
                           <h3 className="font-semibold">theme</h3>
-                          <p className="text-slate-11">
-                            choose a page color theme or use your system theme
+                          <p className="text-sm text-slate-11 md:text-base">
+                            select you preferred color theme
                           </p>
                         </div>
                         <SelectTheme />
+                      </div>
+                      <div className="flex flex-col justify-between pt-4">
+                        <h3 className="font-semibold">genres</h3>
+                        <p className="mb-4 text-sm text-slate-11 md:text-base">
+                          select your favorite movie genres
+                        </p>
+                        <GenresToggle />
                       </div>
                     </div>
                     <Dialog.Close />
