@@ -4,13 +4,19 @@ import { AnimatePresence, motion } from "framer-motion";
 import useSWRMutation from "swr/mutation";
 import MovieCard from "../components/MovieCard";
 import SettingsMenu from "../components/SettingsMenu";
+import useGenresState from "../hooks/useGenresState";
 
-const randomIdFetcher = (url: string) => fetch(url).then((res) => res.json());
+const randomIdFetcher = (url: string, { arg }: { arg?: string }) =>
+  fetch(arg ? `${url}?genresId=${arg}` : url).then((res) => res.json());
 
-const movieDataFetcher = (url: string, { arg }: any) =>
+const movieDataFetcher = (url: string, { arg }: { arg: number }) =>
   fetch(`${url}/${arg}`).then((res) => res.json());
 
 const Home: NextPage = () => {
+  const { genreIdList } = useGenresState();
+
+  const genresParsed = genreIdList.join("|");
+
   const { trigger: getRandomId, isMutating } = useSWRMutation(
     "/api/tmdb",
     randomIdFetcher
@@ -22,7 +28,7 @@ const Home: NextPage = () => {
   } = useSWRMutation("/api/tmdb", movieDataFetcher);
 
   const handleClick = async () => {
-    const randomIdRes = await getRandomId();
+    const randomIdRes = await getRandomId(genresParsed);
     getMovieData(randomIdRes.id);
   };
 
@@ -35,11 +41,11 @@ const Home: NextPage = () => {
       </Head>
       <main className="mx-auto max-w-3xl p-4">
         <>
-          <div className="relative flex flex-col items-start rounded-xl border border-slate-6 bg-slate-2 p-4 shadow-md">
+          <div className="relative mb-8 flex flex-col items-start rounded-xl border border-slate-6 bg-slate-2 p-4 shadow-md">
             <div className="flex w-full justify-between">
               <div>
                 <h1 className="font-semibold md:text-lg">movie explorer</h1>
-                <p className="mb-2 text-slate-11">
+                <p className="mb-4 text-slate-11">
                   explore and discover random movies
                 </p>
               </div>
@@ -74,8 +80,8 @@ const Home: NextPage = () => {
             {movieData && (
               <motion.div
                 key={movieData?.id}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1, y: 40 }}
+                initial={{ opacity: 0, y: -40 }}
+                animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{
                   type: "spring",

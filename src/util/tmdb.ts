@@ -8,10 +8,12 @@ import { env } from "../env/server.mjs";
 
 const moviedb = new MovieDb(env.TMDB_API_KEY);
 
-export const getRandomMovieId = async () => {
+export const getRandomMovieId = async (genresId: string) => {
   const randomPage = Math.floor(Math.random() * 500 + 1);
   const { results: pageResults = [] } = await moviedb.discoverMovie({
+    include_adult: false,
     page: randomPage,
+    with_genres: genresId,
   });
 
   const randomMovie =
@@ -27,7 +29,7 @@ export const getMovieDetails = async (id: number) => {
   })) as MovieResponse & { similar: SimilarMovieResponse };
 
   if (similarMovies.results) {
-    const similarFiltered: MovieResult[] = similarMovies.results.slice(0, 3);
+    const similarFiltered: MovieResult[] = similarMovies.results.slice(0, 2);
     return {
       ...movieInfo,
       similarMovies: similarFiltered,
