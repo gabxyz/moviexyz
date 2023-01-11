@@ -6,6 +6,7 @@ import MovieCard from "../components/MovieCard";
 import SettingsMenu from "../components/SettingsMenu";
 import useGenresState from "../hooks/useGenresState";
 import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 const randomIdFetcher = (url: string, { arg }: { arg?: string }) =>
   fetch(arg ? `${url}?genresId=${arg}` : url).then((res) => res.json());
@@ -41,19 +42,11 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="mx-auto flex min-h-screen max-w-3xl flex-col justify-between p-4">
-        <header className="relative mb-8 flex flex-col items-start rounded-xl border border-slate-6 bg-slate-2 p-4 shadow-md">
-          <div className="flex w-full justify-between">
-            <div>
-              <h1 className="font-semibold md:text-lg">movie explorer</h1>
-              <p className="mb-4 text-slate-11">
-                explore and discover random movies
-              </p>
-            </div>
-            <SettingsMenu />
-          </div>
+        <Header />
+        <div className="m-6 self-center">
           <button
             onClick={handleClick}
-            className="h-9 self-center rounded-lg border border-slate-7 bg-slate-3 px-3 text-sm font-medium shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-200 motion-safe:ease-expressive-standard"
+            className="h-9 rounded-md border border-slate-7 bg-slate-3 px-3 text-sm font-semibold shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard"
           >
             {isMutating || isMutatingMovie ? (
               <svg
@@ -75,7 +68,7 @@ const Home: NextPage = () => {
               <p>pick random movie</p>
             )}
           </button>
-        </header>
+        </div>
         <main className="flex flex-1 flex-col">
           <AnimatePresence mode="wait">
             {movieData && (
