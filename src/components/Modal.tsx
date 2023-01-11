@@ -20,7 +20,7 @@ const Modal = ({
   const [open, setOpen] = useState(false);
   return (
     <Dialog.Root modal onOpenChange={(o) => setOpen(o)}>
-      <Dialog.Trigger className="h-9 rounded-lg border border-slate-7 bg-slate-3 px-3 text-sm font-medium shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-200 motion-safe:ease-expressive-standard">
+      <Dialog.Trigger className="h-9 rounded-lg border border-slate-7 bg-slate-3 px-3 text-sm font-medium shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard">
         {triggerIcon}
       </Dialog.Trigger>
       <AnimatePresence>
@@ -59,7 +59,7 @@ const Modal = ({
                       </Dialog.Description>
                     </div>
                     {children}
-                    <Dialog.Close className="h-9 rounded-lg border border-slate-7 bg-slate-3 px-3 text-sm font-medium shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-200 motion-safe:ease-expressive-standard">
+                    <Dialog.Close className="absolute top-4 right-4 h-9 rounded-lg border border-slate-7 bg-slate-3 px-3 text-sm font-medium shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard">
                       {closeIcon}
                     </Dialog.Close>
                   </motion.div>
