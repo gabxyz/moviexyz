@@ -2,10 +2,10 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import { AnimatePresence, motion } from "framer-motion";
 import useSWRMutation from "swr/mutation";
-import MovieCard from "../components/MovieCard";
-import useGenresState from "../hooks/useGenresState";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
+import useGenresState from "@/hooks/useGenresState";
+import MovieCard from "@/components/MovieCard";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 const randomIdFetcher = (url: string, { arg }: { arg?: string }) =>
   fetch(arg ? `${url}?genresId=${arg}` : url).then((res) => res.json());

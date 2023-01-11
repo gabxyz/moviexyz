@@ -1,7 +1,7 @@
 import { Cross1Icon, GearIcon } from "@radix-ui/react-icons";
-import GenresToggle from "./GenresToggle";
-import Modal from "./Modal";
-import SelectTheme from "./SelectTheme";
+import GenresToggle from "@/components/GenresToggle";
+import Modal from "@/components/Modal";
+import SelectTheme from "@/components/SelectTheme";
 
 const SettingsModal = () => {
   return (

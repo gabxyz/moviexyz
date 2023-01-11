@@ -1,4 +1,4 @@
-import SettingsModal from "./SettingsModal";
+import SettingsModal from "@/components/SettingsModal";
 
 const Header = () => {
   return (

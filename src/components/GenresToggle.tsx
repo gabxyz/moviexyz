@@ -1,6 +1,6 @@
-import * as ToggleGroup from "@radix-ui/react-toggle-group";
 import cx from "classnames";
-import useGenresState from "../hooks/useGenresState";
+import * as ToggleGroup from "@radix-ui/react-toggle-group";
+import useGenresState from "@/hooks/useGenresState";
 
 interface GenreItem {
   value: string;

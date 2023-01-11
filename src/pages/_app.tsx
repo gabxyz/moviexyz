@@ -1,7 +1,7 @@
 import { type AppType } from "next/dist/shared/lib/utils";
 import { ThemeProvider } from "next-themes";
 import { Inter } from "@next/font/google";
-import "../styles/globals.css";
+import "@styles/globals.css";
 
 const interVariable = Inter();
 

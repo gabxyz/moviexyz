@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { getRandomMovieId } from "../../../util/tmdb";
+import { getRandomMovieId } from "@/utils/tmdb";
 
 type ResponseError = {
   message: string;

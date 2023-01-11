@@ -4,7 +4,7 @@ import type {
   MovieResponse,
   SimilarMovieResponse,
 } from "moviedb-promise";
-import { env } from "../env/server.mjs";
+import { env } from "@/env/server.mjs";
 
 const moviedb = new MovieDb(env.TMDB_API_KEY);
 

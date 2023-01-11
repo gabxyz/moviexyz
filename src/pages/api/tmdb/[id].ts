@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { getMovieDetails } from "../../../util/tmdb";
 import type { MovieResponse } from "moviedb-promise";
+import { getMovieDetails } from "@/utils/tmdb";
 
 type ResponseError = {
   message: string;

@@ -2,6 +2,15 @@
   "compilerOptions": {
     "target": "es2017",
     "lib": ["dom", "dom.iterable", "esnext"],
+    "baseUrl": "src",
+    "paths": {
+      "@/components/*": ["components/*"],
+      "@/env/*": ["env/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/pages/*": ["pages/*"],
+      "@/styles/*": ["styles/*"],
+      "@/utils/*": ["utils/*"]
+    },
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
