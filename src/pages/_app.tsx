@@ -8,9 +8,12 @@ const interVariable = Inter();
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <ThemeProvider attribute="class" disableTransitionOnChange>
-      <main className={interVariable.className}>
-        <Component {...pageProps} />
-      </main>
+      <style jsx global>{`
+        html {
+          font-family: ${interVariable.style.fontFamily};
+        }
+      `}</style>
+      <Component {...pageProps} />
     </ThemeProvider>
   );
 };
