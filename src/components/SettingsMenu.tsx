@@ -37,7 +37,7 @@ const SettingsMenu = () => {
                       damping: 25,
                       stiffness: 250,
                     }}
-                    className="relative z-50 my-4 mx-2 max-w-xl cursor-auto rounded-xl bg-slate-2 p-4 md:my-8 md:mx-auto"
+                    className="relative z-50 m-4 max-w-xl cursor-auto rounded-xl bg-slate-2 p-4 md:my-8 md:mx-auto"
                   >
                     <div className="flex flex-col items-center">
                       <Dialog.Title className="text-lg font-semibold">
