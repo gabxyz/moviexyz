@@ -1,16 +1,27 @@
 import * as Dialog from "@radix-ui/react-dialog";
-import { GearIcon } from "@radix-ui/react-icons";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
-import GenresToggle from "./GenresToggle";
-import SelectTheme from "./SelectTheme";
+import React, { useState } from "react";
 
-const SettingsMenu = () => {
+interface ModalProps {
+  triggerIcon: React.ReactElement;
+  closeIcon: React.ReactElement;
+  title: string;
+  description: string;
+  children: React.ReactNode;
+}
+
+const Modal = ({
+  triggerIcon,
+  closeIcon,
+  title,
+  description,
+  children,
+}: ModalProps) => {
   const [open, setOpen] = useState(false);
   return (
     <Dialog.Root modal onOpenChange={(o) => setOpen(o)}>
       <Dialog.Trigger className="h-9 rounded-lg border border-slate-7 bg-slate-3 px-3 text-sm font-medium shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-200 motion-safe:ease-expressive-standard">
-        <GearIcon />
+        {triggerIcon}
       </Dialog.Trigger>
       <AnimatePresence>
         {open && (
@@ -41,31 +52,16 @@ const SettingsMenu = () => {
                   >
                     <div className="flex flex-col items-center">
                       <Dialog.Title className="text-lg font-semibold">
-                        settings
+                        {title}
                       </Dialog.Title>
                       <Dialog.Description className="text-sm text-slate-11">
-                        select page theme and movie genres
+                        {description}
                       </Dialog.Description>
                     </div>
-                    <div className="mt-4 divide-y divide-slate-6">
-                      <div className="flex items-end justify-between pb-4">
-                        <div className="flex flex-col">
-                          <h3 className="font-semibold">theme</h3>
-                          <p className="text-sm text-slate-11 md:text-base">
-                            select you preferred color theme
-                          </p>
-                        </div>
-                        <SelectTheme />
-                      </div>
-                      <div className="flex flex-col justify-between pt-4">
-                        <h3 className="font-semibold">genres</h3>
-                        <p className="mb-4 text-sm text-slate-11 md:text-base">
-                          select your favorite movie genres
-                        </p>
-                        <GenresToggle />
-                      </div>
-                    </div>
-                    <Dialog.Close />
+                    {children}
+                    <Dialog.Close className="h-9 rounded-lg border border-slate-7 bg-slate-3 px-3 text-sm font-medium shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-200 motion-safe:ease-expressive-standard">
+                      {closeIcon}
+                    </Dialog.Close>
                   </motion.div>
                 </Dialog.Content>
               </motion.div>
@@ -77,4 +73,4 @@ const SettingsMenu = () => {
   );
 };
 
-export default SettingsMenu;
+export default Modal;

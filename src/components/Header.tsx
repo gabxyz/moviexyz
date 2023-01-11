@@ -1,4 +1,4 @@
-import SettingsMenu from "./SettingsMenu";
+import SettingsModal from "./SettingsModal";
 
 const Header = () => {
   return (
@@ -7,7 +7,7 @@ const Header = () => {
         <h1 className="text-lg font-semibold">movie explorer</h1>
         <p className="text-slate-11">explore and discover random movies</p>
       </div>
-      <SettingsMenu />
+      <SettingsModal />
     </header>
   );
 };

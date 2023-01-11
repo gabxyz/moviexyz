@@ -3,7 +3,7 @@ import Head from "next/head";
 import { AnimatePresence, motion } from "framer-motion";
 import useSWRMutation from "swr/mutation";
 import MovieCard from "../components/MovieCard";
-import SettingsMenu from "../components/SettingsMenu";
+import SettingsMenu from "../components/SettingsModal";
 import useGenresState from "../hooks/useGenresState";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
