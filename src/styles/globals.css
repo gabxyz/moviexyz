@@ -2,8 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  @apply h-full min-h-screen scroll-smooth font-normal antialiased;
+}
+
 body {
-  @apply min-h-screen scroll-smooth bg-slate-1 font-normal text-slate-12 antialiased selection:bg-sky-4;
+  @apply bg-slate-1 text-slate-12 selection:bg-sky-4;
 
   /* PWA enhancements */
   -webkit-overflow-scrolling: touch;
