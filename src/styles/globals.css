@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  @apply h-full min-h-screen scroll-smooth font-normal antialiased;
+  @apply h-full min-h-screen scroll-smooth font-normal leading-normal antialiased;
 }
 
 body {

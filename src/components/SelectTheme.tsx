@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { ReactElement } from "react";
 import { useTheme } from "next-themes";
+import * as Select from "@radix-ui/react-select";
 import {
   CheckIcon,
   ChevronDownIcon,
@@ -8,7 +9,6 @@ import {
   MoonIcon,
   SunIcon,
 } from "@radix-ui/react-icons";
-import * as Select from "@radix-ui/react-select";
 
 const SelectTheme = () => {
   const [mounted, setMounted] = useState(false);
@@ -36,7 +36,7 @@ const SelectTheme = () => {
 
   return (
     <Select.Root value={value} onValueChange={setResolvedTheme}>
-      <Select.Trigger className="flex h-9 items-center gap-1.5 rounded-lg border border-slate-7 bg-slate-3 px-2.5 text-sm font-medium shadow outline-none hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard">
+      <Select.Trigger className="flex h-8 items-center gap-1.5 rounded-lg border border-slate-7 bg-slate-3 px-2 text-sm font-medium shadow outline-none hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard">
         <Select.Value />
         <Select.Icon>
           <ChevronDownIcon />
@@ -49,7 +49,7 @@ const SelectTheme = () => {
               <Select.Item
                 key={value}
                 value={value}
-                className="relative flex h-9 select-none items-center gap-1.5 px-2.5 text-sm font-medium  outline-none focus:bg-slate-5 motion-safe:duration-300 motion-safe:ease-expressive-standard"
+                className="relative flex h-8 select-none items-center gap-1.5 px-2 text-sm font-medium  outline-none focus:bg-slate-5 motion-safe:duration-300 motion-safe:ease-expressive-standard"
               >
                 <Select.ItemText>
                   <div className="flex items-center gap-1.5">

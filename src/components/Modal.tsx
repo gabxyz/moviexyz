@@ -20,7 +20,10 @@ const Modal = ({
   const [open, setOpen] = useState(false);
   return (
     <Dialog.Root modal onOpenChange={(o) => setOpen(o)}>
-      <Dialog.Trigger className="h-9 rounded-lg border border-slate-7 bg-slate-3 px-3 text-sm font-medium shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard">
+      <Dialog.Trigger
+        aria-label={title}
+        className="h-9 rounded-lg border border-slate-6 bg-slate-3 px-3 drop-shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard"
+      >
         {triggerIcon}
       </Dialog.Trigger>
       <AnimatePresence>
@@ -50,7 +53,7 @@ const Modal = ({
                     }}
                     className="relative z-50 m-4 max-w-xl cursor-auto rounded-xl bg-slate-2 p-4 md:my-8 md:mx-auto"
                   >
-                    <div className="flex flex-col items-center">
+                    <div className="flex flex-col items-center text-center">
                       <Dialog.Title className="text-lg font-semibold">
                         {title}
                       </Dialog.Title>
@@ -59,7 +62,7 @@ const Modal = ({
                       </Dialog.Description>
                     </div>
                     {children}
-                    <Dialog.Close className="absolute top-4 right-4 h-9 rounded-lg border border-slate-7 bg-slate-3 px-3 text-sm font-medium shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard">
+                    <Dialog.Close className="absolute top-4 right-4 text-slate-11 hover:text-slate-12 motion-safe:duration-300 motion-safe:ease-expressive-standard">
                       {closeIcon}
                     </Dialog.Close>
                   </motion.div>

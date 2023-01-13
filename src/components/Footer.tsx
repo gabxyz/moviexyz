@@ -11,6 +11,7 @@ const Footer = () => {
         <div className="flex items-center gap-1.5">
           <a
             className="cursor-pointer hover:text-slate-12 motion-safe:duration-300 motion-safe:ease-expressive-standard"
+            aria-label="github"
             target="_blank"
             rel="noopener noreferrer"
             href="https://github.com/gabxyz"
@@ -19,6 +20,7 @@ const Footer = () => {
           </a>
           <a
             className="cursor-pointer hover:text-slate-12 motion-safe:duration-300 motion-safe:ease-expressive-standard"
+            aria-label="twitter"
             target="_blank"
             rel="noopener noreferrer"
             href="https://twitter.com/gabxyzdev"

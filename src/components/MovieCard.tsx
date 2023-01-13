@@ -29,7 +29,7 @@ const MovieCard = ({ poster_path, title, overview, genres }: MovieResponse) => {
         <div className="flex max-w-sm flex-col">
           <h1 className="font-semibold">{title}</h1>
           <p className="text-sm font-medium text-slate-11">{genresArr}</p>
-          <p className="mt-4 text-slate-11">{overview}</p>
+          <p className="mt-4 text-sm text-slate-11">{overview}</p>
         </div>
       </div>
     </>
