@@ -1,13 +1,19 @@
 import SettingsModal from "@/components/SettingsModal";
+import AboutModal from "@/components/AboutModal";
 
 const Header = () => {
   return (
     <header className="flex items-start justify-between rounded-xl border border-slate-6 bg-slate-2 p-4 shadow-md">
       <div className="flex flex-col">
-        <h1 className="text-lg font-semibold">movie explorer</h1>
-        <p className="text-slate-11">explore and discover random movies</p>
+        <h1 className="text-lg font-semibold leading-none">movie explorer</h1>
+        <p className="text-sm text-slate-11">
+          explore and discover random movies
+        </p>
       </div>
-      <SettingsModal />
+      <div className="flex items-center gap-2.5">
+        <AboutModal />
+        <SettingsModal />
+      </div>
     </header>
   );
 };
