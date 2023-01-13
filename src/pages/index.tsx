@@ -2,6 +2,7 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import { AnimatePresence, motion } from "framer-motion";
 import useSWRMutation from "swr/mutation";
+import useLetterCaseState from "@/hooks/useLetterCaseState";
 import useGenresState from "@/hooks/useGenresState";
 import MovieCard from "@/components/MovieCard";
 import Footer from "@/components/Footer";
@@ -16,6 +17,7 @@ const movieDataFetcher = (url: string, { arg }: { arg: number }) =>
 
 const Home: NextPage = () => {
   const { genreIdList } = useGenresState();
+  const { letterCase } = useLetterCaseState();
 
   const genresParsed = genreIdList.join("|");
 
@@ -37,7 +39,9 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>movie explorer</title>
+        <title>
+          {letterCase === "lowercase" ? "movie explorer" : "Movie Explorer"}
+        </title>
         <meta name="description" content="explore and discover random movies" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
