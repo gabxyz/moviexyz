@@ -1,6 +1,7 @@
-import * as Dialog from "@radix-ui/react-dialog";
-import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import * as Dialog from "@radix-ui/react-dialog";
+import Tooltip from "@/components/Tooltip";
 
 interface ModalProps {
   triggerIcon: React.ReactElement;
@@ -20,12 +21,14 @@ const Modal = ({
   const [open, setOpen] = useState(false);
   return (
     <Dialog.Root modal onOpenChange={(o) => setOpen(o)}>
-      <Dialog.Trigger
-        aria-label={title}
-        className="h-9 rounded-lg border border-slate-6 bg-slate-3 px-3 drop-shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard"
-      >
-        {triggerIcon}
-      </Dialog.Trigger>
+      <Tooltip content={title}>
+        <Dialog.Trigger
+          aria-label={title}
+          className="h-9 rounded-lg border border-slate-6 bg-slate-3 px-3 drop-shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard"
+        >
+          {triggerIcon}
+        </Dialog.Trigger>
+      </Tooltip>
       <AnimatePresence>
         {open && (
           <Dialog.Portal forceMount>
@@ -41,7 +44,11 @@ const Modal = ({
                 }}
                 className="fixed inset-0 z-50 cursor-pointer bg-blackA-9 backdrop-blur-[1px]"
               >
-                <Dialog.Content asChild forceMount>
+                <Dialog.Content
+                  asChild
+                  forceMount
+                  onCloseAutoFocus={(e) => e.preventDefault()}
+                >
                   <motion.div
                     initial={{ opacity: 0, scale: 0.65 }}
                     animate={{ opacity: 1, scale: 1 }}
