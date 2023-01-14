@@ -12,12 +12,12 @@ import {
 
 const SelectTheme = () => {
   const [mounted, setMounted] = useState(false);
-  const { resolvedTheme, setTheme } = useTheme();
-  const [value, setValue] = useState(resolvedTheme);
+  const { theme, setTheme } = useTheme();
+  const [value, setValue] = useState(theme);
 
   const setResolvedTheme = (resolvedTheme: string) => {
-    setValue(resolvedTheme);
     setTheme(resolvedTheme);
+    setValue(resolvedTheme);
   };
 
   const themes: { value: string; icon: ReactElement }[] = [
@@ -44,26 +44,24 @@ const SelectTheme = () => {
       </Select.Trigger>
       <Select.Content>
         <Select.Viewport className="rounded-lg border border-slate-7 bg-slate-3 shadow">
-          <Select.Group className="divide-y divide-slate-7">
-            {themes.map(({ value, icon }) => (
-              <Select.Item
-                key={value}
-                value={value}
-                className="relative flex h-8 select-none items-center gap-1.5 px-2 text-sm font-medium  outline-none focus:bg-slate-5 motion-safe:duration-300 motion-safe:ease-expressive-standard"
-              >
-                <Select.ItemText>
-                  <div className="flex items-center gap-1.5">
-                    {icon}
-                    {value}
-                  </div>
-                </Select.ItemText>
+          {themes.map(({ value, icon }) => (
+            <Select.Item
+              key={value}
+              value={value}
+              className="relative flex h-8 select-none items-center gap-1.5 px-2 text-sm font-medium outline-none focus:bg-slate-5 motion-safe:duration-300 motion-safe:ease-expressive-standard"
+            >
+              <Select.ItemText>
+                <div className="flex items-center gap-1.5">
+                  {icon}
+                  {value[0]?.toUpperCase() + value.substring(1)}
+                </div>
+              </Select.ItemText>
 
-                <Select.ItemIndicator>
-                  <CheckIcon />
-                </Select.ItemIndicator>
-              </Select.Item>
-            ))}
-          </Select.Group>
+              <Select.ItemIndicator>
+                <CheckIcon />
+              </Select.ItemIndicator>
+            </Select.Item>
+          ))}
         </Select.Viewport>
       </Select.Content>
     </Select.Root>

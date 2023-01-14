@@ -56,7 +56,7 @@ const Home: NextPage = () => {
             {isMutating || isMutatingMovie ? (
               <UpdateIcon className="animate-spin" />
             ) : (
-              <p>pick random movie</p>
+              <p>Pick random movie</p>
             )}
           </button>
         </div>

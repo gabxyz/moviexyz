@@ -9,32 +9,32 @@ const SettingsModal = () => {
     <Modal
       triggerIcon={<GearIcon />}
       closeIcon={<Cross1Icon />}
-      title="settings"
-      description="select page theme and movie genres"
+      title="Settings"
+      description="Select page theme and movie genres"
     >
       <div className="mt-4 divide-y divide-slate-6">
         <div className="flex items-end justify-between pb-4">
           <div className="flex flex-col">
-            <h3 className="font-semibold">theme</h3>
+            <h3 className="font-semibold">Theme</h3>
             <p className="text-sm text-slate-11">
-              select you preferred color theme
+              Select you preferred color theme
             </p>
           </div>
           <SelectTheme />
         </div>
         <div className="flex items-end justify-between py-4">
           <div className="flex flex-col">
-            <h3 className="font-semibold">letter case</h3>
+            <h3 className="font-semibold">Letter case</h3>
             <p className="text-sm text-slate-11">
-              choose between lowercase and capitalized text
+              Choose between lowercase and capitalized text
             </p>
           </div>
           <ToggleLetter />
         </div>
         <div className="flex flex-col justify-between py-4">
-          <h3 className="font-semibold">genres</h3>
+          <h3 className="font-semibold">Genres</h3>
           <p className="mb-4 text-sm text-slate-11">
-            select your favorite movie genres
+            Select your favorite movie genres
           </p>
           <GenresToggle />
         </div>

@@ -19,65 +19,65 @@ interface Stack {
 
 const stack: Stack[] = [
   {
-    category: "front-end",
+    category: "Front-end",
     tools: [
       {
-        toolName: "next.js",
+        toolName: "Next.js",
         toolLink: "https://nextjs.org/",
       },
       {
-        toolName: "typescript",
+        toolName: "Typescript",
         toolLink: "https://www.typescriptlang.org/",
       },
       {
-        toolName: "tailwindcss",
+        toolName: "TailwindCSS",
         toolLink: "https://tailwindcss.com/",
       },
       {
-        toolName: "framer-motion",
+        toolName: "Framer-Motion",
         toolLink: "https://www.framer.com/motion/",
       },
     ],
   },
   {
-    category: "ui and design",
+    category: "UI and Design",
     tools: [
       {
-        toolName: "radix-ui/primitives",
+        toolName: "Radix-UI/Primitives",
         toolLink: "https://www.radix-ui.com/",
       },
       {
-        toolName: "radix-ui/colors",
+        toolName: "Radix-UI/Colors",
         toolLink: "https://www.radix-ui.com/colors",
       },
       {
-        toolName: "radix-ui/icons",
+        toolName: "Radix-UI/Icons",
         toolLink: "https://icons.radix-ui.com/",
       },
     ],
   },
   {
-    category: "data fetching",
+    category: "Data Fetching",
     tools: [
       {
         toolName: "moviedb-promise",
         toolLink: "https://github.com/grantholle/moviedb-promise",
       },
       {
-        toolName: "swr",
+        toolName: "SWR",
         toolLink: "https://swr.vercel.app/",
       },
       {
-        toolName: "next.js api routes",
+        toolName: "Next.js API Routes",
         toolLink: "https://nextjs.org/docs/api-routes/introduction",
       },
     ],
   },
   {
-    category: "movies data",
+    category: "Movies Data",
     tools: [
       {
-        toolName: "tmdb api",
+        toolName: "TMDb API",
         toolLink:
           "https://developers.themoviedb.org/3/getting-started/introduction",
       },
@@ -90,25 +90,25 @@ const AboutModal = () => {
     <Modal
       triggerIcon={<QuestionMarkCircledIcon />}
       closeIcon={<Cross1Icon />}
-      title="about"
-      description="useful information and resources about this website"
+      title="About"
+      description="Useful information and resources about this website"
     >
       <div className="my-2 divide-y divide-slate-6">
         <div className="flex items-end justify-between">
           <div className="flex flex-col py-4">
-            <h3 className="font-semibold">what and why</h3>
+            <h3 className="font-semibold">What and why</h3>
             <p className="text-sm text-slate-11">
-              this is a website i built for people that, just like me, have
-              trouble choosing a movie to watch. my motivation for building it
+              This is a website I built for people that, just like me, have
+              trouble choosing a movie to watch. My motivation for building it
               was mainly to apply and improve my skills as a front-end developer
-              and mess around with ui/ux.
+              and mess around with UI/UX.
             </p>
           </div>
         </div>
         <div className="flex flex-col justify-between py-4">
-          <h3 className="font-semibold">built with</h3>
+          <h3 className="font-semibold">Built with</h3>
           <p className="text-sm text-slate-11">
-            these are some of the tools i used to build this website.
+            These are some of the tools I used to build this website.
           </p>
           <ul className="mt-2 text-sm">
             {stack.map(({ category, tools }) => (
@@ -140,10 +140,10 @@ const AboutModal = () => {
           </ul>
         </div>
         <div className="py-4">
-          <h3 className="font-semibold">me</h3>
+          <h3 className="font-semibold">Me</h3>
           <p className="text-sm text-slate-11">
-            i'm gabriel, an aspiring front-end developer with great interest in
-            the ui/ux world and passionate about well-crafted user interfaces
+            I'm gabriel, an aspiring Front-end Developer with great interest in
+            the UI/UX world and passionate about well-crafted user interfaces
             and clean design.
           </p>
           <div className="mt-2 flex gap-2 text-sm font-medium text-slate-11">
@@ -154,7 +154,7 @@ const AboutModal = () => {
               href="https://twitter.com/gabxyzdev"
             >
               <TwitterLogoIcon />
-              <p>twitter</p>
+              <p>Twitter</p>
               <ArrowTopRightIcon />
             </a>
             <a
@@ -164,17 +164,17 @@ const AboutModal = () => {
               href="https://github.com/gabxyz"
             >
               <GitHubLogoIcon />
-              <p>github</p>
+              <p>Github</p>
               <ArrowTopRightIcon />
             </a>
           </div>
         </div>
         <div className="py-4">
-          <h3 className="font-semibold">notes</h3>
+          <h3 className="font-semibold">Notes</h3>
           <p className="text-sm text-slate-11">
-            you may have noticed that the text in this website is all lowercase.
-            this is intentional. the reason is simply because i think it looks
-            nicer. if dislike this, you can change it in the settings menu.
+            You may have noticed that the text in this website is all lowercase.
+            this is intentional. The reason is simply because I think it looks
+            nicer. If dislike this, you can change it in the settings menu.
           </p>
         </div>
       </div>
@@ -215,7 +215,7 @@ const AboutModal = () => {
           </svg>
         </a>
         <p>
-          movie explorer uses the TMDB API but is not endorsed or certified by
+          Movie Explorer uses the TMDB API but is not endorsed or certified by
           TMDB.
         </p>
       </div>
