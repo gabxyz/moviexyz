@@ -42,7 +42,7 @@ const Modal = ({
                   damping: 25,
                   stiffness: 250,
                 }}
-                className="fixed inset-0 z-50 cursor-pointer bg-blackA-9 backdrop-blur-[1px]"
+                className="absolute inset-0 z-50 cursor-pointer bg-blackA-9 backdrop-blur-[1px]"
               >
                 <Dialog.Content
                   asChild
@@ -58,7 +58,7 @@ const Modal = ({
                       damping: 25,
                       stiffness: 250,
                     }}
-                    className="relative z-50 m-4 max-w-xl cursor-auto rounded-xl bg-slate-2 p-4 md:my-8 md:mx-auto"
+                    className="relative m-4 max-h-[calc(100vh-64px)] w-fit cursor-auto overflow-auto rounded-xl bg-slate-2 p-4 sm:mx-auto sm:my-8 sm:max-w-xl"
                   >
                     <div className="flex flex-col items-center text-center">
                       <Dialog.Title className="text-lg font-semibold">

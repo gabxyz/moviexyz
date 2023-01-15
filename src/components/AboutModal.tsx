@@ -178,7 +178,7 @@ const AboutModal = () => {
           </p>
         </div>
       </div>
-      <div className="-mb-1 flex items-center gap-2 text-xs text-slate-11">
+      <div className="flex items-center gap-2 text-xs text-slate-11">
         <a
           target="_blank"
           rel="noopener noreferrer"
