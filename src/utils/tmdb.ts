@@ -1,9 +1,5 @@
 import { MovieDb } from "moviedb-promise";
-import type {
-  MovieResult,
-  MovieResponse,
-  SimilarMovieResponse,
-} from "moviedb-promise";
+import type { MovieResponse, VideosResponse } from "moviedb-promise";
 import { env } from "@/env/server.mjs";
 
 const moviedb = new MovieDb(env.TMDB_API_KEY);
@@ -23,16 +19,20 @@ export const getRandomMovieId = async (genresId: string) => {
 };
 
 export const getMovieDetails = async (id: number) => {
-  const { similar: similarMovies, ...movieInfo } = (await moviedb.movieInfo({
+  const { videos: movieTrailer, ...movieInfo } = (await moviedb.movieInfo({
     id,
-    append_to_response: "similar",
-  })) as MovieResponse & { similar: SimilarMovieResponse };
+    append_to_response: "videos",
+  })) as MovieResponse & { videos: VideosResponse };
 
-  if (similarMovies.results) {
-    const similarFiltered: MovieResult[] = similarMovies.results.slice(0, 2);
+  if (movieTrailer.results) {
+    const trailer = movieTrailer.results.find(
+      (item) => item.type === "Trailer"
+    );
+    const youtubeId = trailer ? trailer.key : "dQw4w9WgXcQ";
+
     return {
       ...movieInfo,
-      similarMovies: similarFiltered,
+      movieTrailer: youtubeId,
     };
   }
 };
