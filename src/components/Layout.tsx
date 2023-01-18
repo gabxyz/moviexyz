@@ -52,7 +52,7 @@ const Layout = ({ children }: LayoutProps) => {
             )}
           </button>
         </div>
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 md:mt-10">{children}</main>
         <Footer />
       </div>
     </>
