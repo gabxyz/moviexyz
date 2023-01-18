@@ -4,10 +4,11 @@ import { Inter } from "@next/font/google";
 import "@/styles/globals.css";
 import useLetterCaseState from "@/hooks/useLetterCaseState";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
+import Layout from "@/components/Layout";
 
 const interVariable = Inter();
 
-const MyApp: AppType = ({ Component, pageProps }) => {
+const App: AppType = ({ Component, pageProps }) => {
   const { letterCase } = useLetterCaseState();
 
   return (
@@ -24,10 +25,12 @@ const MyApp: AppType = ({ Component, pageProps }) => {
             }
           `}
         </style>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </TooltipProvider>
     </ThemeProvider>
   );
 };
 
-export default MyApp;
+export default App;

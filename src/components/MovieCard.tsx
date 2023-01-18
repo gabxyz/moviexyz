@@ -39,23 +39,23 @@ const MovieCard = ({
             onLoadingComplete={() => setLoading(false)}
           />
         </div>
-        <div className="flex h-full max-w-sm flex-col justify-between gap-4">
+        <div className="flex h-full max-w-sm flex-col gap-4">
           <div className="flex flex-col leading-none">
             <h1 className="font-semibold">{title}</h1>
             <p className="text-sm font-medium text-slate-11">{genresArr}</p>
             <p className="mt-2 text-sm text-slate-11">{overview}</p>
           </div>
-          <div className="mt-4 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <div className="flex items-center gap-2 rounded-full border border-slate-6 bg-slate-3 py-1.5 px-4 text-xs drop-shadow">
-                <CalendarIcon />
-                <p>{release_date?.slice(0, 4)}</p>
-              </div>
-              <div className="flex items-center gap-2 rounded-full border border-slate-6 bg-slate-3 py-1.5 px-3 text-xs drop-shadow">
-                <ClockIcon />
-                <p>{runtime} min</p>
-              </div>
+          <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 rounded-full border border-slate-6 bg-slate-3 py-1.5 px-4 text-xs drop-shadow">
+              <CalendarIcon />
+              <p>{release_date?.slice(0, 4)}</p>
             </div>
+            <div className="flex items-center gap-2 rounded-full border border-slate-6 bg-slate-3 py-1.5 px-3 text-xs drop-shadow">
+              <ClockIcon />
+              <p>{runtime} min</p>
+            </div>
+          </div>
+          <div className="mt-4 flex items-center justify-between">
             <a
               target="_blank"
               rel="noopener noreferrer"
