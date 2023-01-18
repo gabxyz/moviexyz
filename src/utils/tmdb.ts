@@ -11,10 +11,13 @@ export const getRandomMovieId = async (genresId: string) => {
     page: randomPage,
     with_genres: genresId,
   });
-
-  const randomMovie =
-    pageResults[Math.floor(Math.random() * pageResults.length)];
-
+  const randomMovie = pageResults.find(
+    (movie) =>
+      movie.poster_path &&
+      movie.title &&
+      movie.overview &&
+      movie.overview.length < 700
+  );
   return randomMovie && randomMovie.id;
 };
 
