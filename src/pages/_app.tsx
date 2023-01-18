@@ -1,10 +1,10 @@
 import { type AppType } from "next/dist/shared/lib/utils";
 import { ThemeProvider } from "next-themes";
 import { Inter } from "@next/font/google";
-import "@/styles/globals.css";
-import useLetterCaseState from "@/hooks/useLetterCaseState";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
+import useLetterCaseState from "@/hooks/useLetterCaseState";
 import Layout from "@/components/Layout";
+import "@/styles/globals.css";
 
 const interVariable = Inter();
 

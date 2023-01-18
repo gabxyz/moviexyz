@@ -1,8 +1,8 @@
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import { AnimatePresence, motion } from "framer-motion";
 import MovieCard from "@/components/MovieCard";
 import useMovieData from "@/hooks/useMovieData";
-import { AnimatePresence, motion } from "framer-motion";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
 
 const MovieInfo = () => {
   const router = useRouter();

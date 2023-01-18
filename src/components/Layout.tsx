@@ -1,11 +1,11 @@
+import Head from "next/head";
+import { useRouter } from "next/router";
+import useSWRMutation from "swr/mutation";
+import { UpdateIcon } from "@radix-ui/react-icons";
 import useLetterCaseState from "@/hooks/useLetterCaseState";
 import useGenresState from "@/hooks/useGenresState";
-import useSWRMutation from "swr/mutation";
-import Head from "next/head";
-import Header from "./Header";
-import { UpdateIcon } from "@radix-ui/react-icons";
-import { useRouter } from "next/router";
-import Footer from "./Footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 type LayoutProps = {
   children?: React.ReactNode;
@@ -13,13 +13,11 @@ type LayoutProps = {
 
 const randomIdFetcher = (url: string, { arg }: { arg?: string }) =>
   fetch(arg ? `${url}?genresId=${arg}` : url).then((res) => res.json());
-
 const Layout = ({ children }: LayoutProps) => {
   const router = useRouter();
   const { letterCase } = useLetterCaseState();
   const { genreIdList } = useGenresState();
   const genresParsed = genreIdList.join("|");
-
   const { trigger: getRandomId, isMutating } = useSWRMutation(
     "/api/tmdb",
     randomIdFetcher
