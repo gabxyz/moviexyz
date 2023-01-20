@@ -42,7 +42,7 @@ const Modal = ({
                   damping: 25,
                   stiffness: 250,
                 }}
-                className="absolute inset-0 z-50 cursor-pointer bg-blackA-9 backdrop-blur-[1px]"
+                className="absolute inset-0 z-20 cursor-pointer bg-blackA-9 backdrop-blur-[1px]"
               >
                 <Dialog.Content
                   asChild

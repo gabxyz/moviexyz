@@ -42,28 +42,30 @@ const SelectTheme = () => {
           <ChevronDownIcon />
         </Select.Icon>
       </Select.Trigger>
-      <Select.Content>
-        <Select.Viewport className="rounded-lg border border-slate-7 bg-slate-3 shadow">
-          {themes.map(({ value, icon }) => (
-            <Select.Item
-              key={value}
-              value={value}
-              className="relative flex h-8 select-none items-center gap-1.5 px-2 text-sm font-medium outline-none focus:bg-slate-5 motion-safe:duration-300 motion-safe:ease-expressive-standard"
-            >
-              <Select.ItemText>
-                <div className="flex items-center gap-1.5">
-                  {icon}
-                  {value[0]?.toUpperCase() + value.substring(1)}
-                </div>
-              </Select.ItemText>
+      <Select.Portal>
+        <Select.Content className="z-30">
+          <Select.Viewport className="rounded-lg border border-slate-7 bg-slate-3 shadow">
+            {themes.map(({ value, icon }) => (
+              <Select.Item
+                key={value}
+                value={value}
+                className="relative flex h-8 select-none items-center gap-1.5 px-2 text-sm font-medium outline-none focus:bg-slate-5 motion-safe:duration-300 motion-safe:ease-expressive-standard"
+              >
+                <Select.ItemText>
+                  <div className="flex items-center gap-1.5">
+                    {icon}
+                    {value[0]?.toUpperCase() + value.substring(1)}
+                  </div>
+                </Select.ItemText>
 
-              <Select.ItemIndicator>
-                <CheckIcon />
-              </Select.ItemIndicator>
-            </Select.Item>
-          ))}
-        </Select.Viewport>
-      </Select.Content>
+                <Select.ItemIndicator>
+                  <CheckIcon />
+                </Select.ItemIndicator>
+              </Select.Item>
+            ))}
+          </Select.Viewport>
+        </Select.Content>
+      </Select.Portal>
     </Select.Root>
   );
 };
