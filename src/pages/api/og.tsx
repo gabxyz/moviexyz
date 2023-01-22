@@ -1,5 +1,4 @@
-/* eslint-disable import/no-anonymous-default-export */
-import useMovieData from "@/hooks/useMovieData";
+/* eslint-disable @next/next/no-img-element */
 import { ImageResponse } from "@vercel/og";
 import type { NextRequest } from "next/server";
 
@@ -7,55 +6,80 @@ export const config = {
   runtime: "edge",
 };
 
-export default async function handler(req: NextRequest) {
-  const { searchParams } = new URL(req.url);
+const interMedium = fetch(
+  new URL("../../../public/fonts/Inter-Medium.ttf", import.meta.url)
+).then((res) => res.arrayBuffer());
 
-  console.log(searchParams);
-  return new ImageResponse(
-    (
-      // Modified based on https://tailwindui.com/components/marketing/sections/cta-sections
-      <div
-        style={{
-          height: "100%",
-          width: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: "white",
-        }}
-      >
-        <div tw="bg-gray-50 flex">
-          <div tw="flex flex-col md:flex-row w-full py-12 px-4 md:items-center justify-between p-8">
-            <h2 tw="flex flex-col text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 text-left">
-              <span>Ready to dive in?</span>
-              <span tw="text-indigo-600">Start your free trial today.</span>
-            </h2>
-            <div tw="mt-8 flex md:mt-0">
-              <div tw="flex rounded-md shadow">
-                <a
-                  href="#"
-                  tw="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-5 py-3 text-base font-medium text-white"
-                >
-                  hehe
-                </a>
-              </div>
-              <div tw="ml-3 flex rounded-md shadow">
-                <a
-                  href="#"
-                  tw="flex items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-indigo-600"
-                >
-                  Learn more
-                </a>
-              </div>
+const interBold = fetch(
+  new URL("../../../public/fonts/Inter-Bold.ttf", import.meta.url)
+).then((res) => res.arrayBuffer());
+
+export default async function handler(req: NextRequest) {
+  try {
+    const [interMediumFont, interBoldFont] = await Promise.all([
+      interMedium,
+      interBold,
+    ]);
+
+    const { searchParams } = new URL(req.url);
+    const poster = searchParams.get("moviePoster");
+    const title = searchParams.get("movieTitle");
+    const overview = searchParams.get("movieOverview");
+    const letterCase = searchParams.get("letterCase");
+    return new ImageResponse(
+      (
+        <div
+          tw={`flex w-full h-full justify-between items-center text-lg p-12 ${
+            letterCase === "lowercase" ? "lowercase" : "normal-case"
+          }`}
+          style={{
+            backgroundImage: "linear-gradient(to left, #3a1e48, #1c274f)",
+            color: "#9ba1a6",
+            fontFamily: "Inter",
+          }}
+        >
+          <div tw="flex flex-col max-w-md justify-between h-[534px]">
+            <div tw="flex flex-col">
+              <h2 tw="text-2xl text-[#ecedee]">Movie Explorer</h2>
+              <p tw="-mt-4">Explore and discover random movies</p>
+            </div>
+            <div tw="flex flex-col">
+              <h3 tw="text-xl text-[#ecedee]">{title}</h3>
+              <p tw="-mt-2">{overview}</p>
             </div>
           </div>
+          <div tw="flex items-center">
+            <img
+              src={`https://image.tmdb.org/t/p/w500${poster}`}
+              alt={`Poster image for the movie ${title}`}
+              tw="h-[500px] w-[350px] rounded-xl"
+            ></img>
+          </div>
         </div>
-      </div>
-    ),
-    {
-      width: 1200,
-      height: 630,
-    }
-  );
+      ),
+      {
+        width: 1200,
+        height: 630,
+        fonts: [
+          {
+            name: "Inter",
+            data: interMediumFont,
+            style: "normal",
+            weight: 500,
+          },
+          {
+            name: "Inter",
+            data: interBoldFont,
+            style: "normal",
+            weight: 700,
+          },
+        ],
+      }
+    );
+  } catch (e: any) {
+    console.log(`${e.message}`);
+    return new Response(`Failed to generate the image`, {
+      status: 500,
+    });
+  }
 }

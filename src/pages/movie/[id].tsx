@@ -3,12 +3,14 @@ import { useRouter } from "next/router";
 import { AnimatePresence, motion } from "framer-motion";
 import MovieCard from "@/components/MovieCard";
 import useMovieData from "@/hooks/useMovieData";
+import Head from "next/head";
+import useLetterCaseState from "@/hooks/useLetterCaseState";
 
 const MovieInfo = () => {
   const router = useRouter();
   const { id } = router.query;
   const parsedId = Number(id);
-
+  const { letterCase } = useLetterCaseState();
   const { isLoading, movieTrigger, movieData } = useMovieData();
 
   useEffect(() => {
@@ -19,6 +21,14 @@ const MovieInfo = () => {
 
   return (
     <>
+      {movieData && (
+        <Head>
+          <meta
+            property="og:image"
+            content={`https://moviexyz.vercel.app/api/og?movieTitle=${movieData.title}&movieOverview=${movieData.overview}&moviePoster=${movieData.poster_path}&letterCase=${letterCase}`}
+          />
+        </Head>
+      )}
       <AnimatePresence mode="wait">
         {!isLoading && movieData && (
           <motion.div
