@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import { AnimatePresence, motion } from "framer-motion";
 import MovieCard from "@/components/MovieCard";
 import useMovieData from "@/hooks/useMovieData";
-import Head from "next/head";
 import useLetterCaseState from "@/hooks/useLetterCaseState";
 
 const MovieInfo = () => {
@@ -22,12 +21,10 @@ const MovieInfo = () => {
   return (
     <>
       {movieData && (
-        <Head>
-          <meta
-            property="og:image"
-            content={`https://moviexyz.vercel.app/api/og?movieTitle=${movieData.title}&movieOverview=${movieData.overview}&moviePoster=${movieData.poster_path}&letterCase=${letterCase}`}
-          />
-        </Head>
+        <meta
+          property="og:image"
+          content={`https://moviexyz.vercel.app/api/og?movieTitle=${movieData.title}&movieOverview=${movieData.overview}&moviePoster=${movieData.poster_path}&letterCase=${letterCase}`}
+        />
       )}
       <AnimatePresence mode="wait">
         {!isLoading && movieData && (
