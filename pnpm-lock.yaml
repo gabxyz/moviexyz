@@ -14,6 +14,7 @@ specifiers:
   '@types/react-dom': ^18.0.5
   '@typescript-eslint/eslint-plugin': ^5.33.0
   '@typescript-eslint/parser': ^5.33.0
+  '@vercel/analytics': ^0.1.8
   '@vercel/og': ^0.0.27
   autoprefixer: ^10.4.7
   classnames: ^2.3.2
@@ -43,6 +44,7 @@ dependencies:
   '@radix-ui/react-select': 1.1.2_ib3m5ricvtkl2cll7qpr2f6lvq
   '@radix-ui/react-toggle-group': 1.0.1_biqbaboplfbrettd7655fr4n2y
   '@radix-ui/react-tooltip': 1.0.2_ib3m5ricvtkl2cll7qpr2f6lvq
+  '@vercel/analytics': 0.1.8_react@18.2.0
   '@vercel/og': 0.0.27
   classnames: 2.3.2
   framer-motion: 8.1.3_biqbaboplfbrettd7655fr4n2y
@@ -984,6 +986,14 @@ packages:
       '@typescript-eslint/types': 5.47.1
       eslint-visitor-keys: 3.3.0
     dev: true
+
+  /@vercel/analytics/0.1.8_react@18.2.0:
+    resolution: {integrity: sha512-PQrOI8BJ9qUiVJuQfnKiJd15eDjDJH9TBKsNeMrtelT4NAk7d9mBVz1CoZkvoFnHQ0OW7Xnqmr1F2nScfAnznQ==}
+    peerDependencies:
+      react: ^16.8||^17||^18
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /@vercel/og/0.0.27:
     resolution: {integrity: sha512-cUk6HmfLmBOISAA8gvPRNUx3eVOSyXblxiuv3uN9UTxLwdalQzPlHC/0byvTMR1eVi0y1trD5u6um/4xiTqgOQ==}

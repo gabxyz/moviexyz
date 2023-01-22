@@ -1,6 +1,7 @@
 import { type AppType } from "next/dist/shared/lib/utils";
 import { ThemeProvider } from "next-themes";
 import { Inter } from "@next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import useLetterCaseState from "@/hooks/useLetterCaseState";
 import Layout from "@/components/Layout";
@@ -27,6 +28,7 @@ const App: AppType = ({ Component, pageProps }) => {
         </style>
         <Layout>
           <Component {...pageProps} />
+          <Analytics />
         </Layout>
       </TooltipProvider>
     </ThemeProvider>
