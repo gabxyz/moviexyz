@@ -18,10 +18,11 @@ const Layout = ({ children }: LayoutProps) => {
   const { letterCase } = useLetterCaseState();
   const { genreIdList } = useGenresState();
   const genresParsed = genreIdList.join("|");
-  const { trigger: getRandomId, isMutating } = useSWRMutation(
-    "/api/tmdb",
-    randomIdFetcher
-  );
+  const {
+    trigger: getRandomId,
+    isMutating,
+    data: randomMovieId,
+  } = useSWRMutation("/api/tmdb", randomIdFetcher);
 
   const handleClick = async () => {
     const randomIdRes = await getRandomId(genresParsed);
@@ -36,6 +37,10 @@ const Layout = ({ children }: LayoutProps) => {
         </title>
         <meta name="description" content="explore and discover random movies" />
         <link rel="icon" href="/favicon.ico" />
+        <meta
+          property="og:image"
+          content={`https://movie-explorer-opal.vercel.app/api/og?movieId=${randomMovieId.id}`}
+        />
       </Head>
       <div className="mx-auto flex min-h-screen max-w-3xl flex-col justify-between p-4">
         <Header />
