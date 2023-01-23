@@ -21,28 +21,28 @@ const MovieInfo = () => {
 
   return (
     <>
-      {movieData && (
-        <Seo
-          title="moviexyz - random movies"
-          description="explore and discover random movies"
-          ogContent={`movieTitle=${movieData.title}&movieOverview=${movieData.overview}&moviePoster=${movieData.poster_path}&letterCase=${letterCase}`}
-        />
-      )}
       <AnimatePresence mode="wait">
         {!isLoading && movieData && (
-          <motion.div
-            key={movieData.id}
-            initial={{ opacity: 0, y: -40 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{
-              type: "spring",
-              damping: 25,
-              stiffness: 250,
-            }}
-          >
-            <MovieCard {...movieData} />
-          </motion.div>
+          <>
+            <Seo
+              title="moviexyz - random movies"
+              description="explore and discover random movies"
+              ogContent={`movieTitle=${movieData.title}&movieOverview=${movieData.overview}&moviePoster=${movieData.poster_path}&letterCase=${letterCase}`}
+            />
+            <motion.div
+              key={movieData.id}
+              initial={{ opacity: 0, y: -40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{
+                type: "spring",
+                damping: 25,
+                stiffness: 250,
+              }}
+            >
+              <MovieCard {...movieData} />
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>
