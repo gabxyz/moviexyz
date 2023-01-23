@@ -1,40 +1,36 @@
 import { NextSeo } from "next-seo";
 import type { OpenGraph } from "next-seo/lib/types";
-import { useRouter } from "next/router";
-import { useMemo } from "react";
 
 interface SeoProps {
   title: string;
   description: string;
+  url?: string;
   ogContent: string;
 }
 
-const Seo = ({ title, description, ogContent }: SeoProps) => {
-  const router = useRouter();
-  const openGraph: OpenGraph = useMemo(
-    () => ({
-      type: "website",
-      url: `https://moviexyz.vercel.app${router.asPath}`,
-      title: title,
-      description: description,
-      siteName: "moviexyz - random movies",
-      images: [
-        {
-          url: `https://moviexyz.vercel.app/api/og?${ogContent}`,
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
-    }),
-    [router.asPath, title, description, ogContent]
-  );
+const Seo = ({ title, description, url, ogContent }: SeoProps) => {
+  const openGraph: OpenGraph = {
+    type: "website",
+    url: `https://moviexyz.vercel.app${url ? "/" + url : url}`,
+    title: title,
+    description: description,
+    siteName: "moviexyz - random movies",
+  };
 
+  Object.assign(openGraph, {
+    images: [
+      {
+        url: new URL(`https://moviexyz.vercel.app/api/og?${ogContent}`),
+        width: 1200,
+        height: 630,
+        alt: title,
+      },
+    ],
+  });
   return (
     <NextSeo
       title={title}
       description={description}
-      canonical={`https://moviexyz.vercel.app${router.asPath}`}
       openGraph={openGraph}
       robotsProps={{
         notranslate: true,
