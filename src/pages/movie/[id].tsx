@@ -21,13 +21,11 @@ const MovieInfo = () => {
 
   return (
     <>
-      {movieData && (
-        <Seo
-          title="moviexyz - random movies"
-          description="explore and discover random movies"
-          ogContent={`movieTitle=${movieData.title}&movieOverview=${movieData.overview}&moviePoster=${movieData.poster_path}&letterCase=${letterCase}`}
-        />
-      )}
+      <Seo
+        title="moviexyz - random movies"
+        description="explore and discover random movies"
+        ogContent={`movieTitle=${movieData?.title}&movieOverview=${movieData?.overview}&moviePoster=${movieData?.poster_path}&letterCase=${letterCase}`}
+      />
       <AnimatePresence mode="wait">
         {!isLoading && movieData && (
           <motion.div
