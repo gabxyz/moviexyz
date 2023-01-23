@@ -14,7 +14,7 @@ const Seo = ({ title, description, ogContent }: SeoProps) => {
   const openGraph: OpenGraph = useMemo(
     () => ({
       type: "website",
-      url: `https://www.moviexyz.vercel.app${router.asPath}`,
+      url: `https://moviexyz.vercel.app${router.asPath}`,
       title: title,
       description: description,
       siteName: "moviexyz - random movies",
@@ -25,7 +25,7 @@ const Seo = ({ title, description, ogContent }: SeoProps) => {
   Object.assign(openGraph, {
     images: [
       {
-        url: new URL(`https://www.moviexyz.vercel.app/api/og?${ogContent}`),
+        url: new URL(`https://moviexyz.vercel.app/api/og?${ogContent}`),
         width: 1200,
         height: 630,
         alt: title,
