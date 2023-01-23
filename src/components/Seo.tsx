@@ -18,20 +18,17 @@ const Seo = ({ title, description, ogContent }: SeoProps) => {
       title: title,
       description: description,
       siteName: "moviexyz - random movies",
+      images: [
+        {
+          url: `https://moviexyz.vercel.app/api/og?${ogContent}`,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
     }),
-    [router.asPath, title, description]
+    [router.asPath, title, description, ogContent]
   );
-
-  Object.assign(openGraph, {
-    images: [
-      {
-        url: new URL(`https://moviexyz.vercel.app/api/og?${ogContent}`),
-        width: 1200,
-        height: 630,
-        alt: title,
-      },
-    ],
-  });
 
   return (
     <NextSeo
