@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header className="flex items-start justify-between rounded-xl border border-slate-6 bg-slate-2 p-4 drop-shadow-md">
+    <header className="flex items-start justify-between rounded-xl border border-slate-6 bg-slate-2 p-4 shadow-md">
       <div className="flex flex-col">
         <Link
           href="/"
