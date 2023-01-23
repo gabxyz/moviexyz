@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import MovieCard from "@/components/MovieCard";
 import useMovieData from "@/hooks/useMovieData";
 import useLetterCaseState from "@/hooks/useLetterCaseState";
+import Seo from "@/components/Seo";
 
 const MovieInfo = () => {
   const router = useRouter();
@@ -21,9 +22,10 @@ const MovieInfo = () => {
   return (
     <>
       {movieData && (
-        <meta
-          property="og:image"
-          content={`https://moviexyz.vercel.app/api/og?movieTitle=${movieData.title}&movieOverview=${movieData.overview}&moviePoster=${movieData.poster_path}&letterCase=${letterCase}`}
+        <Seo
+          title="moviexyz - random movies"
+          description="explore and discover random movies"
+          ogContent={`movieTitle=${movieData.title}&movieOverview=${movieData.overview}&moviePoster=${movieData.poster_path}&letterCase=${letterCase}`}
         />
       )}
       <AnimatePresence mode="wait">
