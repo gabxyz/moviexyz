@@ -15,8 +15,9 @@ const Seo = ({ title, description, url, ogContent }: SeoProps) => {
   const openGraph: OpenGraph = {
     type: "website",
     url: `https://moviexyz.vercel.app${url ? "/" + url : url}`,
-    title: title,
-    description: description,
+    title: letterCase === "lowercase" ? title.toLowerCase() : title,
+    description:
+      letterCase === "lowercase" ? description.toLowerCase() : description,
   };
 
   Object.assign(openGraph, {
@@ -25,7 +26,7 @@ const Seo = ({ title, description, url, ogContent }: SeoProps) => {
         url: new URL(`https://moviexyz.vercel.app/api/og?${ogContent}`),
         width: 1200,
         height: 630,
-        alt: title,
+        alt: letterCase === "lowercase" ? title.toLowerCase() : title,
       },
     ],
   });
