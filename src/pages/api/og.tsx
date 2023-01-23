@@ -53,7 +53,7 @@ export default async function handler(req: NextRequest) {
             <img
               src={`https://image.tmdb.org/t/p/w500${poster}`}
               alt={`Poster image for the movie ${title}`}
-              tw="h-[500px] w-[350px] rounded-xl"
+              tw="h-[500px] w-[350px] rounded-lg"
             ></img>
           </div>
         </div>

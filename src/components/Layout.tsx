@@ -13,13 +13,15 @@ type LayoutProps = {
 
 const randomIdFetcher = (url: string, { arg }: { arg?: string }) =>
   fetch(arg ? `${url}?genresId=${arg}` : url).then((res) => res.json());
+
 const Layout = ({ children }: LayoutProps) => {
   const router = useRouter();
   const { letterCase } = useLetterCaseState();
   const { genreIdList } = useGenresState();
   const genresParsed = genreIdList.join("|");
-  const { trigger: getRandomId, isMutating } = useSWRMutation(
-    "/api/tmdb",
+
+  const { trigger: getRandomId, isMutating: isLoading } = useSWRMutation(
+    "/api/randomId",
     randomIdFetcher
   );
 
@@ -42,10 +44,10 @@ const Layout = ({ children }: LayoutProps) => {
         <div className="m-6 self-center">
           <button
             onClick={handleClick}
-            disabled={isMutating}
+            disabled={isLoading}
             className="h-8 rounded-lg border border-slate-6 bg-slate-3 px-3 text-sm font-medium drop-shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard"
           >
-            {isMutating ? (
+            {isLoading ? (
               <UpdateIcon className="animate-spin" />
             ) : (
               <p>Pick random movie</p>

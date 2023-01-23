@@ -8,9 +8,4 @@ html {
 
 body {
   @apply bg-slate-1 text-slate-12 selection:bg-sky-4;
-
-  /* PWA enhancements */
-  -webkit-overflow-scrolling: touch;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
 }

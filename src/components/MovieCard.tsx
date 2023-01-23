@@ -32,13 +32,13 @@ const MovieCard = ({
   return (
     <>
       <div className="mx-auto flex max-w-sm flex-col items-center justify-between gap-4 rounded-xl border border-slate-6 bg-slate-2 p-4 shadow-md md:h-[485px] md:max-w-full md:flex-row md:items-start">
-        <div className="relative aspect-[2/3] self-center overflow-hidden rounded-xl shadow-md">
+        <div className="relative aspect-[2/3] self-center overflow-hidden rounded-lg shadow-md">
           <Image
             src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
             alt={`Poster for the movie ${title}`}
             width={350}
             height={450}
-            className={`motion-safe:duration-150 motion-safe:ease-productive-standard ${
+            className={`rounded-lg shadow-md motion-safe:duration-150 motion-safe:ease-productive-standard ${
               isLoading ? "blur-md grayscale" : "blur-0 grayscale-0"
             }`}
             onLoadingComplete={() => setLoading(false)}
