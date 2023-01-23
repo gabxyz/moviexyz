@@ -34,6 +34,7 @@ const Seo = ({ title, description, ogContent }: SeoProps) => {
     <NextSeo
       title={title}
       description={description}
+      canonical={`https://moviexyz.vercel.app${router.asPath}`}
       openGraph={openGraph}
       robotsProps={{
         notranslate: true,
