@@ -53,11 +53,11 @@ const MovieCard = ({
             </p>
           </div>
           <div className="flex items-center gap-2">
-            <div className="flex items-center gap-2 rounded-full border border-slate-6 bg-slate-3 py-1.5 px-4 text-xs drop-shadow">
+            <div className="flex items-center gap-2 rounded-full border border-slate-6 bg-slate-3 py-1.5 px-4 text-xs shadow">
               <CalendarIcon />
               <p>{release_date?.slice(0, 4)}</p>
             </div>
-            <div className="flex items-center gap-2 rounded-full border border-slate-6 bg-slate-3 py-1.5 px-3 text-xs drop-shadow">
+            <div className="flex items-center gap-2 rounded-full border border-slate-6 bg-slate-3 py-1.5 px-3 text-xs shadow">
               <ClockIcon />
               <p>{runtime} min</p>
             </div>
@@ -67,7 +67,7 @@ const MovieCard = ({
               target="_blank"
               rel="noopener noreferrer"
               href=""
-              className="inline-flex h-8 items-center gap-2 rounded-lg border border-slate-6 bg-slate-3 px-3 text-sm font-medium drop-shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard"
+              className="inline-flex h-8 items-center gap-2 rounded-lg border border-slate-6 bg-slate-3 px-3 text-sm font-medium shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard"
             >
               <TwitterLogoIcon />
               Share
@@ -76,7 +76,7 @@ const MovieCard = ({
               target="_blank"
               rel="noopener noreferrer"
               href={`https://www.youtube.com/watch?v=${movieTrailer}`}
-              className="inline-flex h-8 items-center gap-2 rounded-lg border border-slate-6 bg-slate-3 px-3 text-sm font-medium drop-shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard "
+              className="inline-flex h-8 items-center gap-2 rounded-lg border border-slate-6 bg-slate-3 px-3 text-sm font-medium shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard "
             >
               <VideoIcon />
               Trailer

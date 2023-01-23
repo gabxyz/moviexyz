@@ -20,7 +20,7 @@ const ToggleLetter = () => {
       onValueChange={(letterCase) => {
         if (letterCase) setLetterCase(letterCase);
       }}
-      className="mt-4 flex divide-x divide-slate-6 rounded-lg border border-slate-7 bg-slate-3 text-slate-11 drop-shadow hover:border-slate-8 motion-safe:duration-300 motion-safe:ease-expressive-standard"
+      className="mt-4 flex divide-x divide-slate-6 rounded-lg border border-slate-7 bg-slate-3 text-slate-11 shadow hover:border-slate-8 motion-safe:duration-300 motion-safe:ease-expressive-standard"
     >
       <ToggleGroup.Item
         value="lowercase"
