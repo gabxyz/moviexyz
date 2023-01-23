@@ -1,5 +1,6 @@
 import { type AppType } from "next/dist/shared/lib/utils";
 import { ThemeProvider } from "next-themes";
+import { MotionConfig } from "framer-motion";
 import { Inter } from "@next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
@@ -14,23 +15,25 @@ const App: AppType = ({ Component, pageProps }) => {
 
   return (
     <ThemeProvider attribute="class" disableTransitionOnChange>
-      <TooltipProvider delayDuration={150}>
-        <style jsx global>
-          {`
-            html {
-              font-family: ${interVariable.style.fontFamily};
-              text-transform: ${letterCase};
-            }
-            button {
-              text-transform: ${letterCase};
-            }
-          `}
-        </style>
-        <Layout>
-          <Component {...pageProps} />
-          <Analytics />
-        </Layout>
-      </TooltipProvider>
+      <MotionConfig reducedMotion="user">
+        <TooltipProvider delayDuration={150}>
+          <style jsx global>
+            {`
+              html {
+                font-family: ${interVariable.style.fontFamily};
+                text-transform: ${letterCase};
+              }
+              button {
+                text-transform: ${letterCase};
+              }
+            `}
+          </style>
+          <Layout>
+            <Component {...pageProps} />
+            <Analytics />
+          </Layout>
+        </TooltipProvider>
+      </MotionConfig>
     </ThemeProvider>
   );
 };

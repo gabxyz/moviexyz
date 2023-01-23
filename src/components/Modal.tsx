@@ -24,7 +24,7 @@ const Modal = ({
       <Tooltip content={title}>
         <Dialog.Trigger
           aria-label={title}
-          className="h-9 rounded-lg border border-slate-6 bg-slate-3 px-3 shadow-md hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard"
+          className="h-9 overflow-hidden rounded-lg border border-slate-7 bg-slate-3 px-3 drop-shadow-md hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard"
         >
           {triggerIcon}
         </Dialog.Trigger>

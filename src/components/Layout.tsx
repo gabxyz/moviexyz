@@ -45,7 +45,7 @@ const Layout = ({ children }: LayoutProps) => {
           <button
             onClick={handleClick}
             disabled={isLoading}
-            className="h-8 rounded-lg border border-slate-6 bg-slate-3 px-3 text-sm font-medium shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard"
+            className="h-8 rounded-lg border border-slate-7 bg-slate-3 px-3 text-sm font-medium shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard"
           >
             {isLoading ? (
               <UpdateIcon className="animate-spin" />
@@ -54,7 +54,7 @@ const Layout = ({ children }: LayoutProps) => {
             )}
           </button>
         </div>
-        <main className="flex-1 md:mt-10">{children}</main>
+        <main className="flex-1 md:mt-8">{children}</main>
         <Footer />
       </div>
     </>

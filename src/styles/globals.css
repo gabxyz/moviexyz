@@ -4,6 +4,11 @@
 
 html {
   @apply h-full min-h-screen scroll-smooth font-normal leading-normal antialiased;
+
+  /* PWA enhancements */
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
 }
 
 body {
