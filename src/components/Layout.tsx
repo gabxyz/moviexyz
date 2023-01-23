@@ -1,11 +1,12 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
 import useSWRMutation from "swr/mutation";
 import { UpdateIcon } from "@radix-ui/react-icons";
 import useLetterCaseState from "@/hooks/useLetterCaseState";
 import useGenresState from "@/hooks/useGenresState";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useEffect } from "react";
+import Link from "next/link";
 
 type LayoutProps = {
   children?: React.ReactNode;
@@ -15,20 +16,23 @@ const randomIdFetcher = (url: string, { arg }: { arg?: string }) =>
   fetch(arg ? `${url}?genresId=${arg}` : url).then((res) => res.json());
 
 const Layout = ({ children }: LayoutProps) => {
-  const router = useRouter();
   const { letterCase } = useLetterCaseState();
   const { genreIdList } = useGenresState();
   const genresParsed = genreIdList.join("|");
 
-  const { trigger: getRandomId, isMutating: isLoading } = useSWRMutation(
-    "/api/randomId",
-    randomIdFetcher
-  );
+  const {
+    trigger: getRandomId,
+    isMutating: isLoading,
+    data: randomId,
+  } = useSWRMutation("/api/randomId", randomIdFetcher);
 
-  const handleClick = async () => {
-    const randomIdRes = await getRandomId(genresParsed);
-    router.push(`/movie/${randomIdRes.id}`);
+  const handleClick = () => {
+    getRandomId(genresParsed);
   };
+
+  useEffect(() => {
+    getRandomId(genresParsed);
+  }, []);
 
   return (
     <>
@@ -42,9 +46,9 @@ const Layout = ({ children }: LayoutProps) => {
       <div className="mx-auto flex min-h-screen max-w-3xl flex-col justify-between p-4">
         <Header />
         <div className="self-center p-6">
-          <button
+          <Link
+            href={`/movie/${randomId?.id}`}
             onClick={handleClick}
-            disabled={isLoading}
             className="h-8 rounded-lg border border-slate-7 bg-slate-3 px-3 text-sm font-medium shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard"
           >
             {isLoading ? (
@@ -52,7 +56,7 @@ const Layout = ({ children }: LayoutProps) => {
             ) : (
               <p>Pick random movie</p>
             )}
-          </button>
+          </Link>
         </div>
         <main className="flex-1 md:mt-8">{children}</main>
         <Footer />
