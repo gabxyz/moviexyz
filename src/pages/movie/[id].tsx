@@ -13,8 +13,16 @@ const MoviePage = ({
   return (
     <>
       <Seo
-        title={`Moviexyz | ${movieData.title}`}
-        description="Explore and discover random movies"
+        title={
+          letterCase === "lowercase"
+            ? `moviexyz | ${movieData.title.toLowerCase()}`
+            : `Moviexyz ${movieData.title}`
+        }
+        description={
+          letterCase === "lowercase"
+            ? "explore and discover random movies"
+            : "Explore and discover random movies"
+        }
         ogContent={`movieTitle=${movieData.title}&movieOverview=${movieData.overview}&moviePoster=${movieData.poster_path}&letterCase=${letterCase}`}
       />
       <AnimatePresence mode="wait">
