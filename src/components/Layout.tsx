@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import useSWRMutation from "swr/mutation";
+import { AnimatePresence, m } from "framer-motion";
 import { UpdateIcon } from "@radix-ui/react-icons";
 import useLetterCaseState from "@/hooks/useLetterCaseState";
 import useGenresState from "@/hooks/useGenresState";
@@ -54,7 +55,22 @@ const Layout = ({ children }: LayoutProps) => {
             )}
           </button>
         </div>
-        <main className="flex-1 md:mt-8">{children}</main>
+        <AnimatePresence mode="wait">
+          <m.main
+            key={router.asPath}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{
+              type: "spring",
+              damping: 25,
+              stiffness: 250,
+            }}
+            className="flex-1 md:mt-8"
+          >
+            {children}
+          </m.main>
+        </AnimatePresence>
         <Footer />
       </div>
     </>

@@ -1,5 +1,4 @@
 import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import { AnimatePresence, motion } from "framer-motion";
 import { getMovieDetails } from "@/utils/tmdb";
 import useLetterCaseState from "@/hooks/useLetterCaseState";
 import Seo from "@/components/Seo";
@@ -17,21 +16,7 @@ const MoviePage = ({
         description="explore and discover random movies"
         ogContent={`movieTitle=${movieData.title}&movieOverview=${movieData.overview}&moviePoster=${movieData.poster_path}&letterCase=${letterCase}`}
       />
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={movieData.id}
-          initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0 }}
-          transition={{
-            type: "spring",
-            damping: 25,
-            stiffness: 250,
-          }}
-        >
-          <MovieCard {...movieData} />
-        </motion.div>
-      </AnimatePresence>
+      <MovieCard {...movieData} />
     </>
   );
 };
