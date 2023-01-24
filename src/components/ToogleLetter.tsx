@@ -1,16 +1,12 @@
 import cx from "classnames";
 import * as ToggleGroup from "@radix-ui/react-toggle-group";
 import useLetterCaseState from "@/hooks/useLetterCaseState";
-import {
-  LetterCaseCapitalizeIcon,
-  LetterCaseLowercaseIcon,
-} from "@radix-ui/react-icons";
 
 const ToggleLetter = () => {
   const { letterCase, setLetterCase } = useLetterCaseState();
 
   const toggleClass =
-    "h-7 px-2.5 bg-slate-3 hover:bg-slate-4 rdx-state-on:bg-slate-5 rdx-state-on:text-slate-12 rounded-lg motion-safe:duration-300 motion-safe:ease-expressive-standard";
+    "flex items-center h-7 px-2.5 bg-slate-3 hover:bg-slate-4 rdx-state-on:bg-slate-5 rdx-state-on:text-slate-12 rounded-lg motion-safe:duration-300 motion-safe:ease-expressive-standard";
 
   return (
     <ToggleGroup.Root
@@ -27,14 +23,14 @@ const ToggleLetter = () => {
         aria-label="lowercase text"
         className={cx(toggleClass, "rounded-r-none")}
       >
-        <LetterCaseLowercaseIcon />
+        <span className="text-xs font-semibold">aa</span>
       </ToggleGroup.Item>
       <ToggleGroup.Item
         value="none"
         aria-label="capitalized text"
         className={cx(toggleClass, "rounded-l-none")}
       >
-        <LetterCaseCapitalizeIcon />
+        <span className="text-xs font-semibold capitalize">Aa</span>
       </ToggleGroup.Item>
     </ToggleGroup.Root>
   );

@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import useSWRMutation from "swr/mutation";
 import { AnimatePresence, m } from "framer-motion";
-import { UpdateIcon } from "@radix-ui/react-icons";
+import { Loader2 } from "lucide-react";
 import useLetterCaseState from "@/hooks/useLetterCaseState";
 import useGenresState from "@/hooks/useGenresState";
 import Header from "@/components/Header";
@@ -49,7 +49,7 @@ const Layout = ({ children }: LayoutProps) => {
             className="h-8 rounded-lg border border-slate-7 bg-slate-3 px-3 text-sm font-medium shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard"
           >
             {isLoading ? (
-              <UpdateIcon className="animate-spin" />
+              <Loader2 size={16} className="animate-spin" />
             ) : (
               <p>Pick random movie</p>
             )}

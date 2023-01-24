@@ -1,10 +1,4 @@
-import {
-  ArrowTopRightIcon,
-  Cross1Icon,
-  GitHubLogoIcon,
-  QuestionMarkCircledIcon,
-  TwitterLogoIcon,
-} from "@radix-ui/react-icons";
+import { Info, X, ArrowUpRight, Twitter, Github } from "lucide-react";
 import Modal from "@/components/Modal";
 
 interface Tools {
@@ -88,8 +82,8 @@ const stack: Stack[] = [
 const AboutModal = () => {
   return (
     <Modal
-      triggerIcon={<QuestionMarkCircledIcon />}
-      closeIcon={<Cross1Icon />}
+      triggerIcon={<Info size={16} />}
+      closeIcon={<X size={16} />}
       title="About"
       description="Useful information and resources about this website"
     >
@@ -153,9 +147,9 @@ const AboutModal = () => {
               rel="noopener noreferrer"
               href="https://twitter.com/gabxyzdev"
             >
-              <TwitterLogoIcon />
+              <Twitter size={16} />
               <p>Twitter</p>
-              <ArrowTopRightIcon />
+              <ArrowUpRight size={16} />
             </a>
             <a
               className="w-18 flex h-8 cursor-pointer items-center gap-1 rounded-lg border border-slate-6 bg-slate-3 px-2 drop-shadow hover:border-slate-8 hover:bg-slate-4 hover:text-slate-12 motion-safe:duration-300 motion-safe:ease-expressive-standard"
@@ -163,9 +157,9 @@ const AboutModal = () => {
               rel="noopener noreferrer"
               href="https://github.com/gabxyz"
             >
-              <GitHubLogoIcon />
+              <Github size={16} />
               <p>Github</p>
-              <ArrowTopRightIcon />
+              <ArrowUpRight size={16} />
             </a>
           </div>
         </div>

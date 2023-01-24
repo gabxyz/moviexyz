@@ -16,7 +16,9 @@ const MoviePage = ({
         description="explore and discover random movies"
         ogContent={`movieTitle=${movieData.title}&movieOverview=${movieData.overview}&moviePoster=${movieData.poster_path}&letterCase=${letterCase}`}
       />
-      <MovieCard {...movieData} />
+      <div className="mx-auto max-w-sm md:max-w-full">
+        <MovieCard {...movieData} />
+      </div>
     </>
   );
 };

@@ -1,12 +1,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import type { MovieResponse } from "moviedb-promise";
-import {
-  CalendarIcon,
-  ClockIcon,
-  TwitterLogoIcon,
-  VideoIcon,
-} from "@radix-ui/react-icons";
+
+import { Calendar, Clock, Twitter, Clapperboard } from "lucide-react";
 
 interface MovieCardProps extends MovieResponse {
   movieTrailer: string;
@@ -31,55 +27,58 @@ const MovieCard = ({
 
   return (
     <>
-      <div className="mx-auto flex max-w-sm flex-col items-center justify-between gap-4 rounded-xl border border-slate-6 bg-slate-2 p-4 shadow-md md:h-[485px] md:max-w-full md:flex-row md:items-start">
-        <div className="relative aspect-[2/3] self-center overflow-hidden rounded-lg shadow-md">
+      <div className="flex flex-col items-center justify-between gap-4 rounded-xl border border-slate-6 bg-slate-2 p-2 shadow-md md:h-[495px] md:flex-row md:items-start">
+        <div className="relative aspect-[2/3] overflow-hidden rounded-lg shadow-md">
           <Image
             src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
             alt={`Poster for the movie ${title}`}
-            width={350}
-            height={450}
+            width={400}
+            height={550}
             className={`rounded-lg shadow-md motion-safe:duration-150 motion-safe:ease-productive-standard ${
               isLoading ? "blur-md grayscale" : "blur-0 grayscale-0"
             }`}
             onLoadingComplete={() => setLoading(false)}
           />
         </div>
-        <div className="flex h-full max-w-sm flex-col gap-4">
-          <div className="flex flex-col leading-none">
-            <h1 className="font-semibold">{title}</h1>
-            <p className="text-sm font-medium text-slate-11">{genresArr}</p>
-            <p className="mt-2 max-h-72 overflow-auto text-sm text-slate-11">
+        <div className="flex max-w-sm flex-col gap-4 ">
+          <div className="flex flex-col">
+            <div className="flex items-center justify-between">
+              <div>
+                <h1 className="text-lg font-semibold">{title}</h1>
+                <p className="text-sm font-medium text-slate-11">{genresArr}</p>
+              </div>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href=""
+                className="mb-3 inline-flex h-9 items-center gap-1 self-end rounded-lg border border-slate-7 bg-slate-3 px-3 text-sm font-medium text-slate-11 shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard"
+              >
+                <Twitter size={16} />
+              </a>
+            </div>
+            <p className="mt-4 overflow-auto font-medium text-slate-11">
               {overview}
             </p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="mt-2 flex items-center gap-2">
             <div className="flex items-center gap-2 rounded-full border border-slate-6 bg-slate-3 py-1.5 px-4 text-xs shadow">
-              <CalendarIcon />
+              <Calendar size={16} />
               <p>{release_date?.slice(0, 4)}</p>
             </div>
             <div className="flex items-center gap-2 rounded-full border border-slate-6 bg-slate-3 py-1.5 px-3 text-xs shadow">
-              <ClockIcon />
+              <Clock size={16} />
               <p>{runtime} min</p>
             </div>
           </div>
-          <div className="mt-4 flex h-full items-end gap-2 self-end">
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href=""
-              className="inline-flex h-8 items-center gap-2 rounded-lg border border-slate-7 bg-slate-3 px-3 text-sm font-medium shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard"
-            >
-              <TwitterLogoIcon />
-              Share
-            </a>
+          <div className="mt-4 flex h-full items-end justify-center gap-2">
             <a
               target="_blank"
               rel="noopener noreferrer"
               href={`https://www.youtube.com/watch?v=${movieTrailer}`}
               className="inline-flex h-8 items-center gap-2 rounded-lg border border-slate-7 bg-slate-3 px-3 text-sm font-medium shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard "
             >
-              <VideoIcon />
-              Trailer
+              <Clapperboard size={16} />
+              Movie trailer
             </a>
           </div>
         </div>

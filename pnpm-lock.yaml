@@ -5,7 +5,6 @@ specifiers:
   '@next/font': ^13.1.1
   '@radix-ui/colors': ^0.1.8
   '@radix-ui/react-dialog': ^1.0.2
-  '@radix-ui/react-icons': ^1.1.1
   '@radix-ui/react-select': ^1.1.2
   '@radix-ui/react-toggle-group': ^1.0.1
   '@radix-ui/react-tooltip': ^1.0.2
@@ -22,6 +21,7 @@ specifiers:
   eslint: ^8.26.0
   eslint-config-next: 13.1.1
   framer-motion: ^8.1.3
+  lucide-react: ^0.105.0
   moviedb-promise: ^3.3.1
   next: 13.1.1
   next-seo: ^5.15.0
@@ -44,7 +44,6 @@ dependencies:
   '@next/bundle-analyzer': 13.1.5
   '@next/font': 13.1.1
   '@radix-ui/react-dialog': 1.0.2_ib3m5ricvtkl2cll7qpr2f6lvq
-  '@radix-ui/react-icons': 1.1.1_react@18.2.0
   '@radix-ui/react-select': 1.1.2_ib3m5ricvtkl2cll7qpr2f6lvq
   '@radix-ui/react-toggle-group': 1.0.1_biqbaboplfbrettd7655fr4n2y
   '@radix-ui/react-tooltip': 1.0.2_ib3m5ricvtkl2cll7qpr2f6lvq
@@ -52,6 +51,7 @@ dependencies:
   '@vercel/og': 0.0.27
   classnames: 2.3.2
   framer-motion: 8.1.3_biqbaboplfbrettd7655fr4n2y
+  lucide-react: 0.105.0_react@18.2.0
   moviedb-promise: 3.3.1
   next: 13.1.1_biqbaboplfbrettd7655fr4n2y
   next-seo: 5.15.0_q76c2b4vyoegvsbrcwkfvimnai
@@ -530,14 +530,6 @@ packages:
       '@radix-ui/react-use-callback-ref': 1.0.0_react@18.2.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-    dev: false
-
-  /@radix-ui/react-icons/1.1.1_react@18.2.0:
-    resolution: {integrity: sha512-xc3wQC59rsFylVbSusQCrrM+6695ppF730Q6yqzhRdqDcRNWIm2R6ngpzBoSOQMcwnq4p805F+Gr7xo4fmtN1A==}
-    peerDependencies:
-      react: ^16.x || ^17.x || ^18.x
-    dependencies:
-      react: 18.2.0
     dev: false
 
   /@radix-ui/react-id/1.0.0_react@18.2.0:
@@ -2448,6 +2440,14 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       yallist: 4.0.0
+
+  /lucide-react/0.105.0_react@18.2.0:
+    resolution: {integrity: sha512-iHaIkd4Wq6aNIVrFMXt3If8E/+2lnJd4WlCyntoJNIzZ8nWhdSSHWpsw7XM4rlw2319LZ2t4WLdnM8Z0ECDTOQ==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /merge2/1.4.1:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
