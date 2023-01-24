@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^13.1.5",
     "@next/font": "^13.1.1",
     "@radix-ui/react-dialog": "^1.0.2",
     "@radix-ui/react-icons": "^1.1.1",

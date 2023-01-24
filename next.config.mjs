@@ -5,8 +5,14 @@
  */
 !process.env.SKIP_ENV_VALIDATION && (await import("./src/env/server.mjs"));
 
+import bundleAnalizer from "@next/bundle-analyzer";
+
+const withBundleAnalyzer = bundleAnalizer({
+  enabled: process.env.ANALYZE === "true",
+});
+
 /** @type {import("next").NextConfig} */
-const config = {
+const config = withBundleAnalyzer({
   reactStrictMode: true,
   swcMinify: true,
   i18n: {
@@ -28,5 +34,5 @@ const config = {
       { loader: "@next/font/google", options: { subsets: ["latin"] } },
     ],
   },
-};
+});
 export default config;
