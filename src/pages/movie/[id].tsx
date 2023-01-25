@@ -1,42 +1,33 @@
-import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import { getMovieDetails } from "@/utils/tmdb";
-import useLetterCaseState from "@/hooks/useLetterCaseState";
-import Seo from "@/components/Seo";
 import MovieCard from "@/components/MovieCard";
+import useSWRMutation from "swr/mutation";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
-const MoviePage = ({
-  movieData,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const { letterCase } = useLetterCaseState();
+const movieDataFetcher = (url: string, { arg }: { arg: number }) =>
+  fetch(`${url}/${arg}`).then((res) => res.json());
 
-  if (!movieData) {
-    return <p>Loading...</p>;
-  }
+const MoviePage = () => {
+  const router = useRouter();
+  const { id } = router.query;
+  const parsedId = Number(id);
+
+  const {
+    data: movieData,
+    trigger: movieTrigger,
+    isMutating: isLoading,
+  } = useSWRMutation("/api/tmdb", movieDataFetcher);
+
+  useEffect(() => {
+    movieTrigger(parsedId);
+  }, []);
 
   return (
     <>
-      <Seo
-        title={`moviexyz | ${movieData.title.toLowerCase()}`}
-        description="explore and discover random movies"
-        ogContent={`movieTitle=${movieData.title}&movieOverview=${movieData.overview}&moviePoster=${movieData.poster_path}&letterCase=${letterCase}`}
-      />
       <div className="mx-auto max-w-sm md:max-w-full">
-        <MovieCard {...movieData} />
+        {movieData && <MovieCard {...movieData} />}
       </div>
     </>
   );
-};
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { id } = context.query;
-  const parsedId = Number(id);
-  const movieData = await getMovieDetails(parsedId);
-
-  return {
-    props: {
-      movieData,
-    },
-  };
 };
 
 export default MoviePage;

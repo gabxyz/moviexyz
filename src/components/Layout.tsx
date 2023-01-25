@@ -22,7 +22,7 @@ const Layout = ({ children }: LayoutProps) => {
   const genresParsed = genreIdList.join("|");
 
   const { trigger: getRandomId, isMutating: isLoading } = useSWRMutation(
-    "/api/randomId",
+    "/api/tmdb/randomId",
     randomIdFetcher
   );
 
