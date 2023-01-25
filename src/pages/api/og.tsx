@@ -26,13 +26,12 @@ export default async function handler(req: NextRequest) {
     const poster = searchParams.get("moviePoster");
     const title = searchParams.get("movieTitle");
     const overview = searchParams.get("movieOverview");
-    const letterCase = searchParams.get("letterCase");
     return new ImageResponse(
       (
         <div
-          tw={`flex w-full h-full justify-between items-center text-lg p-12 ${
-            letterCase === "lowercase" ? "lowercase" : "normal-case"
-          }`}
+          tw={
+            "flex w-full h-full justify-between items-center text-lg p-12 lowercase"
+          }
           style={{
             backgroundImage: "linear-gradient(to left, #3a1e48, #1c274f)",
             color: "#9ba1a6",
@@ -41,8 +40,8 @@ export default async function handler(req: NextRequest) {
         >
           <div tw="flex flex-col max-w-md justify-between h-[534px]">
             <div tw="flex flex-col">
-              <h2 tw="text-2xl text-[#ecedee]">Movie Explorer</h2>
-              <p tw="-mt-4">Explore and discover random movies</p>
+              <h2 tw="text-2xl text-[#ecedee]">moviexyz</h2>
+              <p tw="-mt-4">explore and discover random movies</p>
             </div>
             <div tw="flex flex-col">
               <h3 tw="text-xl text-[#ecedee]">{title}</h3>
@@ -52,7 +51,7 @@ export default async function handler(req: NextRequest) {
           <div tw="flex items-center">
             <img
               src={`https://image.tmdb.org/t/p/w500${poster}`}
-              alt={`Poster image for the movie ${title}`}
+              alt={`poster image for the movie ${title}`}
               tw="h-[500px] w-[350px] rounded-lg"
             ></img>
           </div>

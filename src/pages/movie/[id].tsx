@@ -5,23 +5,13 @@ import MovieCard from "@/components/MovieCard";
 
 const MoviePage = ({
   movieData,
-  letterCase,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const parsedCase = String(letterCase);
   return (
     <>
       <Seo
-        title={
-          parsedCase === "lowercase"
-            ? `moviexyz | ${movieData.title.toLowerCase()}`
-            : `Moviexyz | ${movieData.title}`
-        }
+        title={`moviexyz | ${movieData.title.toLowerCase()}`}
         description="explore and discover random movies"
-        ogContent={`movieTitle=${movieData.title}&movieOverview=${
-          movieData.overview
-        }&moviePoster=${
-          movieData.poster_path
-        }&letterCase=${letterCase.toString()}`}
+        ogContent={`movieTitle=${movieData.title}&movieOverview=${movieData.overview}&moviePoster=${movieData.poster_path}`}
       />
       <div className="mx-auto max-w-sm md:max-w-full">
         <MovieCard {...movieData} />
@@ -31,14 +21,13 @@ const MoviePage = ({
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { id, letterCase } = context.query;
+  const { id } = context.query;
   const parsedId = Number(id);
   const movieData = await getMovieDetails(parsedId);
 
   return {
     props: {
       movieData,
-      letterCase,
     },
   };
 };

@@ -28,21 +28,13 @@ const Layout = ({ children }: LayoutProps) => {
 
   const handleClick = async () => {
     const randomIdRes = await getRandomId(genresParsed);
-    router.push(
-      {
-        pathname: `/movie/${randomIdRes.id}`,
-        query: { letterCase: letterCase },
-      },
-      `/movie/${randomIdRes.id}`
-    );
+    router.push(`/movie/${randomIdRes.id}`);
   };
 
   return (
     <>
       <Head>
-        <title>
-          {letterCase === "lowercase" ? "movie explorer" : "Movie Explorer"}
-        </title>
+        <title>{letterCase === "lowercase" ? "moviexyz" : "Moviexyz"}</title>
         <meta name="description" content="explore and discover random movies" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
