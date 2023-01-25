@@ -7,12 +7,21 @@ const MoviePage = ({
   movieData,
   letterCase,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  const parsedCase = String(letterCase);
   return (
     <>
       <Seo
-        title={`moviexyz | ${movieData.title.toLowerCase()}`}
+        title={
+          parsedCase === "lowercase"
+            ? `moviexyz | ${movieData.title.toLowerCase()}`
+            : `Moviexyz | ${movieData.title}`
+        }
         description="explore and discover random movies"
-        ogContent={`movieTitle=${movieData.title}&movieOverview=${movieData.overview}&moviePoster=${movieData.poster_path}&letterCase=${letterCase}`}
+        ogContent={`movieTitle=${movieData.title}&movieOverview=${
+          movieData.overview
+        }&moviePoster=${
+          movieData.poster_path
+        }&letterCase=${letterCase.toString()}`}
       />
       <div className="mx-auto max-w-sm md:max-w-full">
         <MovieCard {...movieData} />
