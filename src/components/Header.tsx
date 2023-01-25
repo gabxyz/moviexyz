@@ -12,7 +12,7 @@ const Header = () => {
         >
           Movie Explorer
         </Link>
-        <p className="text-sm text-slate-11">
+        <p className="text-sm font-medium text-slate-11">
           Explore and discover random movies
         </p>
       </div>

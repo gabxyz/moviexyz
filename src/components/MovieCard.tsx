@@ -40,37 +40,27 @@ const MovieCard = ({
             onLoadingComplete={() => setLoading(false)}
           />
         </div>
-        <div className="flex max-w-sm flex-col gap-4 ">
+        <div className="flex h-full max-w-sm flex-col gap-4">
           <div className="flex flex-col">
             <div className="flex items-center justify-between">
               <div>
-                <h1 className="text-lg font-semibold">{title}</h1>
-                <p className="text-sm font-medium text-slate-11">{genresArr}</p>
+                <h1 className="text-xl font-bold">{title}</h1>
+                <p className="font-medium text-slate-11">{genresArr}</p>
               </div>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href=""
-                className="mb-3 inline-flex h-9 items-center gap-1 self-end rounded-lg border border-slate-7 bg-slate-3 px-3 text-sm font-medium text-slate-11 shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard"
-              >
-                <Twitter size={16} />
-              </a>
             </div>
-            <p className="mt-4 overflow-auto font-medium text-slate-11">
-              {overview}
-            </p>
+            <p className="mt-2 overflow-auto text-slate-11">{overview}</p>
           </div>
-          <div className="mt-2 flex items-center gap-2">
-            <div className="flex items-center gap-2 rounded-full border border-slate-6 bg-slate-3 py-1.5 px-4 text-xs shadow">
+          <div className="flex items-center gap-2 text-slate-11">
+            <div className="flex items-center gap-2 rounded-full border border-slate-6 bg-slate-3 py-1.5 px-4 text-xs font-medium shadow">
               <Calendar size={16} />
               <p>{release_date?.slice(0, 4)}</p>
             </div>
-            <div className="flex items-center gap-2 rounded-full border border-slate-6 bg-slate-3 py-1.5 px-3 text-xs shadow">
+            <div className="flex items-center gap-2 rounded-full border border-slate-6 bg-slate-3 py-1.5 px-3 text-xs font-medium shadow">
               <Clock size={16} />
               <p>{runtime} min</p>
             </div>
           </div>
-          <div className="mt-4 flex h-full items-end justify-center gap-2">
+          <div className="mt-4 mt-auto flex items-end justify-end gap-2">
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -79,6 +69,14 @@ const MovieCard = ({
             >
               <Clapperboard size={16} />
               Movie trailer
+            </a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href=""
+              className="inline-flex h-8 items-center gap-1 self-end rounded-lg border border-slate-7 bg-slate-3 px-2.5 text-sm font-medium shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard"
+            >
+              <Twitter size={16} />
             </a>
           </div>
         </div>
