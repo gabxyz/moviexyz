@@ -30,30 +30,42 @@ export default async function handler(req: NextRequest) {
       (
         <div
           tw={
-            "flex w-full h-full justify-between items-center text-lg p-12 lowercase"
+            "flex w-full h-full justify-between items-center text-lg p-10 lowercase"
           }
           style={{
-            backgroundImage: "linear-gradient(to left, #3a1e48, #1c274f)",
+            backgroundImage: "linear-gradient(120deg, #3a1e48, #1c274f)",
             color: "#9ba1a6",
             fontFamily: "Inter",
           }}
         >
-          <div tw="flex flex-col max-w-md justify-between h-[534px]">
-            <div tw="flex flex-col">
-              <h2 tw="text-2xl text-[#ecedee]">moviexyz</h2>
-              <p tw="-mt-4">explore and discover random movies</p>
+          <div tw="w-full h-full flex justify-between items-center rounded-xl shadow-lg px-10 bg-[#202425] border border-[#3a3f42]">
+            <div tw="flex flex-col max-w-md justify-between h-[534px]">
+              <div tw="flex flex-col">
+                <h2
+                  tw="text-4xl mt-6"
+                  style={{
+                    backgroundImage: "linear-gradient(90deg, #bf7af0, #849dff)",
+                    backgroundClip: "text",
+                    WebkitBackgroundClip: "text",
+                    color: "transparent",
+                  }}
+                >
+                  moviexyz
+                </h2>
+                <p tw="-mt-4">explore and discover random movies</p>
+              </div>
+              <div tw="flex flex-col mb-6">
+                <h3 tw="text-xl text-[#ecedee]">{title}</h3>
+                <p tw="-mt-2">{overview}</p>
+              </div>
             </div>
-            <div tw="flex flex-col">
-              <h3 tw="text-xl text-[#ecedee]">{title}</h3>
-              <p tw="-mt-2">{overview}</p>
+            <div tw="flex items-center">
+              <img
+                src={`https://image.tmdb.org/t/p/w500${poster}`}
+                alt={`poster image for the movie ${title}`}
+                tw="h-[500px] w-[350px] rounded-lg"
+              ></img>
             </div>
-          </div>
-          <div tw="flex items-center">
-            <img
-              src={`https://image.tmdb.org/t/p/w500${poster}`}
-              alt={`poster image for the movie ${title}`}
-              tw="h-[500px] w-[350px] rounded-lg"
-            ></img>
           </div>
         </div>
       ),
