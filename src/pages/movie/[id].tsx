@@ -1,18 +1,12 @@
 import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { getMovieDetails } from "@/utils/tmdb";
-import useLetterCaseState from "@/hooks/useLetterCaseState";
 import Seo from "@/components/Seo";
 import MovieCard from "@/components/MovieCard";
 
 const MoviePage = ({
   movieData,
+  letterCase,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const { letterCase } = useLetterCaseState();
-
-  if (!movieData) {
-    return <p>Loading...</p>;
-  }
-
   return (
     <>
       <Seo
@@ -28,13 +22,14 @@ const MoviePage = ({
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { id } = context.query;
+  const { id, letterCase } = context.query;
   const parsedId = Number(id);
   const movieData = await getMovieDetails(parsedId);
 
   return {
     props: {
       movieData,
+      letterCase,
     },
   };
 };

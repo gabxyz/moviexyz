@@ -28,7 +28,13 @@ const Layout = ({ children }: LayoutProps) => {
 
   const handleClick = async () => {
     const randomIdRes = await getRandomId(genresParsed);
-    router.push(`/movie/${randomIdRes.id}`);
+    router.push(
+      {
+        pathname: `/movie/${randomIdRes.id}`,
+        query: { letterCase: letterCase },
+      },
+      `/movie/${randomIdRes.id}`
+    );
   };
 
   return (
