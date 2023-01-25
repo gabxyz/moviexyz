@@ -60,7 +60,7 @@ const MovieCard = ({
               <p>{runtime} min</p>
             </div>
           </div>
-          <div className="mt-4 mt-auto flex items-end justify-end gap-2">
+          <div className="mt-auto flex items-end justify-end gap-2">
             <a
               target="_blank"
               rel="noopener noreferrer"

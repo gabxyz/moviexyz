@@ -9,6 +9,10 @@ const MoviePage = ({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const { letterCase } = useLetterCaseState();
 
+  if (!movieData) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <>
       <Seo
