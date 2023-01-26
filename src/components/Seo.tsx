@@ -13,21 +13,18 @@ const Seo = ({ title, ogContent, ...rest }: SeoProps) => {
   const router = useRouter();
   const { letterCase } = useLetterCaseState();
 
-  const openGraph: OpenGraph = React.useMemo(
-    () => ({
-      url: `https://moviexyz.vercel.app${router.asPath}`,
-      title: `moviexyz | ${title}`,
-      images: [
-        {
-          url: `https://moviexyz.vercel.app/api/og?${ogContent}`,
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
-    }),
-    [router.asPath, title, ogContent]
-  );
+  const openGraph: OpenGraph = {
+    url: `https://moviexyz.vercel.app${router.asPath}`,
+    title: `moviexyz | ${title}`,
+    images: [
+      {
+        url: `https://moviexyz.vercel.app/api/og?${ogContent}`,
+        width: 1200,
+        height: 630,
+        alt: title,
+      },
+    ],
+  };
 
   return (
     <NextSeo

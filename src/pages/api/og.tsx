@@ -22,12 +22,12 @@ export default async function handler(req: NextRequest) {
       interBold,
     ]);
 
-    const { searchParams } = req.nextUrl;
+    const { searchParams } = new URL(req.url);
     const poster = searchParams.get("moviePoster");
     const title = searchParams.get("movieTitle");
     const overview = searchParams.get("movieOverview");
 
-    if (poster && title && overview) {
+    if (poster || title || overview) {
       return new ImageResponse(
         (
           <div
