@@ -2,11 +2,9 @@ import { useRouter } from "next/router";
 import useSWRMutation from "swr/mutation";
 import { AnimatePresence, m } from "framer-motion";
 import { Loader2 } from "lucide-react";
-import useLetterCaseState from "@/hooks/useLetterCaseState";
 import useGenresState from "@/hooks/useGenresState";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Seo from "./Seo";
 
 type LayoutProps = {
   children?: React.ReactNode;
@@ -17,7 +15,6 @@ const randomIdFetcher = (url: string, { arg }: { arg?: string }) =>
 
 const Layout = ({ children }: LayoutProps) => {
   const router = useRouter();
-  const { letterCase } = useLetterCaseState();
   const { genreIdList } = useGenresState();
   const genresParsed = genreIdList.join("|");
 
@@ -33,15 +30,6 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <>
-      <Seo
-        title={letterCase === "lowercase" ? "moviexyz" : "Moviexyz"}
-        description={
-          letterCase === "lowercase"
-            ? "explore and discover random movies"
-            : "Explore and discover random movies"
-        }
-        ogContent="default"
-      />
       <div className="mx-auto flex min-h-screen max-w-3xl flex-col justify-between p-4">
         <Header />
         <div className="self-center p-6">
