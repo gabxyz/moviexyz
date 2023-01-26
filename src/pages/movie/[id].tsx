@@ -10,7 +10,7 @@ const MoviePage = ({
     <>
       <Seo
         title={movieData.title}
-        ogContent={`movieTitle=${movieData.title}&movieOverview=${movieData.overview}&moviePoster=${movieData.poster_path}`}
+        ogContent={`moviePoster=${movieData.poster_path}&movieTitle=${movieData.title}&movieOverview=${movieData.overview}`}
       />
       <div className="mx-auto max-w-sm md:max-w-full">
         <MovieCard {...movieData} />

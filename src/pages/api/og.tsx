@@ -27,7 +27,7 @@ export default async function handler(req: NextRequest) {
     const title = searchParams.get("movieTitle");
     const overview = searchParams.get("movieOverview");
 
-    if (poster || title || overview) {
+    if (poster && title && overview) {
       return new ImageResponse(
         (
           <div

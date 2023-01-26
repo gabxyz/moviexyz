@@ -31,8 +31,8 @@ const App: AppType = ({ Component, pageProps }) => {
                 }
               `}
             </style>
-            <DefaultSeo {...SEO} />
             <Layout>
+              <DefaultSeo {...SEO} />
               <Component {...pageProps} />
               <Analytics />
             </Layout>
