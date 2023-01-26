@@ -7,17 +7,11 @@ import { TooltipProvider } from "@radix-ui/react-tooltip";
 import useLetterCaseState from "@/hooks/useLetterCaseState";
 import Layout from "@/components/Layout";
 import "@/styles/globals.css";
-import { DefaultSeo } from "next-seo";
 
 const interVariable = Inter();
 
 const App: AppType = ({ Component, pageProps }) => {
   const { letterCase } = useLetterCaseState();
-  const pageTitle = letterCase === "lowercase" ? "moviexyz" : "Moviexyz";
-  const pageDescription =
-    letterCase === "lowercase"
-      ? "explore and discover random movies"
-      : "Explore and discover random movies";
 
   return (
     <ThemeProvider attribute="class" disableTransitionOnChange>
@@ -36,28 +30,6 @@ const App: AppType = ({ Component, pageProps }) => {
               `}
             </style>
             <Layout>
-              <DefaultSeo
-                title={pageTitle}
-                description={pageDescription}
-                openGraph={{
-                  title: pageTitle,
-                  description: pageDescription,
-                  type: "website",
-                  url: "https://moviexyz.vercel.app/",
-                  siteName: "moviexyz",
-                  images: [
-                    {
-                      url: "https://moviexyz.vercel.app/api/og",
-                      width: 1200,
-                      height: 630,
-                    },
-                  ],
-                }}
-                twitter={{
-                  handle: "@gabxyzdev",
-                  cardType: "summary_large_image",
-                }}
-              />
               <Component {...pageProps} />
               <Analytics />
             </Layout>
