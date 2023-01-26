@@ -9,8 +9,9 @@ const MoviePage = ({
   return (
     <>
       <Seo
-        title={movieData.title}
-        ogContent={`moviePoster=${movieData.poster_path}&movieTitle=${movieData.title}&movieOverview=${movieData.overview}`}
+        title={`moviexyz | ${movieData.title}`}
+        description="explore and discover random movies"
+        ogContent={`/movie-card?moviePoster=${movieData.poster_path}&movieTitle=${movieData.title}&movieOverview=${movieData.overview}`}
       />
       <div className="mx-auto max-w-sm md:max-w-full">
         <MovieCard {...movieData} />
