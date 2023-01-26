@@ -19,7 +19,7 @@ const Seo = ({ title, description, ogContent, url }: SeoProps) => {
   Object.assign(og, {
     images: [
       {
-        url: `https://moviexyz.vercel.app/api/og${ogContent}`,
+        url: new URL(`https://moviexyz.vercel.app/api/og${ogContent}`),
         width: 1200,
         height: 630,
         alt: title,
