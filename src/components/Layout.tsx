@@ -5,6 +5,8 @@ import { Loader2 } from "lucide-react";
 import useGenresState from "@/hooks/useGenresState";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Head from "next/head";
+import useLetterCaseState from "@/hooks/useLetterCaseState";
 
 type LayoutProps = {
   children?: React.ReactNode;
@@ -15,6 +17,7 @@ const randomIdFetcher = (url: string, { arg }: { arg?: string }) =>
 
 const Layout = ({ children }: LayoutProps) => {
   const router = useRouter();
+  const { letterCase } = useLetterCaseState();
   const { genreIdList } = useGenresState();
   const genresParsed = genreIdList.join("|");
 
@@ -30,6 +33,15 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <>
+      <Head>
+        <title>{letterCase === "lowercase" ? "moviexyz" : "Moviexyz"}</title>
+        <meta name="description" content="explore and discover random movies" />
+        <meta
+          property="og:image"
+          content="https://moviexyz.vercel.app/api/og"
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div className="mx-auto flex min-h-screen max-w-3xl flex-col justify-between p-4">
         <Header />
         <div className="self-center p-6">

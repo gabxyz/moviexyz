@@ -24,6 +24,7 @@ const config = withBundleAnalyzer({
         pathname: "/t/p/w500/**",
       },
     ],
+    unoptimized: true,
   },
   experimental: {
     fontLoaders: [
