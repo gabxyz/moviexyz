@@ -40,6 +40,7 @@ const Layout = ({ children }: LayoutProps) => {
             ? "explore and discover random movies"
             : "Explore and discover random movies"
         }
+        ogContent="default"
       />
       <div className="mx-auto flex min-h-screen max-w-3xl flex-col justify-between p-4">
         <Header />

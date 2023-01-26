@@ -17,9 +17,7 @@ const Seo = ({ title, description, url, ogContent }: SeoProps) => {
     siteName: "moviexyz",
     images: [
       {
-        url: `https://moviexyz.vercel.app/api/og${
-          ogContent ? `?${ogContent}` : ""
-        }`,
+        url: `https://moviexyz.vercel.app/api/og?${ogContent}`,
         width: 1200,
         height: 630,
         alt: title,
