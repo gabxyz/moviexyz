@@ -17,6 +17,7 @@ const App: AppType = ({ Component, pageProps }) => {
 
   return (
     <ThemeProvider attribute="class" disableTransitionOnChange>
+      <DefaultSeo {...SEO} />
       <LazyMotion features={domAnimation}>
         <MotionConfig reducedMotion="user">
           <TooltipProvider delayDuration={150}>
@@ -32,7 +33,6 @@ const App: AppType = ({ Component, pageProps }) => {
               `}
             </style>
             <Layout>
-              <DefaultSeo {...SEO} />
               <Component {...pageProps} />
               <Analytics />
             </Layout>
