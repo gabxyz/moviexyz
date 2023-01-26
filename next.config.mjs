@@ -15,10 +15,6 @@ const withBundleAnalyzer = bundleAnalizer({
 const config = withBundleAnalyzer({
   reactStrictMode: true,
   swcMinify: true,
-  i18n: {
-    locales: ["en"],
-    defaultLocale: "en",
-  },
   images: {
     remotePatterns: [
       {
