@@ -1,5 +1,5 @@
-const title = "Moviexyz";
-const description = "Explore and discover random movies";
+const title = "moviexyz";
+const description = "explore and discover random movies";
 
 const SEO = {
   title,

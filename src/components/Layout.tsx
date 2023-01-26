@@ -5,8 +5,6 @@ import { Loader2 } from "lucide-react";
 import useGenresState from "@/hooks/useGenresState";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { DefaultSeo } from "next-seo";
-import SEO from "../../next-seo.config.mjs";
 
 type LayoutProps = {
   children?: React.ReactNode;
@@ -32,7 +30,6 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <>
-      <DefaultSeo {...SEO} />
       <div className="mx-auto flex min-h-screen max-w-3xl flex-col justify-between p-4">
         <Header />
         <div className="self-center p-6">

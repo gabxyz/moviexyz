@@ -7,6 +7,8 @@ import { TooltipProvider } from "@radix-ui/react-tooltip";
 import useLetterCaseState from "@/hooks/useLetterCaseState";
 import Layout from "@/components/Layout";
 import "@/styles/globals.css";
+import SEO from "../../next-seo.config.mjs";
+import { DefaultSeo } from "next-seo";
 
 const interVariable = Inter();
 
@@ -30,6 +32,7 @@ const App: AppType = ({ Component, pageProps }) => {
               `}
             </style>
             <Layout>
+              <DefaultSeo {...SEO} />
               <Component {...pageProps} />
               <Analytics />
             </Layout>
