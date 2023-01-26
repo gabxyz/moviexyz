@@ -45,8 +45,8 @@ const stack: Stack[] = [
         toolLink: "https://www.radix-ui.com/colors",
       },
       {
-        toolName: "Radix-UI/Icons",
-        toolLink: "https://icons.radix-ui.com/",
+        toolName: "Lucide/Icons",
+        toolLink: "https://lucide.dev/",
       },
     ],
   },
@@ -102,7 +102,7 @@ const AboutModal = () => {
         <div className="flex flex-col justify-between py-4">
           <h3 className="font-semibold">Built with</h3>
           <p className="text-sm text-slate-11">
-            These are some of the tools I used to build this website.
+            These are some of the tools I used to build Moviexyz.
           </p>
           <ul className="mt-2 text-sm">
             {stack.map(({ category, tools }) => (
@@ -136,7 +136,7 @@ const AboutModal = () => {
         <div className="py-4">
           <h3 className="font-semibold">Me</h3>
           <p className="text-sm text-slate-11">
-            I'm gabriel, an aspiring Front-end Developer with great interest in
+            I'm Gabriel, an aspiring Front-end Developer with great interest in
             the UI/UX world and passionate about well-crafted user interfaces
             and clean design.
           </p>
@@ -167,7 +167,7 @@ const AboutModal = () => {
           <h3 className="font-semibold">Notes</h3>
           <p className="text-sm text-slate-11">
             You may have noticed that the text in this website is all lowercase.
-            this is intentional. The reason is simply because I think it looks
+            This is intentional. The reason is simply because I think it looks
             nicer. If dislike this, you can change it in the settings menu.
           </p>
         </div>
@@ -209,8 +209,7 @@ const AboutModal = () => {
           </svg>
         </a>
         <p>
-          Movie Explorer uses the TMDB API but is not endorsed or certified by
-          TMDB.
+          Moviexyz uses the TMDB API but is not endorsed or certified by TMDB.
         </p>
       </div>
     </Modal>

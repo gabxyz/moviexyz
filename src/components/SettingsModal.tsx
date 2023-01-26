@@ -10,7 +10,7 @@ const SettingsModal = () => {
       triggerIcon={<Settings size={16} />}
       closeIcon={<X size={16} />}
       title="Settings"
-      description="Select page theme and movie genres"
+      description="Adjust website settings to your preferences"
     >
       <div className="mt-4 divide-y divide-slate-6">
         <div className="flex items-end justify-between pb-4">
@@ -26,7 +26,7 @@ const SettingsModal = () => {
           <div className="flex flex-col">
             <h3 className="font-semibold">Letter case</h3>
             <p className="text-sm text-slate-11">
-              Choose between lowercase and capitalized text
+              Choose between lowercase and normal-case text
             </p>
           </div>
           <ToggleLetter />

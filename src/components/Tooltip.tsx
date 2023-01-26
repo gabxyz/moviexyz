@@ -25,15 +25,15 @@ const Tooltip = ({
           sideOffset={7}
           className={cx(
             "rdx-side-bottom:animate-slide-down-fade rdx-side-left:animate-slide-left-fade rdx-side-right:animate-slide-right-fade rdx-side-top:animate-slide-up-fade",
-            "inline-flex items-center px-2.5 py-1.5",
-            "rounded-xl bg-blackA-9 text-sm font-medium text-slate-1 shadow-md dark:text-slate-12"
+            "inline-flex items-center px-2.5 py-1",
+            "rounded-xl bg-blackA-10 text-sm font-medium text-slate-1 shadow-md dark:text-slate-12"
           )}
         >
           {content}
           <TooltipPrimitive.Arrow
             width={12}
             height={5}
-            className="fill-blackA-9"
+            className="fill-blackA-10"
           />
         </TooltipPrimitive.Content>
       </TooltipPrimitive.Portal>
