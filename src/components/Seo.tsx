@@ -1,3 +1,4 @@
+import useLetterCaseState from "@/hooks/useLetterCaseState";
 import { NextSeo } from "next-seo";
 import type { OpenGraph } from "next-seo/lib/types";
 import React from "react";
@@ -10,9 +11,11 @@ interface SeoProps {
 }
 
 const Seo = ({ title, description, ogContent, url }: SeoProps) => {
+  const { letterCase } = useLetterCaseState();
+
   const og: OpenGraph = {
     url: `https://moviexyz.vercel.app${url ? "/" + url : "/"}`,
-    title: title,
+    title: title.toLowerCase(),
     description: description,
     siteName: "moviexyz | random movies",
   };
@@ -29,8 +32,10 @@ const Seo = ({ title, description, ogContent, url }: SeoProps) => {
 
   return (
     <NextSeo
-      title={title}
-      description={description}
+      title={letterCase === "lowercase" ? title.toLowerCase() : title}
+      description={
+        letterCase === "lowercase" ? description.toLowerCase() : description
+      }
       openGraph={og}
       twitter={{
         handle: "@gabxyzdev",
