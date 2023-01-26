@@ -31,11 +31,11 @@ const App: AppType = ({ Component, pageProps }) => {
                 }
               `}
             </style>
-            <DefaultSeo
-              {...SEO}
-              title={letterCase === "lowercase" ? "moviexyz" : "Moviexyz"}
-            />
             <Layout>
+              <DefaultSeo
+                {...SEO}
+                title={letterCase === "lowercase" ? "moviexyz" : "Moviexyz"}
+              />
               <Component {...pageProps} />
               <Analytics />
             </Layout>
