@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { useRouter } from "next/router";
 import useSWRMutation from "swr/mutation";
 import { AnimatePresence, m } from "framer-motion";
@@ -7,6 +6,7 @@ import useLetterCaseState from "@/hooks/useLetterCaseState";
 import useGenresState from "@/hooks/useGenresState";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Seo from "./Seo";
 
 type LayoutProps = {
   children?: React.ReactNode;
@@ -33,11 +33,14 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <>
-      <Head>
-        <title>{letterCase === "lowercase" ? "moviexyz" : "Moviexyz"}</title>
-        <meta name="description" content="explore and discover random movies" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Seo
+        title={letterCase === "lowercase" ? "moviexyz" : "Moviexyz"}
+        description={
+          letterCase === "lowercase"
+            ? "explore and discover random movies"
+            : "Explore and discover random movies"
+        }
+      />
       <div className="mx-auto flex min-h-screen max-w-3xl flex-col justify-between p-4">
         <Header />
         <div className="self-center p-6">

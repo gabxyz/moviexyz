@@ -5,27 +5,28 @@ interface SeoProps {
   title: string;
   description: string;
   url?: string;
-  ogContent: string;
+  ogContent?: string;
 }
 
 const Seo = ({ title, description, url, ogContent }: SeoProps) => {
   const openGraph: OpenGraph = {
     type: "website",
-    url: `https://moviexyz.vercel.app${url ? "/" + url : url}`,
+    url: `https://moviexyz.vercel.app${url ? "/" + url : ""}`,
     title: title,
     description: description,
-  };
-
-  Object.assign(openGraph, {
+    siteName: "moviexyz",
     images: [
       {
-        url: new URL(`https://moviexyz.vercel.app/api/og?${ogContent}`),
+        url: `https://moviexyz.vercel.app/api/og${
+          ogContent ? `?${ogContent}` : ""
+        }`,
         width: 1200,
         height: 630,
         alt: title,
       },
     ],
-  });
+  };
+
   return (
     <NextSeo
       title={title}

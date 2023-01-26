@@ -2,15 +2,25 @@ import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { getMovieDetails } from "@/utils/tmdb";
 import Seo from "@/components/Seo";
 import MovieCard from "@/components/MovieCard";
+import useLetterCaseState from "@/hooks/useLetterCaseState";
 
 const MoviePage = ({
   movieData,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  const { letterCase } = useLetterCaseState();
   return (
     <>
       <Seo
-        title={`moviexyz | ${movieData.title.toLowerCase()}`}
-        description="explore and discover random movies"
+        title={
+          letterCase === "lowercase"
+            ? `moviexyz | ${movieData.title.toLowerCase()}`
+            : `Moviexyz | ${movieData.title}`
+        }
+        description={
+          letterCase === "lowercase"
+            ? "explore and discover random movies"
+            : "Explore and discover random movies"
+        }
         ogContent={`movieTitle=${movieData.title}&movieOverview=${movieData.overview}&moviePoster=${movieData.poster_path}`}
       />
       <div className="mx-auto max-w-sm md:max-w-full">
