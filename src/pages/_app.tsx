@@ -7,8 +7,6 @@ import { TooltipProvider } from "@radix-ui/react-tooltip";
 import useLetterCaseState from "@/hooks/useLetterCaseState";
 import Layout from "@/components/Layout";
 import "@/styles/globals.css";
-import SEO from "../../next-seo.config.mjs";
-import { DefaultSeo } from "next-seo";
 
 const interVariable = Inter();
 
@@ -17,7 +15,6 @@ const App: AppType = ({ Component, pageProps }) => {
 
   return (
     <ThemeProvider attribute="class" disableTransitionOnChange>
-      <DefaultSeo {...SEO} />
       <LazyMotion features={domAnimation}>
         <MotionConfig reducedMotion="user">
           <TooltipProvider delayDuration={150}>
