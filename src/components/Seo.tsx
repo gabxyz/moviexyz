@@ -1,53 +1,44 @@
+import useLetterCaseState from "@/hooks/useLetterCaseState";
 import { NextSeo } from "next-seo";
 import type { OpenGraph } from "next-seo/lib/types";
+import { useRouter } from "next/router";
+import React from "react";
 
 interface SeoProps {
   title: string;
-  description: string;
-  url?: string;
-  ogContent?: string;
+  ogContent: string;
 }
 
-const Seo = ({ title, description, url, ogContent }: SeoProps) => {
-  const openGraph: OpenGraph = {
-    type: "website",
-    url: `https://moviexyz.vercel.app${url ? "/" + url : ""}`,
-    title: title,
-    description: description,
-    siteName: "moviexyz",
-    images: [
-      {
-        url: `https://moviexyz.vercel.app/api/og${
-          ogContent ? `?${ogContent}` : ""
-        }`,
-        width: 1200,
-        height: 630,
-      },
-    ],
-  };
+const Seo = ({ title, ogContent, ...rest }: SeoProps) => {
+  const router = useRouter();
+  const { letterCase } = useLetterCaseState();
+
+  const openGraph: OpenGraph = React.useMemo(
+    () => ({
+      url: `https://moviexyz.vercel.app${router.asPath}`,
+      title: `moviexyz | ${title}`,
+      images: [
+        {
+          url: `https://moviexyz.vercel.app/api/og?${ogContent}`,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    }),
+    [router.asPath, title, ogContent]
+  );
 
   return (
     <NextSeo
-      title={title}
-      description={description}
+      title={
+        letterCase === "lowercase"
+          ? `moviexyz | ${title.toLowerCase()}`
+          : `Moviexyz | ${title}`
+      }
+      canonical={`https://moviexyz.vercel.app${router.asPath}`}
       openGraph={openGraph}
-      robotsProps={{
-        notranslate: true,
-      }}
-      twitter={{
-        handle: "@gabxyzdev",
-        cardType: "summary_large_image",
-      }}
-      additionalMetaTags={[
-        {
-          property: "viewport",
-          content: "initial-scale=1.0, width=device-width",
-        },
-        {
-          httpEquiv: "x-ua-compatible",
-          content: "IE=edge; chrome=1",
-        },
-      ]}
+      {...rest}
     />
   );
 };

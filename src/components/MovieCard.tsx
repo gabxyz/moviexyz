@@ -30,7 +30,7 @@ const MovieCard = ({
       <div className="flex flex-col items-center justify-between gap-4 rounded-xl border border-slate-6 bg-slate-2 p-2 shadow-md md:h-[495px] md:flex-row md:items-start">
         <div className="relative aspect-[2/3] overflow-hidden rounded-lg shadow-md">
           <Image
-            src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+            src={`https://image.tmdb.org/t/p/w500${poster_path}`}
             alt={`Poster for the movie ${title}`}
             width={400}
             height={550}
