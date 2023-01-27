@@ -52,7 +52,7 @@ const MovieCard = ({
               <p className="mt-2 text-slate-11">
                 {!showMore ? shortOverview : overview}
                 <button
-                  className="ml-1 text-sm font-medium text-slate-12 hover:opacity-80 motion-safe:duration-300 motion-safe:ease-expressive-standard"
+                  className="ml-1 text-sm font-medium text-slate-12 duration-300 ease-productive-standard hover:opacity-80"
                   onClick={() => setShowMore(!showMore)}
                 >
                   {showMore ? "show less" : "show more"}
@@ -77,7 +77,7 @@ const MovieCard = ({
               target="_blank"
               rel="noopener noreferrer"
               href={`https://www.youtube.com/watch?v=${movieTrailer}`}
-              className="inline-flex h-8 items-center gap-2 rounded-lg border border-slate-7 bg-slate-3 px-3 text-sm font-medium shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard"
+              className="inline-flex h-8 items-center gap-2 rounded-lg border border-slate-7 bg-slate-3 px-3 text-sm font-medium shadow duration-300 ease-productive-standard hover:border-slate-8 hover:bg-slate-4"
             >
               <Clapperboard size={16} />
               Movie trailer
@@ -86,7 +86,7 @@ const MovieCard = ({
               target="_blank"
               rel="noopener noreferrer"
               href=""
-              className="inline-flex h-8 items-center gap-1 self-end rounded-lg border border-slate-7 bg-slate-3 px-2.5 text-sm font-medium shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard"
+              className="inline-flex h-8 items-center gap-1 self-end rounded-lg border border-slate-7 bg-slate-3 px-2.5 text-sm font-medium shadow duration-300 ease-productive-standard hover:border-slate-8 hover:bg-slate-4"
             >
               <Twitter size={16} />
             </a>

@@ -30,23 +30,23 @@ const SelectTheme = () => {
 
   return (
     <Select.Root value={value} onValueChange={setResolvedTheme}>
-      <Select.Trigger className="flex h-8 items-center gap-1.5 rounded-lg border border-slate-7 bg-slate-3 px-2 text-sm font-medium shadow outline-none hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard">
+      <Select.Trigger className="flex h-8 items-center gap-1 rounded-lg border border-slate-7 bg-slate-3 px-2 text-sm font-medium shadow outline-none duration-300 ease-productive-standard hover:border-slate-8 hover:bg-slate-4">
         <Select.Value />
         <Select.Icon>
           <ChevronDown size={16} />
         </Select.Icon>
       </Select.Trigger>
       <Select.Portal>
-        <Select.Content className="z-30">
+        <Select.Content className="z-30 rdx-state-open:animate-slide-up-fade">
           <Select.Viewport className="rounded-lg border border-slate-7 bg-slate-3 shadow">
             {themes.map(({ value, icon }) => (
               <Select.Item
                 key={value}
                 value={value}
-                className="relative flex h-8 select-none items-center gap-1.5 px-2 text-sm font-medium outline-none focus:bg-slate-5 motion-safe:duration-300 motion-safe:ease-expressive-standard"
+                className="relative flex h-8 select-none items-center gap-1 px-2 text-sm font-medium outline-none duration-300 ease-productive-standard focus:bg-slate-5"
               >
                 <Select.ItemText>
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex items-center gap-1">
                     {icon}
                     {value[0]?.toUpperCase() + value.substring(1)}
                   </div>

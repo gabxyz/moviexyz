@@ -1,6 +1,6 @@
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 import * as React from "react";
-import cx from "classnames";
+import clsx from "clsx";
 
 interface TooltipProps {
   children: React.ReactNode;
@@ -23,7 +23,7 @@ const Tooltip = ({
           side={side}
           align={align}
           sideOffset={7}
-          className={cx(
+          className={clsx(
             "rdx-side-bottom:animate-slide-down-fade rdx-side-left:animate-slide-left-fade rdx-side-right:animate-slide-right-fade rdx-side-top:animate-slide-up-fade",
             "inline-flex items-center px-2.5 py-1",
             "rounded-xl bg-blackA-10 text-sm font-medium text-slate-1 shadow-md dark:text-slate-12"

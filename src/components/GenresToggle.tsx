@@ -1,4 +1,4 @@
-import cx from "classnames";
+import clsx from "clsx";
 import * as ToggleGroup from "@radix-ui/react-toggle-group";
 import useGenresState from "@/hooks/useGenresState";
 
@@ -49,12 +49,12 @@ const GenresToggle = () => {
           key={`group-item-${value}-${label}`}
           value={value}
           aria-label={label}
-          className={cx(
+          className={clsx(
             "rdx-state-on:border-slate-8 rdx-state-on:bg-slate-6 rdx-state-on:text-slate-12",
-            "border border-slate-7 bg-slate-3 text-slate-11 shadow",
             "h-7 rounded-xl px-2.5 text-sm font-medium",
+            "border border-slate-7 bg-slate-3 text-slate-11 shadow",
             "hover:border-slate-8 hover:bg-slate-4",
-            "motion-safe:duration-300 motion-safe:ease-expressive-standard"
+            "duration-300 ease-productive-standard"
           )}
         >
           {label}

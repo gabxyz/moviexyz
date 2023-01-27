@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import useSWRImmutable from "swr/immutable";
+import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
 import useGenresState from "@/hooks/useGenresState";
@@ -7,8 +8,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useCallback } from "react";
 import Link from "next/link";
-
-import cx from "classnames";
 
 type LayoutProps = {
   children?: React.ReactNode;
@@ -38,12 +37,12 @@ const Layout = ({ children }: LayoutProps) => {
           <Link
             href={`/movie/${data?.id}`}
             onClick={handleClick}
-            className={cx(
+            className={clsx(
               isValidating && "pointer-events-none opacity-80",
               "flex h-8 items-center px-3",
               "rounded-lg border border-slate-7 bg-slate-3 text-sm font-medium shadow",
               "hover:border-slate-8 hover:bg-slate-4",
-              "motion-safe:duration-200 motion-safe:ease-expressive-standard"
+              "duration-300 ease-productive-standard"
             )}
           >
             {isValidating ? (

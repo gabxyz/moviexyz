@@ -8,7 +8,7 @@ const Header = () => {
       <div className="flex flex-col">
         <Link
           href="/"
-          className="w-fit bg-gradient-to-r from-purple-11 to-indigo-11 bg-clip-text text-lg font-bold leading-snug text-transparent hover:opacity-80 motion-safe:duration-300 motion-safe:ease-expressive-standard md:text-xl"
+          className="w-fit bg-gradient-to-r from-purple-11 to-indigo-11 bg-clip-text text-lg font-bold leading-snug text-transparent duration-300 ease-productive-standard hover:opacity-80 md:text-xl"
         >
           Moviexyz
         </Link>
