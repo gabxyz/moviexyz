@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import useSWRImmutable from "swr/immutable";
-import { AnimatePresence, m } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
 import useGenresState from "@/hooks/useGenresState";
 import Header from "@/components/Header";
@@ -54,7 +54,7 @@ const Layout = ({ children }: LayoutProps) => {
           </Link>
         </div>
         <AnimatePresence mode="wait">
-          <m.main
+          <motion.main
             key={router.asPath}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -67,7 +67,7 @@ const Layout = ({ children }: LayoutProps) => {
             className="flex-1 md:mt-8"
           >
             {children}
-          </m.main>
+          </motion.main>
         </AnimatePresence>
         <Footer />
       </div>

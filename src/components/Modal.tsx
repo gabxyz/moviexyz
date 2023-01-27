@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AnimatePresence, m } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import * as Dialog from "@radix-ui/react-dialog";
 import Tooltip from "@/components/Tooltip";
 
@@ -33,7 +33,7 @@ const Modal = ({
         {open && (
           <Dialog.Portal forceMount>
             <Dialog.Overlay asChild forceMount>
-              <m.div
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -49,7 +49,7 @@ const Modal = ({
                   forceMount
                   onCloseAutoFocus={(e) => e.preventDefault()}
                 >
-                  <m.div
+                  <motion.div
                     initial={{ opacity: 0, scale: 0.65 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.5 }}
@@ -72,9 +72,9 @@ const Modal = ({
                     <Dialog.Close className="absolute top-4 right-4 text-slate-11 hover:text-slate-12 motion-safe:duration-300 motion-safe:ease-expressive-standard">
                       {closeIcon}
                     </Dialog.Close>
-                  </m.div>
+                  </motion.div>
                 </Dialog.Content>
-              </m.div>
+              </motion.div>
             </Dialog.Overlay>
           </Dialog.Portal>
         )}
