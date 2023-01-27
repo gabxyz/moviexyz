@@ -26,7 +26,9 @@ export default async function handler(req: NextRequest) {
 
     const title = searchParams.get("movieTitle");
     const poster = searchParams.get("moviePoster");
-    const overview = searchParams.get("movieOverview");
+    const overview = searchParams.get("movieOverview") || "";
+    const parsedOverview =
+      overview?.length > 500 ? overview?.slice(0, 500) + "..." : overview;
 
     return new ImageResponse(
       (
@@ -56,9 +58,20 @@ export default async function handler(req: NextRequest) {
                 </h2>
                 <p tw="-mt-4 text-xl">explore and discover random movies</p>
               </div>
-              <div tw="flex flex-col mb-6">
+              <div tw="flex flex-col">
                 <h3 tw="text-xl text-[#ecedee]">{title}</h3>
-                <p tw="-mt-4 max-h-[345px] overflow-hidden">{overview}</p>
+                <p tw="-mt-4 overflow-hidden">{parsedOverview}</p>
+              </div>
+              <div
+                tw="text-lg mb-6"
+                style={{
+                  backgroundImage: "linear-gradient(240deg, #bf7af0, #849dff)",
+                  backgroundClip: "text",
+                  WebkitBackgroundClip: "text",
+                  color: "transparent",
+                }}
+              >
+                moviexyz.vercel.app
               </div>
             </div>
             <div tw="flex items-center">

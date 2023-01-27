@@ -6,6 +6,7 @@ import { Calendar, Clock, Twitter, Clapperboard } from "lucide-react";
 
 interface MovieCardProps extends MovieResponse {
   movieTrailer: string;
+  overview: string;
 }
 
 const MovieCard = ({
@@ -18,12 +19,15 @@ const MovieCard = ({
   movieTrailer,
 }: MovieCardProps) => {
   const [isLoading, setLoading] = useState(true);
+  const [showMore, setShowMore] = useState(false);
   const genresArr = genres
     ?.map((item) => {
       return item.name;
     })
     .slice(0, 3)
     .join(", ");
+
+  const shortOverview = overview?.slice(0, 500) + "...";
 
   return (
     <>
@@ -44,7 +48,19 @@ const MovieCard = ({
           <div className="flex flex-col">
             <h1 className="text-xl font-bold">{title}</h1>
             <p className="font-medium text-slate-11">{genresArr}</p>
-            <p className="mt-2 text-slate-11">{overview}</p>
+            {overview.length > 500 ? (
+              <p className="mt-2 text-slate-11">
+                {!showMore ? shortOverview : overview}
+                <button
+                  className="ml-1 text-sm font-medium text-slate-12 hover:opacity-80 motion-safe:duration-300 motion-safe:ease-expressive-standard"
+                  onClick={() => setShowMore(!showMore)}
+                >
+                  {showMore ? "show less" : "show more"}
+                </button>
+              </p>
+            ) : (
+              <p className="mt-2 text-slate-11">{overview}</p>
+            )}
           </div>
           <div className="flex items-center gap-2 text-slate-11">
             <div className="flex items-center gap-2 rounded-full border border-slate-6 bg-slate-3 py-1.5 px-4 text-xs font-medium shadow">
@@ -61,7 +77,7 @@ const MovieCard = ({
               target="_blank"
               rel="noopener noreferrer"
               href={`https://www.youtube.com/watch?v=${movieTrailer}`}
-              className="inline-flex h-8 items-center gap-2 rounded-lg border border-slate-7 bg-slate-3 px-3 text-sm font-medium shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard "
+              className="inline-flex h-8 items-center gap-2 rounded-lg border border-slate-7 bg-slate-3 px-3 text-sm font-medium shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard"
             >
               <Clapperboard size={16} />
               Movie trailer
