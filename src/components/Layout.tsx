@@ -6,8 +6,9 @@ import { Loader2 } from "lucide-react";
 import useGenresState from "@/hooks/useGenresState";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import Link from "next/link";
+import { preload } from "swr";
 
 type LayoutProps = {
   children?: React.ReactNode;
@@ -39,7 +40,11 @@ const Layout = ({ children }: LayoutProps) => {
 
   const handleClick = useCallback(() => {
     mutate(`/api/randomId?genresId=${genresParsed}`);
-  }, [genresParsed, data, mutate, router]);
+  }, [genresParsed, mutate]);
+
+  useEffect(() => {
+    preload(`/api/randomId?genresId=${genresParsed}`, fetcher);
+  }, []);
 
   return (
     <>
