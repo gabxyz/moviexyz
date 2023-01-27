@@ -28,13 +28,13 @@ const Modal = ({
         </Dialog.Trigger>
       </Tooltip>
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 cursor-pointer overflow-y-auto bg-blackA-9 backdrop-blur-[1px] rdx-state-open:animate-in rdx-state-open:fade-in-50 rdx-state-open:duration-200 rdx-state-open:ease-productive-standard">
+        <Dialog.Overlay className="fixed inset-0 cursor-pointer overflow-y-auto bg-blackA-9 backdrop-blur-[1px] rdx-state-open:animate-in rdx-state-open:fade-in-75 rdx-state-open:duration-150 rdx-state-open:ease-productive-standard">
           <Dialog.Content
             onCloseAutoFocus={(e) => e.preventDefault()}
             className={clsx(
               "relative m-4 w-fit cursor-auto p-4 sm:mx-auto sm:my-8 sm:max-w-xl",
               "rounded-xl bg-slate-2",
-              "rdx-state-open:animate-in rdx-state-open:zoom-in-90 rdx-state-open:duration-200 rdx-state-open:ease-productive-standard"
+              "rdx-state-open:animate-in rdx-state-open:fade-in-90 rdx-state-open:zoom-in-50 rdx-state-open:duration-300 rdx-state-open:ease-productive-entrance"
             )}
           >
             <div className="flex flex-col items-center text-center">
