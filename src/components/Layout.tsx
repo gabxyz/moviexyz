@@ -7,6 +7,7 @@ import useGenresState from "@/hooks/useGenresState";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useCallback } from "react";
+import Link from "next/link";
 
 type LayoutProps = {
   children?: React.ReactNode;
@@ -38,7 +39,6 @@ const Layout = ({ children }: LayoutProps) => {
 
   const handleClick = useCallback(() => {
     mutate(`/api/randomId?genresId=${genresParsed}`);
-    router.push(`/movie/${data?.id}`);
   }, [genresParsed, data, mutate, router]);
 
   return (
@@ -46,17 +46,15 @@ const Layout = ({ children }: LayoutProps) => {
       <div className="mx-auto flex min-h-screen max-w-3xl flex-col justify-between p-4">
         <Header />
         <div className="self-center p-6">
-          <button
-            onClick={handleClick}
-            disabled={isValidating}
-            className="h-8 rounded-lg border border-slate-7 bg-slate-3 px-3 text-sm font-medium shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard"
-          >
-            {isValidating ? (
-              <Loader2 size={16} className="animate-spin" />
-            ) : (
-              <p>Pick random movie</p>
-            )}
-          </button>
+          <Link href={`/movie/${data?.id}`} onClick={handleClick}>
+            <span className="flex h-8 items-center rounded-lg border border-slate-7 bg-slate-3 px-3 text-sm font-medium shadow hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-expressive-standard">
+              {isValidating ? (
+                <Loader2 size={16} className="animate-spin" />
+              ) : (
+                <p>Pick random movie</p>
+              )}
+            </span>
+          </Link>
         </div>
         <AnimatePresence mode="wait">
           <m.main
