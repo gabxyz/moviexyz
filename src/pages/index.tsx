@@ -5,7 +5,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Seo
-        title="moviexyz"
+        title="Moviexyz"
         description="explore and discover random movies"
         ogContent={`/default-card`}
       />

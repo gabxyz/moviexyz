@@ -33,8 +33,8 @@ export default async function handler() {
             fontFamily: "Inter",
           }}
         >
-          <div tw="w-full h-full flex justify-between items-center rounded-xl shadow-lg px-20 bg-[#202425] border border-[#3a3f42]">
-            <div tw="flex flex-col max-w-md justify-center h-[534px]">
+          <div tw="w-full h-full flex justify-between items-center rounded-xl shadow-lg px-18 bg-[#202425] border-2 border-[#3a3f42]">
+            <div tw="flex flex-col justify-around items-center max-w-md mt-28 h-[534px]">
               <div tw="flex flex-col items-center">
                 <h2
                   tw="text-4xl"
@@ -47,14 +47,27 @@ export default async function handler() {
                 >
                   moviexyz
                 </h2>
-                <p tw="-mt-2 text-xl">explore and discover random movies</p>
+                <p tw="-mt-2 text-2xl text-center max-w-[425px]">
+                  explore and discover random movies in the click of a button
+                </p>
+              </div>
+              <div
+                tw="text-lg"
+                style={{
+                  backgroundImage: "linear-gradient(240deg, #bf7af0, #849dff)",
+                  backgroundClip: "text",
+                  WebkitBackgroundClip: "text",
+                  color: "transparent",
+                }}
+              >
+                moviexyz.vercel.app
               </div>
             </div>
-            <div tw="flex items-center justify-center w-[350px] h-[500px] bg-[#1a1d1e] rounded-lg border-2 border-[#313538]">
+            <div tw="flex items-center justify-center w-[350px] h-[500px] bg-[#26292b] rounded-lg border-2 border-[#313538]">
               <div
                 tw="text-[128px] font-bold"
                 style={{
-                  backgroundImage: "linear-gradient(90deg, #bf7af0, #849dff)",
+                  backgroundImage: "linear-gradient(180deg, #bf7af0, #849dff)",
                   backgroundClip: "text",
                   WebkitBackgroundClip: "text",
                   color: "transparent",

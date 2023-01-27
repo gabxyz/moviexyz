@@ -40,7 +40,7 @@ export default async function handler(req: NextRequest) {
             fontFamily: "Inter",
           }}
         >
-          <div tw="w-full h-full flex justify-between items-center rounded-xl shadow-lg px-10 bg-[#202425] border border-[#3a3f42]">
+          <div tw="w-full h-full flex justify-between items-center rounded-xl shadow-lg px-18 bg-[#202425] border-2 border-[#3a3f42]">
             <div tw="flex flex-col max-w-md justify-between h-[534px]">
               <div tw="flex flex-col">
                 <h2
@@ -54,11 +54,11 @@ export default async function handler(req: NextRequest) {
                 >
                   moviexyz
                 </h2>
-                <p tw="-mt-4">explore and discover random movies</p>
+                <p tw="-mt-4 text-xl">explore and discover random movies</p>
               </div>
               <div tw="flex flex-col mb-6">
                 <h3 tw="text-xl text-[#ecedee]">{title}</h3>
-                <p tw="-mt-2">{overview}</p>
+                <p tw="-mt-4 max-h-[345px] overflow-hidden">{overview}</p>
               </div>
             </div>
             <div tw="flex items-center">
