@@ -58,7 +58,7 @@ const Modal = ({
                       damping: 25,
                       stiffness: 250,
                     }}
-                    className="relative m-4 max-h-[calc(100vh-64px)] w-fit cursor-auto overflow-auto rounded-xl bg-slate-2 p-4 sm:mx-auto sm:my-8 sm:max-w-xl"
+                    className="relative m-4 w-fit cursor-auto rounded-xl bg-slate-2 p-4 sm:mx-auto sm:my-8 sm:max-w-xl"
                   >
                     <div className="flex flex-col items-center text-center">
                       <Dialog.Title className="text-lg font-semibold">

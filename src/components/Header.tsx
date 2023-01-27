@@ -4,11 +4,11 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header className="flex items-start justify-between rounded-xl border border-slate-6 bg-slate-2 p-4 shadow-md">
+    <header className="flex items-start justify-between gap-6 rounded-xl border border-slate-6 bg-slate-2 p-4 shadow-md">
       <div className="flex flex-col">
         <Link
           href="/"
-          className="w-fit bg-gradient-to-r from-purple-11 to-indigo-11 bg-clip-text text-lg font-bold leading-snug text-transparent hover:opacity-80 motion-safe:duration-300 motion-safe:ease-expressive-standard"
+          className="w-fit bg-gradient-to-r from-purple-11 to-indigo-11 bg-clip-text text-lg font-bold leading-snug text-transparent hover:opacity-80 motion-safe:duration-300 motion-safe:ease-expressive-standard md:text-xl"
         >
           Moviexyz
         </Link>
