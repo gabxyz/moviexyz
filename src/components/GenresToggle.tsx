@@ -40,7 +40,7 @@ const GenresToggle = () => {
     <ToggleGroup.Root
       type="multiple"
       aria-label="Genres selection"
-      className="flex flex-wrap gap-2"
+      className="-mb-4 flex flex-wrap gap-2"
       value={genreIdList}
       onValueChange={handleValueChange}
     >
@@ -52,7 +52,7 @@ const GenresToggle = () => {
           className={cx(
             "rdx-state-on:border-slate-8 rdx-state-on:bg-slate-6 rdx-state-on:text-slate-12",
             "border border-slate-7 bg-slate-3 text-slate-11 shadow",
-            "h-7 rounded-xl  px-2.5 text-sm font-medium",
+            "h-7 rounded-xl px-2.5 text-sm font-medium",
             "hover:border-slate-8 hover:bg-slate-4",
             "motion-safe:duration-300 motion-safe:ease-expressive-standard"
           )}

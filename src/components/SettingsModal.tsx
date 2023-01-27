@@ -12,7 +12,7 @@ const SettingsModal = () => {
       title="Settings"
       description="Adjust website settings to your preferences"
     >
-      <div className="mt-4 divide-y divide-slate-6">
+      <div className="my-2 divide-y divide-slate-6">
         <div className="flex items-end justify-between pb-4">
           <div className="flex flex-col">
             <h3 className="font-semibold">Theme</h3>
