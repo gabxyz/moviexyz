@@ -32,7 +32,7 @@ const MovieCard = ({
   return (
     <>
       <div className="flex flex-col items-center justify-between gap-4 rounded-xl border border-slate-6 bg-slate-2 p-2 shadow-md md:flex-row md:items-stretch">
-        <div className="relative aspect-[2/3] overflow-hidden rounded-lg shadow-md">
+        <div className="aspect-[2/3] ">
           <Image
             src={`https://image.tmdb.org/t/p/w500${poster_path}`}
             alt={`Poster for the movie ${title}`}
@@ -40,7 +40,7 @@ const MovieCard = ({
             height={550}
             className={clsx(
               isLoading ? "blur-md grayscale" : "blur-0 grayscale-0",
-              "rounded-lg shadow-md motion-safe:duration-150 motion-safe:ease-productive-standard"
+              "overflow-hidden rounded-lg shadow-md motion-safe:duration-150 motion-safe:ease-productive-standard"
             )}
             onLoadingComplete={() => setLoading(false)}
           />
@@ -73,7 +73,7 @@ const MovieCard = ({
               <p>{runtime} min</p>
             </div>
           </div>
-          <div className="mt-8 flex items-end justify-end gap-2 md:mt-auto">
+          <div className="mt-8 flex items-end justify-between gap-2 md:mt-auto">
             <a
               target="_blank"
               rel="noopener noreferrer"
