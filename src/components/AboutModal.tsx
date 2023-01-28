@@ -147,8 +147,10 @@ const AboutModal = () => {
                 key={category}
                 className="mt-1 flex flex-wrap items-center text-slate-12"
               >
-                {category}
-                <ArrowRight className="mx-1" size={16} />
+                <span className="flex items-center font-medium">
+                  {category}
+                  <ArrowRight className="mx-1" size={16} />
+                </span>
                 {tools.map(({ toolName, toolLink }) => (
                   <div key={toolLink} className="text-slate-11">
                     <a
