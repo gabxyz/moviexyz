@@ -1,7 +1,7 @@
-import { useState } from "react";
 import Image from "next/image";
+import { useState } from "react";
+import clsx from "clsx";
 import type { MovieResponse } from "moviedb-promise";
-
 import { Calendar, Clock, Twitter, Clapperboard } from "lucide-react";
 
 interface MovieCardProps extends MovieResponse {
@@ -38,9 +38,10 @@ const MovieCard = ({
             alt={`Poster for the movie ${title}`}
             width={400}
             height={550}
-            className={`rounded-lg shadow-md motion-safe:duration-150 motion-safe:ease-productive-standard ${
-              isLoading ? "blur-md grayscale" : "blur-0 grayscale-0"
-            }`}
+            className={clsx(
+              isLoading ? "blur-md grayscale" : "blur-0 grayscale-0",
+              "rounded-lg shadow-md motion-safe:duration-150 motion-safe:ease-productive-standard"
+            )}
             onLoadingComplete={() => setLoading(false)}
           />
         </div>
@@ -52,7 +53,7 @@ const MovieCard = ({
               <p className="mt-2 text-slate-11">
                 {!showMore ? shortOverview : overview}
                 <button
-                  className="ml-1 text-sm font-medium text-slate-12 duration-300 ease-productive-standard hover:opacity-80"
+                  className="ml-1 text-sm font-medium text-slate-12 hover:opacity-80 motion-safe:duration-300 motion-safe:ease-productive-standard"
                   onClick={() => setShowMore(!showMore)}
                 >
                   {showMore ? "show less" : "show more"}
@@ -77,7 +78,11 @@ const MovieCard = ({
               target="_blank"
               rel="noopener noreferrer"
               href={`https://www.youtube.com/watch?v=${movieTrailer}`}
-              className="inline-flex h-8 items-center gap-2 rounded-lg border border-slate-7 bg-slate-3 px-3 text-sm font-medium shadow duration-300 ease-productive-standard hover:border-slate-8 hover:bg-slate-4"
+              className={clsx(
+                "inline-flex h-8 items-center gap-2 px-3 text-sm font-medium",
+                "rounded-lg border border-slate-7 bg-slate-3 shadow",
+                "hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-productive-standard"
+              )}
             >
               <Clapperboard size={16} />
               Movie trailer
@@ -86,7 +91,11 @@ const MovieCard = ({
               target="_blank"
               rel="noopener noreferrer"
               href=""
-              className="inline-flex h-8 items-center gap-1 self-end rounded-lg border border-slate-7 bg-slate-3 px-2.5 text-sm font-medium shadow duration-300 ease-productive-standard hover:border-slate-8 hover:bg-slate-4"
+              className={clsx(
+                "inline-flex h-8 items-center gap-2 px-3 text-sm font-medium",
+                "rounded-lg border border-slate-7 bg-slate-3 shadow",
+                "hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-productive-standard"
+              )}
             >
               <Twitter size={16} />
             </a>

@@ -1,4 +1,12 @@
-import { Info, X, ArrowUpRight, Twitter, Github } from "lucide-react";
+import clsx from "clsx";
+import {
+  Info,
+  X,
+  ArrowUpRight,
+  Twitter,
+  Github,
+  ArrowRight,
+} from "lucide-react";
 import Modal from "@/components/Modal";
 
 interface Tools {
@@ -28,31 +36,53 @@ const stack: Stack[] = [
         toolLink: "https://tailwindcss.com/",
       },
       {
-        toolName: "Framer-Motion",
-        toolLink: "https://www.framer.com/motion/",
+        toolName: "Vercel",
+        toolLink: "https://vercel.com/",
       },
     ],
   },
   {
-    category: "UI and Design",
+    category: "UI/Design",
     tools: [
       {
-        toolName: "Radix-UI/Primitives",
+        toolName: "Radix Primitives",
         toolLink: "https://www.radix-ui.com/",
       },
       {
-        toolName: "Radix-UI/Colors",
+        toolName: "Radix Colors",
         toolLink: "https://www.radix-ui.com/colors",
       },
       {
-        toolName: "Lucide/Icons",
+        toolName: "Lucide Icons",
         toolLink: "https://lucide.dev/",
       },
     ],
   },
   {
-    category: "Data Fetching",
+    category: "Tailwind Plugins",
     tools: [
+      {
+        toolName: "windy-radix-palette",
+        toolLink: "https://github.com/brattonross/windy-radix-palette",
+      },
+      {
+        toolName: "tailwindcss-radix",
+        toolLink: "https://github.com/ecklf/tailwindcss-radix",
+      },
+      {
+        toolName: "tailwindcss-animate",
+        toolLink: "https://github.com/jamiebuilds/tailwindcss-animate",
+      },
+    ],
+  },
+  {
+    category: "Data Fetching/State",
+    tools: [
+      {
+        toolName: "TMDb API",
+        toolLink:
+          "https://developers.themoviedb.org/3/getting-started/introduction",
+      },
       {
         toolName: "moviedb-promise",
         toolLink: "https://github.com/grantholle/moviedb-promise",
@@ -62,18 +92,25 @@ const stack: Stack[] = [
         toolLink: "https://swr.vercel.app/",
       },
       {
-        toolName: "Next.js API Routes",
-        toolLink: "https://nextjs.org/docs/api-routes/introduction",
+        toolName: "Zustand",
+        toolLink: "https://zustand-demo.pmnd.rs/",
       },
     ],
   },
   {
-    category: "Movies Data",
+    category: "Utilities",
     tools: [
       {
-        toolName: "TMDb API",
-        toolLink:
-          "https://developers.themoviedb.org/3/getting-started/introduction",
+        toolName: "next-themes",
+        toolLink: "https://github.com/pacocoursey/next-themes",
+      },
+      {
+        toolName: "AutoAnimate",
+        toolLink: "https://auto-animate.formkit.com/",
+      },
+      {
+        toolName: "clsx",
+        toolLink: "https://github.com/lukeed/clsx",
       },
     ],
   },
@@ -102,17 +139,16 @@ const AboutModal = () => {
         <div className="flex flex-col justify-between py-4">
           <h3 className="font-semibold">Built with</h3>
           <p className="text-sm text-slate-11">
-            These are some of the tools I used to build Moviexyz.
+            Some of the tools I used to build Moviexyz.
           </p>
           <ul className="mt-2 text-sm">
             {stack.map(({ category, tools }) => (
               <li
                 key={category}
-                className="flex flex-wrap items-center text-slate-12"
+                className="mt-1 flex flex-wrap items-center text-slate-12"
               >
-                <span className="mr-1 font-medium">
-                  {category} --{">"}
-                </span>{" "}
+                {category}
+                <ArrowRight className="mx-1" size={16} />
                 {tools.map(({ toolName, toolLink }) => (
                   <div key={toolLink} className="text-slate-11">
                     <a
@@ -120,12 +156,12 @@ const AboutModal = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       href={toolLink}
-                      className="text-slate-11 hover:text-slate-12 motion-safe:duration-300 motion-safe:ease-expressive-standard"
+                      className="text-slate-11 hover:text-slate-12 motion-safe:duration-300 motion-safe:ease-productive-standard"
                     >
                       {toolName}
                     </a>
                     {tools[tools.length - 1]?.toolName !== toolName && (
-                      <span className="mx-1">{"-"}</span>
+                      <span className="mx-1 mb-0.5 inline-flex h-1 w-1 flex-none rounded-full bg-slate-11"></span>
                     )}
                   </div>
                 ))}
@@ -142,7 +178,12 @@ const AboutModal = () => {
           </p>
           <div className="mt-2 flex gap-2 text-sm font-medium text-slate-11">
             <a
-              className="w-18 flex h-8 cursor-pointer items-center gap-1 rounded-lg border border-slate-6 bg-slate-3 px-2 drop-shadow hover:border-slate-8 hover:bg-slate-4 hover:text-slate-12 motion-safe:duration-300 motion-safe:ease-expressive-standard"
+              className={clsx(
+                "w-18 flex h-8 items-center gap-1 px-2",
+                "cursor-pointer rounded-lg border border-slate-6 bg-slate-3 shadow",
+                "hover:border-slate-8 hover:bg-slate-4 hover:text-slate-12",
+                "motion-safe:duration-300 motion-safe:ease-productive-standard"
+              )}
               target="_blank"
               rel="noopener noreferrer"
               href="https://twitter.com/gabxyzdev"
@@ -152,7 +193,12 @@ const AboutModal = () => {
               <ArrowUpRight size={16} />
             </a>
             <a
-              className="w-18 flex h-8 cursor-pointer items-center gap-1 rounded-lg border border-slate-6 bg-slate-3 px-2 drop-shadow hover:border-slate-8 hover:bg-slate-4 hover:text-slate-12 motion-safe:duration-300 motion-safe:ease-expressive-standard"
+              className={clsx(
+                "w-18 flex h-8 items-center gap-1 px-2",
+                "cursor-pointer rounded-lg border border-slate-6 bg-slate-3 shadow",
+                "hover:border-slate-8 hover:bg-slate-4 hover:text-slate-12",
+                "motion-safe:duration-300 motion-safe:ease-productive-standard"
+              )}
               target="_blank"
               rel="noopener noreferrer"
               href="https://github.com/gabxyz"

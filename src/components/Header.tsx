@@ -1,6 +1,7 @@
-import SettingsModal from "@/components/SettingsModal";
-import AboutModal from "@/components/AboutModal";
 import Link from "next/link";
+import clsx from "clsx";
+import AboutModal from "@/components/AboutModal";
+import SettingsModal from "@/components/SettingsModal";
 
 const Header = () => {
   return (
@@ -8,7 +9,11 @@ const Header = () => {
       <div className="flex flex-col">
         <Link
           href="/"
-          className="w-fit bg-gradient-to-r from-purple-11 to-indigo-11 bg-clip-text text-lg font-bold leading-snug text-transparent duration-300 ease-productive-standard hover:opacity-80 md:text-xl"
+          className={clsx(
+            "w-fit text-lg font-bold leading-snug md:text-xl",
+            "bg-gradient-to-r from-purple-11 to-indigo-11 bg-clip-text text-transparent",
+            "hover:opacity-80 motion-safe:duration-300 motion-safe:ease-productive-standard"
+          )}
         >
           Moviexyz
         </Link>

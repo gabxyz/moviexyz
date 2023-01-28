@@ -1,12 +1,12 @@
-import useSWRImmutable from "swr/immutable";
+import Link from "next/link";
+import { useCallback } from "react";
 import clsx from "clsx";
-import { Loader2 } from "lucide-react";
+import useSWRImmutable from "swr/immutable";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { Loader2 } from "lucide-react";
 import useGenresState from "@/hooks/useGenresState";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { useCallback } from "react";
-import Link from "next/link";
 
 type LayoutProps = {
   children?: React.ReactNode;
@@ -41,10 +41,10 @@ const Layout = ({ children }: LayoutProps) => {
             onClick={handleClick}
             className={clsx(
               isValidating && "pointer-events-none opacity-80",
-              "flex h-8 items-center px-3",
-              "rounded-lg border border-slate-7 bg-slate-3 text-sm font-medium shadow",
+              "flex h-8 items-center px-3 text-sm font-medium",
+              "rounded-lg border border-slate-7 bg-slate-3 shadow",
               "hover:border-slate-8 hover:bg-slate-4",
-              "duration-300 ease-productive-standard"
+              "motion-safe:duration-300 motion-safe:ease-productive-standard"
             )}
           >
             {isValidating ? (

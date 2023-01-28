@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import type { ReactElement } from "react";
+import clsx from "clsx";
 import { useTheme } from "next-themes";
-import * as Select from "@radix-ui/react-select";
 import { Sun, Moon, Monitor, Check, ChevronDown } from "lucide-react";
+import * as Select from "@radix-ui/react-select";
 
 const SelectTheme = () => {
   const [mounted, setMounted] = useState(false);
@@ -30,20 +31,30 @@ const SelectTheme = () => {
 
   return (
     <Select.Root value={value} onValueChange={setResolvedTheme}>
-      <Select.Trigger className="flex h-8 items-center gap-1 rounded-lg border border-slate-7 bg-slate-3 px-2 text-sm font-medium shadow outline-none duration-300 ease-productive-standard hover:border-slate-8 hover:bg-slate-4">
+      <Select.Trigger
+        className={clsx(
+          "flex h-8 items-center gap-1 px-2 text-sm font-medium",
+          "rounded-lg border border-slate-7 bg-slate-3 shadow outline-none",
+          "hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-productive-standard"
+        )}
+      >
         <Select.Value />
         <Select.Icon>
           <ChevronDown size={16} />
         </Select.Icon>
       </Select.Trigger>
       <Select.Portal>
-        <Select.Content className="z-30 rdx-state-open:animate-slide-up-fade">
+        <Select.Content className="z-30 motion-safe:rdx-state-open:animate-slide-up-fade">
           <Select.Viewport className="rounded-lg border border-slate-7 bg-slate-3 shadow">
             {themes.map(({ value, icon }) => (
               <Select.Item
                 key={value}
                 value={value}
-                className="relative flex h-8 select-none items-center gap-1 px-2 text-sm font-medium outline-none duration-300 ease-productive-standard focus:bg-slate-5"
+                className={clsx(
+                  "relative flex h-8 items-center gap-1 px-2 text-sm font-medium",
+                  "select-none outline-none",
+                  "focus:bg-slate-5 motion-safe:duration-300 motion-safe:ease-productive-standard"
+                )}
               >
                 <Select.ItemText>
                   <div className="flex items-center gap-1">
