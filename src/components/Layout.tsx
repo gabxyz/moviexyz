@@ -1,8 +1,7 @@
-import { useRouter } from "next/router";
 import useSWRImmutable from "swr/immutable";
 import clsx from "clsx";
-import { AnimatePresence, motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import useGenresState from "@/hooks/useGenresState";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -16,7 +15,10 @@ type LayoutProps = {
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 const Layout = ({ children }: LayoutProps) => {
-  const router = useRouter();
+  const [parent] = useAutoAnimate({
+    duration: 300,
+    easing: "cubic-bezier(0.4, 0.14, 0.3, 1)",
+  });
   const { genreIdList } = useGenresState();
   const genresParsed = genreIdList.join("|");
 
@@ -52,22 +54,9 @@ const Layout = ({ children }: LayoutProps) => {
             )}
           </Link>
         </div>
-        <AnimatePresence mode="wait">
-          <motion.main
-            key={router.asPath}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{
-              type: "spring",
-              damping: 25,
-              stiffness: 250,
-            }}
-            className="flex-1 md:mt-8"
-          >
-            {children}
-          </motion.main>
-        </AnimatePresence>
+        <main ref={parent} className="flex-1 md:mt-8">
+          {children}
+        </main>
         <Footer />
       </div>
     </>
