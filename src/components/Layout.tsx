@@ -54,7 +54,7 @@ const Layout = ({ children }: LayoutProps) => {
             )}
           </Link>
         </div>
-        <main ref={parent} className="flex-1 md:mt-8">
+        <main ref={parent} className="flex-1 md:mt-4">
           {children}
         </main>
         <Footer />
