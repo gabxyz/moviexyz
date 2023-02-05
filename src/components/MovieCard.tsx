@@ -3,6 +3,7 @@ import { useState } from "react";
 import clsx from "clsx";
 import type { MovieResponse } from "moviedb-promise";
 import { Calendar, Clock, Twitter, Clapperboard } from "lucide-react";
+import { useRouter } from "next/router";
 
 interface MovieCardProps extends MovieResponse {
   movieTrailer: string;
@@ -18,6 +19,7 @@ const MovieCard = ({
   runtime,
   movieTrailer,
 }: MovieCardProps) => {
+  const router = useRouter();
   const [isLoading, setLoading] = useState(true);
   const [showMore, setShowMore] = useState(false);
   const genresArr = genres
@@ -90,7 +92,7 @@ const MovieCard = ({
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href=""
+              href={`https://twitter.com/intent/tweet?text=${title}%20%7C%20moviexyz%0A%0A&url=https://moviexyz.vercel.app${router.asPath}`}
               className={clsx(
                 "inline-flex h-8 items-center gap-2 px-3 text-sm font-medium",
                 "rounded-lg border border-slate-7 bg-slate-3 shadow",
