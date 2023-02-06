@@ -1,6 +1,7 @@
-import React from "react";
 import { NextSeo } from "next-seo";
 import type { OpenGraph } from "next-seo/lib/types";
+import React from "react";
+
 import useLetterCaseState from "@/hooks/useLetterCaseState";
 
 interface SeoProps {

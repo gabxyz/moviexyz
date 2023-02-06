@@ -1,15 +1,17 @@
-import clsx from "clsx";
 import * as ToggleGroup from "@radix-ui/react-toggle-group";
+import clsx from "clsx";
+
 import useLetterCaseState from "@/hooks/useLetterCaseState";
 
 const ToggleLetter = () => {
   const { letterCase, setLetterCase } = useLetterCaseState();
 
   const toggleClass = clsx(
-    "flex items-center h-7 px-2.5",
-    "bg-slate-3 rounded-lg",
-    "hover:bg-slate-4 rdx-state-on:bg-slate-5 rdx-state-on:text-slate-12",
-    "motion-safe:duration-300 motion-safe:ease-productive-standard"
+    "flex items-center px-2.5 py-1.5 text-xs text-slate-11",
+    "border-y first:rounded-l-md first:border-x last:rounded-r-md last:border-r border-slate-7",
+    "hover:bg-slate-4 hover:border-slate-8",
+    "rdx-state-on:bg-slate-5 rdx-state-on:text-slate-12 radix-state-on:border-transparent",
+    "motion-safe:duration-200 motion-safe:ease-productive-standard"
   );
 
   return (
@@ -20,25 +22,21 @@ const ToggleLetter = () => {
       onValueChange={(letterCase) => {
         if (letterCase) setLetterCase(letterCase);
       }}
-      className={clsx(
-        "mt-4 flex",
-        "divide-x divide-slate-6 rounded-lg border border-slate-7 bg-slate-3 text-slate-11 shadow",
-        "hover:border-slate-8 motion-safe:duration-300 motion-safe:ease-productive-standard"
-      )}
+      className={clsx("mt-4 flex")}
     >
       <ToggleGroup.Item
         value="lowercase"
         aria-label="lowercase text"
-        className={clsx(toggleClass, "rounded-r-none")}
+        className={toggleClass}
       >
-        <span className="text-xs font-semibold">aa</span>
+        <span>aa</span>
       </ToggleGroup.Item>
       <ToggleGroup.Item
         value="none"
         aria-label="capitalized text"
-        className={clsx(toggleClass, "rounded-l-none")}
+        className={toggleClass}
       >
-        <span className="text-xs font-semibold capitalize">Aa</span>
+        <span className="capitalize">Aa</span>
       </ToggleGroup.Item>
     </ToggleGroup.Root>
   );

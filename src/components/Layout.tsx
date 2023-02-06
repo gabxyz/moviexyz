@@ -1,12 +1,14 @@
-import Link from "next/link";
-import { useCallback } from "react";
 import clsx from "clsx";
-import useSWRImmutable from "swr/immutable";
-import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
-import useGenresState from "@/hooks/useGenresState";
-import Header from "@/components/Header";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useCallback } from "react";
+import useSWRImmutable from "swr/immutable";
+
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import useGenresState from "@/hooks/useGenresState";
 
 type LayoutProps = {
   children?: React.ReactNode;
@@ -15,10 +17,7 @@ type LayoutProps = {
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 const Layout = ({ children }: LayoutProps) => {
-  const [parent] = useAutoAnimate({
-    duration: 300,
-    easing: "cubic-bezier(0.4, 0.14, 0.3, 1)",
-  });
+  const router = useRouter();
   const { genreIdList } = useGenresState();
   const genresParsed = genreIdList.join("|");
 
@@ -41,10 +40,10 @@ const Layout = ({ children }: LayoutProps) => {
             onClick={handleClick}
             className={clsx(
               isValidating && "pointer-events-none opacity-80",
-              "flex h-8 items-center px-3 text-sm font-medium",
+              "flex h-8 items-center px-3 text-sm",
               "rounded-lg border border-slate-7 bg-slate-3 shadow",
               "hover:border-slate-8 hover:bg-slate-4",
-              "motion-safe:duration-300 motion-safe:ease-productive-standard"
+              "motion-safe:duration-200 motion-safe:ease-productive-standard"
             )}
           >
             {isValidating ? (
@@ -54,9 +53,22 @@ const Layout = ({ children }: LayoutProps) => {
             )}
           </Link>
         </div>
-        <main ref={parent} className="flex-1 md:mt-4">
-          {children}
-        </main>
+        <AnimatePresence mode="wait">
+          <motion.main
+            key={router.asPath}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{
+              type: "spring",
+              damping: 20,
+              stiffness: 300,
+            }}
+            className="flex-1 md:mt-6"
+          >
+            {children}
+          </motion.main>
+        </AnimatePresence>
         <Footer />
       </div>
     </>

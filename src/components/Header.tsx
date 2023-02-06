@@ -1,5 +1,6 @@
-import Link from "next/link";
 import clsx from "clsx";
+import Link from "next/link";
+
 import AboutModal from "@/components/AboutModal";
 import SettingsModal from "@/components/SettingsModal";
 
@@ -10,14 +11,14 @@ const Header = () => {
         <Link
           href="/"
           className={clsx(
-            "w-fit text-lg font-bold leading-snug md:text-xl",
+            "w-fit text-lg font-bold leading-snug",
             "bg-gradient-to-r from-purple-11 to-indigo-11 bg-clip-text text-transparent",
-            "hover:opacity-80 motion-safe:duration-300 motion-safe:ease-productive-standard"
+            "hover:opacity-80 motion-safe:duration-200 motion-safe:ease-productive-standard"
           )}
         >
           Moviexyz
         </Link>
-        <p className="text-sm font-medium text-slate-11">
+        <p className="text-sm text-slate-11">
           Explore and discover random movies
         </p>
       </div>

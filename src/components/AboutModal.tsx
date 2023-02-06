@@ -1,12 +1,13 @@
 import clsx from "clsx";
 import {
-  Info,
-  X,
-  ArrowUpRight,
-  Twitter,
-  Github,
   ArrowRight,
+  ArrowUpRight,
+  Github,
+  Info,
+  Twitter,
+  X,
 } from "lucide-react";
+
 import Modal from "@/components/Modal";
 
 interface Tools {
@@ -119,8 +120,8 @@ const stack: Stack[] = [
 const AboutModal = () => {
   return (
     <Modal
-      triggerIcon={<Info size={16} />}
-      closeIcon={<X size={16} />}
+      triggerIcon={<Info size={15} />}
+      closeIcon={<X size={15} />}
       title="About"
       description="Useful information and resources about this website"
     >
@@ -158,7 +159,7 @@ const AboutModal = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       href={toolLink}
-                      className="text-slate-11 hover:text-slate-12 motion-safe:duration-300 motion-safe:ease-productive-standard"
+                      className="text-slate-11 hover:text-slate-12 motion-safe:duration-200 motion-safe:ease-productive-standard"
                     >
                       {toolName}
                     </a>
@@ -181,33 +182,39 @@ const AboutModal = () => {
           <div className="mt-2 flex gap-2 text-sm font-medium text-slate-11">
             <a
               className={clsx(
-                "w-18 flex h-8 items-center gap-1 px-2",
+                "w-18 group flex h-8 items-center gap-1 px-2",
                 "cursor-pointer rounded-lg border border-slate-6 bg-slate-3 shadow",
                 "hover:border-slate-8 hover:bg-slate-4 hover:text-slate-12",
-                "motion-safe:duration-300 motion-safe:ease-productive-standard"
+                "motion-safe:duration-200 motion-safe:ease-productive-standard"
               )}
               target="_blank"
               rel="noopener noreferrer"
               href="https://twitter.com/gabxyzdev"
             >
-              <Twitter size={16} />
+              <Twitter size={15} />
               <p>Twitter</p>
-              <ArrowUpRight size={16} />
+              <ArrowUpRight
+                size={15}
+                className="text-slate-11 group-hover:rotate-45 group-hover:text-slate-11 motion-safe:duration-200 motion-safe:ease-productive-standard"
+              />
             </a>
             <a
               className={clsx(
-                "w-18 flex h-8 items-center gap-1 px-2",
+                "w-18 group flex h-8 items-center gap-1 px-2",
                 "cursor-pointer rounded-lg border border-slate-6 bg-slate-3 shadow",
                 "hover:border-slate-8 hover:bg-slate-4 hover:text-slate-12",
-                "motion-safe:duration-300 motion-safe:ease-productive-standard"
+                "motion-safe:duration-200 motion-safe:ease-productive-standard"
               )}
               target="_blank"
               rel="noopener noreferrer"
               href="https://github.com/gabxyz"
             >
-              <Github size={16} />
+              <Github size={15} />
               <p>Github</p>
-              <ArrowUpRight size={16} />
+              <ArrowUpRight
+                size={15}
+                className="text-slate-11 group-hover:rotate-45 group-hover:text-slate-11 motion-safe:duration-200 motion-safe:ease-productive-standard"
+              />
             </a>
           </div>
         </div>

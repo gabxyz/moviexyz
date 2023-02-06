@@ -1,4 +1,5 @@
 import { Settings, X } from "lucide-react";
+
 import GenresToggle from "@/components/GenresToggle";
 import Modal from "@/components/Modal";
 import SelectTheme from "@/components/SelectTheme";
@@ -7,8 +8,8 @@ import ToggleLetter from "@/components/ToogleLetter";
 const SettingsModal = () => {
   return (
     <Modal
-      triggerIcon={<Settings size={16} />}
-      closeIcon={<X size={16} />}
+      triggerIcon={<Settings size={15} />}
+      closeIcon={<X size={15} />}
       title="Settings"
       description="Adjust website settings to your preferences"
     >

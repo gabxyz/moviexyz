@@ -1,5 +1,6 @@
-import clsx from "clsx";
 import * as ToggleGroup from "@radix-ui/react-toggle-group";
+import clsx from "clsx";
+
 import useGenresState from "@/hooks/useGenresState";
 
 interface GenreItem {
