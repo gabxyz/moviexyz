@@ -34,7 +34,7 @@ const Layout = ({ children }: LayoutProps) => {
     <>
       <div className="mx-auto flex min-h-screen max-w-3xl flex-col justify-between p-4">
         <Header />
-        <div className="self-center p-6">
+        <div className="my-6 self-center">
           <Link
             href={`/movie/${data?.id}`}
             onClick={handleClick}
@@ -58,13 +58,13 @@ const Layout = ({ children }: LayoutProps) => {
             key={router.asPath}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            exit={{ opacity: 0, y: 20 }}
             transition={{
               type: "spring",
-              damping: 20,
-              stiffness: 300,
+              damping: 25,
+              stiffness: 200,
             }}
-            className="flex-1 md:mt-6"
+            className="flex-1"
           >
             {children}
           </motion.main>

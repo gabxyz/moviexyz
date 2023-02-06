@@ -33,7 +33,7 @@ const MovieCard = ({
 
   return (
     <>
-      <div className="flex flex-col items-center justify-between gap-4 rounded-xl border border-slate-6 bg-slate-2 p-2 shadow-md md:flex-row md:items-stretch">
+      <div className="flex flex-col items-center justify-between gap-4 rounded-2xl border border-slate-6 bg-slate-2 p-2 shadow-md md:flex-row md:items-stretch">
         <div className="aspect-[2/3]">
           <Image
             src={`https://image.tmdb.org/t/p/w500${poster_path}`}
@@ -41,7 +41,7 @@ const MovieCard = ({
             width={400}
             height={550}
             className={clsx(
-              isLoading ? "blur-md grayscale" : "blur-0 grayscale-0",
+              isLoading ? "blur-sm grayscale" : "blur-none grayscale-0",
               "overflow-hidden rounded-lg shadow-md motion-safe:duration-200 motion-safe:ease-productive-standard"
             )}
             onLoadingComplete={() => setLoading(false)}

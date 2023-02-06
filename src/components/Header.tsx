@@ -6,23 +6,23 @@ import SettingsModal from "@/components/SettingsModal";
 
 const Header = () => {
   return (
-    <header className="flex items-start justify-between gap-6 rounded-xl border border-slate-6 bg-slate-2 p-4 shadow-md">
+    <header className="flex items-center justify-between gap-6 rounded-xl border border-slate-6 bg-slate-2 px-4 py-2 shadow-md">
       <div className="flex flex-col">
         <Link
           href="/"
           className={clsx(
-            "w-fit text-lg font-bold leading-snug",
+            "w-fit text-xl font-bold",
             "bg-gradient-to-r from-purple-11 to-indigo-11 bg-clip-text text-transparent",
             "hover:opacity-80 motion-safe:duration-200 motion-safe:ease-productive-standard"
           )}
         >
           Moviexyz
         </Link>
-        <p className="text-sm text-slate-11">
+        <p className="-mt-1 text-sm text-slate-11">
           Explore and discover random movies
         </p>
       </div>
-      <div className="flex items-center gap-2.5">
+      <div className="flex items-center gap-2">
         <AboutModal />
         <SettingsModal />
       </div>
