@@ -70,10 +70,6 @@ const stack: Stack[] = [
         toolName: "tailwindcss-radix",
         toolLink: "https://github.com/ecklf/tailwindcss-radix",
       },
-      {
-        toolName: "tailwindcss-animate",
-        toolLink: "https://github.com/jamiebuilds/tailwindcss-animate",
-      },
     ],
   },
   {
@@ -106,8 +102,8 @@ const stack: Stack[] = [
         toolLink: "https://github.com/pacocoursey/next-themes",
       },
       {
-        toolName: "AutoAnimate",
-        toolLink: "https://auto-animate.formkit.com/",
+        toolName: "Framer Motion",
+        toolLink: "https://www.framer.com/motion/",
       },
       {
         toolName: "clsx",
@@ -176,8 +172,8 @@ const AboutModal = () => {
           <h3 className="font-semibold">Me</h3>
           <p className="text-sm text-slate-11">
             I'm Gabriel, an aspiring Front-end Developer with great interest in
-            the UI/UX world and passionate about well-crafted user interfaces
-            and clean design.
+            the UI/UX world and passionate about well-crafted, polished user
+            interfaces and clean design.
           </p>
           <div className="mt-2 flex gap-2 text-sm font-medium text-slate-11">
             <a
