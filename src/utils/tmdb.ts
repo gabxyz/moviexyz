@@ -1,5 +1,6 @@
-import { MovieDb } from "moviedb-promise";
 import type { MovieResponse, VideosResponse } from "moviedb-promise";
+import { MovieDb } from "moviedb-promise";
+
 import { env } from "@/env/server.mjs";
 
 const moviedb = new MovieDb(env.TMDB_API_KEY);
