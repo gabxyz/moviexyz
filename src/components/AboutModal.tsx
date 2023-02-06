@@ -116,7 +116,7 @@ const stack: Stack[] = [
 const AboutModal = () => {
   return (
     <Modal
-      triggerIcon={<Info size={15} />}
+      triggerIcon={<Info size={16} />}
       closeIcon={<X size={15} />}
       title="About"
       description="Useful information and resources about this website"

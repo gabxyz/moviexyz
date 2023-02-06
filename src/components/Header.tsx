@@ -6,8 +6,8 @@ import SettingsModal from "@/components/SettingsModal";
 
 const Header = () => {
   return (
-    <header className="flex items-center justify-between gap-6 rounded-xl border border-slate-6 bg-slate-2 px-4 py-2 shadow-md">
-      <div className="flex flex-col">
+    <header className="flex items-start justify-between gap-6 rounded-xl border border-slate-6 bg-slate-2 px-2.5 py-2 shadow-md md:px-6 md:py-4">
+      <div className="-mt-1 flex flex-col">
         <Link
           href="/"
           className={clsx(
@@ -22,7 +22,7 @@ const Header = () => {
           Explore and discover random movies
         </p>
       </div>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2.5">
         <AboutModal />
         <SettingsModal />
       </div>

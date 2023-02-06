@@ -27,7 +27,7 @@ const Modal = ({
         <Dialog.Trigger
           aria-label={title}
           className={clsx(
-            "h-8 overflow-hidden px-2.5 text-slate-11",
+            "overflow-hidden px-3 py-2 text-slate-11",
             "rounded-lg border border-slate-7 bg-slate-3 shadow-md",
             "hover:border-slate-8 hover:bg-slate-4 hover:text-slate-12",
             "motion-safe:duration-200 motion-safe:ease-productive-standard"

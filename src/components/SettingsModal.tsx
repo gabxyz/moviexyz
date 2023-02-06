@@ -8,7 +8,7 @@ import ToggleLetter from "@/components/ToogleLetter";
 const SettingsModal = () => {
   return (
     <Modal
-      triggerIcon={<Settings size={15} />}
+      triggerIcon={<Settings size={16} />}
       closeIcon={<X size={15} />}
       title="Settings"
       description="Adjust website settings to your preferences"
@@ -23,7 +23,7 @@ const SettingsModal = () => {
           </div>
           <SelectTheme />
         </div>
-        <div className="flex items-end justify-between py-4">
+        <div className="flex items-end justify-between gap-2 py-4">
           <div className="flex flex-col">
             <h3 className="font-semibold">Letter case</h3>
             <p className="text-sm text-slate-11">
