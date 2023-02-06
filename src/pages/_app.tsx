@@ -1,13 +1,19 @@
-import { type AppType } from "next/dist/shared/lib/utils";
-import { Inter } from "@next/font/google";
-import { Analytics } from "@vercel/analytics/react";
-import { ThemeProvider } from "next-themes";
-import { TooltipProvider } from "@radix-ui/react-tooltip";
-import useLetterCaseState from "@/hooks/useLetterCaseState";
-import Layout from "@/components/Layout";
 import "@/styles/globals.css";
 
-const interVariable = Inter();
+import localFont from "@next/font/local";
+import { TooltipProvider } from "@radix-ui/react-tooltip";
+import { Analytics } from "@vercel/analytics/react";
+import { type AppType } from "next/dist/shared/lib/utils";
+import { ThemeProvider } from "next-themes";
+
+import Layout from "@/components/Layout";
+import useLetterCaseState from "@/hooks/useLetterCaseState";
+
+const satoshi = localFont({
+  src: "../../public/fonts/SatoshiVar.woff2",
+  variable: "--font-satoshi",
+  display: "swap",
+});
 
 const App: AppType = ({ Component, pageProps }) => {
   const { letterCase } = useLetterCaseState();
@@ -17,8 +23,10 @@ const App: AppType = ({ Component, pageProps }) => {
       <TooltipProvider delayDuration={150}>
         <style jsx global>
           {`
+            :root {
+              --font-satoshi: ${satoshi.style.fontFamily};
+            }
             html {
-              font-family: ${interVariable.style.fontFamily};
               text-transform: ${letterCase};
             }
             button {

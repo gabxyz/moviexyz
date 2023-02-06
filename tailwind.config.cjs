@@ -8,14 +8,14 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", ...defaultTheme.fontFamily.sans],
+        sans: ["var(--font-satoshi)", ...defaultTheme.fontFamily.sans],
       },
       fontWeight: {
-        light: 325,
-        normal: 425,
-        medium: 525,
-        semibold: 625,
-        bold: 725,
+        light: 350,
+        normal: 450,
+        medium: 550,
+        semibold: 650,
+        bold: 750,
       },
       transitionTimingFunction: {
         /**
@@ -28,6 +28,7 @@ module.exports = {
         "expressive-entrance": "cubic-bezier(0, 0, 0.3, 1)",
         "expressive-exit": "cubic-bezier(0.4, 0.14, 1, 1)",
       },
+
       keyframes: {
         "slide-up-fade": {
           "0%": { opacity: 0, transform: "translateY(0.25rem)" },
@@ -45,6 +46,10 @@ module.exports = {
           "0%": { opacity: 0, transform: "translateX(0.25rem)" },
           "100%": { opacity: 1, transform: "translateX(0)" },
         },
+        "scale-fade": {
+          "0%": { opacity: 0, transform: "scale(0)" },
+          "100%": { opacity: 1, transform: "scale(-0.05rem)" },
+        },
       },
       animation: {
         "slide-up-fade":
@@ -55,11 +60,11 @@ module.exports = {
           "slide-left-fade 150ms cubic-bezier(0.4, 0.14, 0.3, 1)",
         "slide-left-fade":
           "slide-right-fade 150ms cubic-bezier(0.4, 0.14, 0.3, 1)",
+        "scale-fade": "scale-fade 150ms cubic-bezier(0.4, 0.14, 0.3, 1)",
       },
     },
   },
   plugins: [
-    require("tailwindcss-animate"),
     require("windy-radix-palette"),
     require("tailwindcss-radix")({
       variantPrefix: "rdx",

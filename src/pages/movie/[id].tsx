@@ -1,7 +1,8 @@
 import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import { getMovieDetails } from "@/utils/tmdb";
-import Seo from "@/components/Seo";
+
 import MovieCard from "@/components/MovieCard";
+import Seo from "@/components/Seo";
+import { getMovieDetails } from "@/utils/tmdb";
 
 const MoviePage = ({
   movieData,
@@ -13,7 +14,7 @@ const MoviePage = ({
         description="explore and discover random movies"
         ogContent={`/movie-card?moviePoster=${movieData.poster_path}&movieTitle=${movieData.title}&movieOverview=${movieData.overview}`}
       />
-      <div key={movieData.id} className="mx-auto max-w-sm md:max-w-full">
+      <div className="mx-auto max-w-sm md:max-w-full">
         <MovieCard {...movieData} />
       </div>
     </>

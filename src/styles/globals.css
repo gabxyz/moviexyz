@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  @apply h-full min-h-screen scroll-smooth font-normal leading-normal antialiased;
+  @apply h-full min-h-screen scroll-smooth font-medium leading-normal subpixel-antialiased;
 
   /* PWA enhancements */
   -webkit-overflow-scrolling: touch;
@@ -12,5 +12,5 @@ html {
 }
 
 body {
-  @apply bg-slate-1 text-slate-12 selection:bg-sky-4;
+  @apply bg-slate-2 text-slate-12 selection:bg-sky-4;
 }
