@@ -3,8 +3,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useCallback } from "react";
-import useSWRImmutable from "swr/immutable";
+import { useState } from "react";
+import useSWR from "swr";
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -18,17 +18,22 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 const Layout = ({ children }: LayoutProps) => {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
   const { genreIdList } = useGenresState();
   const genresParsed = genreIdList.join("|");
 
-  const { data, mutate, isValidating } = useSWRImmutable(
+  const { data, mutate } = useSWR(
     `/api/randomId?genresId=${genresParsed}`,
     fetcher
   );
 
-  const handleClick = useCallback(() => {
-    mutate(`/api/randomId?genresId=${genresParsed}`);
-  }, [genresParsed, mutate]);
+  const handleClick = async () => {
+    setIsLoading(true);
+    await mutate(`/api/randomId?genresId=${genresParsed}`, {
+      optimisticData: data,
+    });
+    setIsLoading(false);
+  };
 
   return (
     <>
@@ -39,14 +44,14 @@ const Layout = ({ children }: LayoutProps) => {
             href={`/movie/${data?.id}`}
             onClick={handleClick}
             className={clsx(
-              isValidating && "pointer-events-none opacity-80",
+              isLoading && "pointer-events-none opacity-80",
               "flex h-8 items-center px-3 text-sm",
-              "rounded-lg border border-slate-7 bg-slate-3 shadow",
-              "hover:border-slate-8 hover:bg-slate-4",
+              "rounded-lg border border-slate-7 bg-slate-4 shadow",
+              "hover:border-slate-8 hover:bg-slate-5",
               "motion-safe:duration-200 motion-safe:ease-productive-standard"
             )}
           >
-            {isValidating ? (
+            {isLoading ? (
               <Loader2 size={16} className="animate-spin" />
             ) : (
               <p>Pick random movie</p>
@@ -61,8 +66,8 @@ const Layout = ({ children }: LayoutProps) => {
             exit={{ opacity: 0, y: 20 }}
             transition={{
               type: "spring",
-              damping: 25,
-              stiffness: 200,
+              damping: 30,
+              stiffness: 300,
             }}
             className="flex-1"
           >
