@@ -178,7 +178,7 @@ const AboutModal = () => {
           <div className="mt-2 flex gap-2 text-sm font-medium text-slate-11">
             <a
               className={clsx(
-                "w-18 group flex h-8 items-center gap-1 px-2",
+                "w-18 group flex h-8 items-center gap-1 px-3",
                 "cursor-pointer rounded-lg border border-slate-6 bg-slate-3 shadow",
                 "hover:border-slate-8 hover:bg-slate-4 hover:text-slate-12",
                 "motion-safe:duration-200 motion-safe:ease-productive-standard"
@@ -196,7 +196,7 @@ const AboutModal = () => {
             </a>
             <a
               className={clsx(
-                "w-18 group flex h-8 items-center gap-1 px-2",
+                "w-18 group flex h-8 items-center gap-1 px-3",
                 "cursor-pointer rounded-lg border border-slate-6 bg-slate-3 shadow",
                 "hover:border-slate-8 hover:bg-slate-4 hover:text-slate-12",
                 "motion-safe:duration-200 motion-safe:ease-productive-standard"

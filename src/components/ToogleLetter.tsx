@@ -7,7 +7,7 @@ const ToggleLetter = () => {
   const { letterCase, setLetterCase } = useLetterCaseState();
 
   const toggleClass = clsx(
-    "flex items-center px-2.5 py-1.5 text-xs text-slate-11",
+    "flex items-center px-2 h-7 text-xs text-slate-11",
     "border-y first:rounded-l-md first:border-x last:rounded-r-md last:border-r border-slate-7",
     "hover:bg-slate-4 hover:border-slate-8",
     "rdx-state-on:bg-slate-5 rdx-state-on:text-slate-12 radix-state-on:border-transparent",
