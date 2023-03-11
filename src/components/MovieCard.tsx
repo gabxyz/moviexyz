@@ -33,7 +33,7 @@ const MovieCard = ({
 
   return (
     <>
-      <div className="flex flex-col items-center justify-between gap-4 rounded-2xl border border-slate-6 bg-slate-2 p-2 shadow-md md:flex-row md:items-stretch">
+      <div className="flex flex-col items-center justify-between gap-4 rounded-xl border border-slate-6 bg-slate-3 p-2 shadow-md md:flex-row md:items-stretch">
         <div className="aspect-[2/3]">
           <Image
             src={`https://image.tmdb.org/t/p/w500${poster_path}`}
@@ -42,7 +42,7 @@ const MovieCard = ({
             height={550}
             className={clsx(
               isLoading ? "blur-sm grayscale" : "blur-none grayscale-0",
-              "overflow-hidden rounded-lg shadow-md motion-safe:duration-200 motion-safe:ease-productive-standard"
+              "overflow-hidden rounded-md shadow-md motion-safe:duration-200 motion-safe:ease-productive-standard"
             )}
             onLoadingComplete={() => setLoading(false)}
           />
@@ -66,11 +66,11 @@ const MovieCard = ({
             )}
           </div>
           <div className="flex items-center gap-2 text-slate-11">
-            <div className="flex items-center gap-2 rounded-2xl border border-slate-6 bg-slate-3 py-1.5 px-3 text-xs shadow">
+            <div className="flex items-center gap-2 rounded-2xl border border-slate-6 bg-slate-4 py-1.5 px-3 text-xs shadow">
               <Calendar size={15} />
               <p>{release_date?.slice(0, 4)}</p>
             </div>
-            <div className="flex items-center gap-2 rounded-2xl border border-slate-6 bg-slate-3 py-1.5 px-3 text-xs shadow">
+            <div className="flex items-center gap-2 rounded-2xl border border-slate-6 bg-slate-4 py-1.5 px-3 text-xs shadow">
               <Clock size={15} />
               <p>{runtime} min</p>
             </div>
@@ -81,9 +81,9 @@ const MovieCard = ({
               rel="noopener noreferrer"
               href={`https://www.youtube.com/watch?v=${movieTrailer}`}
               className={clsx(
-                "inline-flex h-8 items-center gap-1 px-2.5 text-sm text-slate-11",
-                "rounded-lg border border-slate-7 bg-slate-3 shadow",
-                "hover:border-slate-8 hover:bg-slate-4 hover:text-slate-12 motion-safe:duration-200 motion-safe:ease-productive-standard"
+                "inline-flex h-7 items-center gap-1 px-3 text-sm text-slate-11",
+                "rounded-lg border border-slate-7 bg-slate-4 shadow",
+                "hover:border-slate-8 hover:bg-slate-5 hover:text-slate-12 motion-safe:duration-200 motion-safe:ease-productive-standard"
               )}
             >
               <Clapperboard size={16} />
@@ -94,9 +94,9 @@ const MovieCard = ({
               rel="noopener noreferrer"
               href={`https://twitter.com/intent/tweet?text=${title}%20%7C%20moviexyz%0A%0A&url=https://moviexyz.vercel.app${router.asPath}`}
               className={clsx(
-                "inline-flex h-8 items-center gap-1 px-2.5 text-sm text-slate-11",
-                "rounded-lg border border-slate-7 bg-slate-3 shadow",
-                "hover:border-slate-8 hover:bg-slate-4 hover:text-slate-12 motion-safe:duration-200 motion-safe:ease-productive-standard"
+                "inline-flex h-7 items-center gap-1 px-3 text-sm text-slate-11",
+                "rounded-lg border border-slate-7 bg-slate-4 shadow",
+                "hover:border-slate-8 hover:bg-slate-5 hover:text-slate-12 motion-safe:duration-200 motion-safe:ease-productive-standard"
               )}
             >
               <Twitter size={16} />

@@ -27,9 +27,8 @@ const Modal = ({
         <Dialog.Trigger
           aria-label={title}
           className={clsx(
-            "overflow-hidden px-3 py-2 text-slate-11",
-            "rounded-lg border border-slate-7 bg-slate-3 shadow-md",
-            "hover:border-slate-8 hover:bg-slate-4 hover:text-slate-12",
+            "overflow-hidden text-slate-12 opacity-70",
+            "hover:opacity-100",
             "motion-safe:duration-200 motion-safe:ease-productive-standard"
           )}
         >
@@ -47,7 +46,7 @@ const Modal = ({
                 transition={{
                   type: "spring",
                   damping: 25,
-                  stiffness: 350,
+                  stiffness: 300,
                 }}
                 className="fixed inset-0 cursor-pointer overflow-y-auto bg-blackA-9 backdrop-blur-[1px]"
               >
@@ -57,13 +56,13 @@ const Modal = ({
                   onCloseAutoFocus={(e) => e.preventDefault()}
                 >
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
+                    initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.6 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
                     transition={{
                       type: "spring",
                       damping: 25,
-                      stiffness: 350,
+                      stiffness: 300,
                     }}
                     className="relative m-4 w-fit cursor-auto rounded-xl bg-slate-3 p-4
                   sm:mx-auto sm:my-8 sm:max-w-xl"
