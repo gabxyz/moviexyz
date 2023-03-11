@@ -43,7 +43,7 @@ export default async function handler(req: NextRequest) {
           }}
         >
           <div tw="w-full h-full flex justify-between items-center rounded-2xl shadow-lg px-4 bg-[#202425] border-2 border-[#3a3f42]">
-            <div tw="flex flex-col justify-between items-center w-1/2 h-[484px]">
+            <div tw="flex flex-col justify-between items-center mx-auto w-1/2 h-[484px]">
               <div tw="flex flex-col items-center">
                 <h2
                   tw="text-4xl"
