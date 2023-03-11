@@ -92,7 +92,7 @@ const MovieCard = ({
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href={`https://twitter.com/intent/tweet?text=${title}%20%7C%20moviexyz%0A%0A&url=https://moviexyz.vercel.app${router.asPath}`}
+              href={`https://twitter.com/intent/tweet?text=${title}%20%0A%0A&url=https://moviexyz.vercel.app${router.asPath}`}
               className={clsx(
                 "inline-flex h-7 items-center gap-1 px-3 text-sm text-slate-11",
                 "rounded-lg border border-slate-7 bg-slate-4 shadow",
