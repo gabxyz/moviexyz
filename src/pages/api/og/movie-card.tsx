@@ -4,7 +4,7 @@ import { ImageResponse } from "@vercel/og";
 import type { NextRequest } from "next/server";
 
 export const config = {
-  runtime: "edge",
+  runtime: "experimental-edge",
 };
 
 const satoshiMedium = fetch(

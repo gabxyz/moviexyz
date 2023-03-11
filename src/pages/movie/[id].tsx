@@ -1,13 +1,12 @@
 import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import dynamic from "next/dynamic";
 
+import MovieCard from "@/components/MovieCard";
 import Seo from "@/components/Seo";
 import { getMovieDetails } from "@/utils/tmdb";
 
 const MoviePage = ({
   movieData,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const MovieCard = dynamic(() => import("@/components/MovieCard"));
   return (
     <>
       <Seo

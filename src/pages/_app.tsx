@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 
 import localFont from "@next/font/local";
-import { TooltipProvider } from "@radix-ui/react-tooltip";
+import * as Tooltip from "@radix-ui/react-tooltip";
 import { Analytics } from "@vercel/analytics/react";
 import { type AppType } from "next/dist/shared/lib/utils";
 import { ThemeProvider } from "next-themes";
@@ -20,7 +20,7 @@ const App: AppType = ({ Component, pageProps }) => {
 
   return (
     <ThemeProvider attribute="class" disableTransitionOnChange>
-      <TooltipProvider delayDuration={150}>
+      <Tooltip.Provider delayDuration={150}>
         <style jsx global>
           {`
             :root {
@@ -38,7 +38,7 @@ const App: AppType = ({ Component, pageProps }) => {
           <Component {...pageProps} />
           <Analytics />
         </Layout>
-      </TooltipProvider>
+      </Tooltip.Provider>
     </ThemeProvider>
   );
 };
