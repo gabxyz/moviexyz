@@ -1,8 +1,12 @@
 import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import dynamic from "next/dynamic";
 
-import MovieCard from "@/components/MovieCard";
 import Seo from "@/components/Seo";
 import { getMovieDetails } from "@/utils/tmdb";
+
+const MovieCard = dynamic(() => import("@/components/MovieCard"), {
+  ssr: false,
+});
 
 const MoviePage = ({
   movieData,
@@ -12,7 +16,7 @@ const MoviePage = ({
       <Seo
         title={`Moviexyz | ${movieData.title}`}
         description="explore and discover random movies"
-        ogContent={`/movie-card?moviePoster=${movieData.poster_path}&movieTitle=${movieData.title}&movieOverview=${movieData.overview}`}
+        ogContent={`/movie-card?moviePoster=${movieData?.poster_path}&movieTitle=${movieData?.title}&movieOverview=${movieData?.overview}`}
       />
       <div className="mx-auto max-w-sm md:max-w-full">
         <MovieCard {...movieData} />
