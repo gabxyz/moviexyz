@@ -24,7 +24,8 @@ const Layout = ({ children }: LayoutProps) => {
 
   const { data, mutate } = useSWR(
     `/api/randomId?genresId=${genresParsed}`,
-    fetcher
+    fetcher,
+    { revalidateOnMount: true }
   );
 
   const handleClick = async () => {
