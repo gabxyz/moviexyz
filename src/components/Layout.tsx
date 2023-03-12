@@ -29,9 +29,7 @@ const Layout = ({ children }: LayoutProps) => {
 
   const handleClick = async () => {
     setIsLoading(true);
-    await mutate(`/api/randomId?genresId=${genresParsed}`, {
-      optimisticData: data,
-    });
+    await mutate(`/api/randomId?genresId=${genresParsed}`);
     setIsLoading(false);
   };
 
