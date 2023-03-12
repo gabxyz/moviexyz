@@ -19,7 +19,15 @@ export const getRandomMovieId = async (genresId: string) => {
 };
 
 export const getMovieDetails = async (id: number) => {
-  const { videos: movieTrailer, ...movieInfo } = (await moviedb.movieInfo({
+  const {
+    videos: movieTrailer,
+    poster_path,
+    title,
+    overview,
+    genres,
+    release_date,
+    runtime,
+  } = (await moviedb.movieInfo({
     id,
     append_to_response: "videos",
   })) as MovieResponse & { videos: VideosResponse };
@@ -29,6 +37,15 @@ export const getMovieDetails = async (id: number) => {
       (item) => item.type === "Trailer"
     );
     const youtubeId = trailer ? trailer.key : "dQw4w9WgXcQ";
+
+    const movieInfo = {
+      poster_path,
+      title,
+      overview,
+      genres,
+      release_date,
+      runtime,
+    };
 
     return {
       ...movieInfo,
