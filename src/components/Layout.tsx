@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import useSWR from "swr";
 
 import Footer from "@/components/Footer";
@@ -20,7 +20,7 @@ const Layout = ({ children }: LayoutProps) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const { genreIdList } = useGenresState();
-  const genresParsed = genreIdList.join("|");
+  const genresParsed = useMemo(() => genreIdList.join("|"), [genreIdList]);
 
   const { data, mutate } = useSWR(
     `/api/randomId?genresId=${genresParsed}`,
@@ -28,11 +28,11 @@ const Layout = ({ children }: LayoutProps) => {
     { revalidateOnMount: true }
   );
 
-  const handleClick = async () => {
+  const handleClick = useCallback(async () => {
     setIsLoading(true);
     await mutate(`/api/randomId?genresId=${genresParsed}`);
     setIsLoading(false);
-  };
+  }, [genresParsed, mutate]);
 
   return (
     <>
