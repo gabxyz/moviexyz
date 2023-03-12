@@ -1,8 +1,6 @@
 import clsx from "clsx";
-import { AnimatePresence, motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { useCallback, useMemo, useState } from "react";
 import useSWR from "swr";
 
@@ -17,7 +15,6 @@ type LayoutProps = {
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 const Layout = ({ children }: LayoutProps) => {
-  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const { genreIdList } = useGenresState();
   const genresParsed = useMemo(() => genreIdList.join("|"), [genreIdList]);
@@ -57,22 +54,7 @@ const Layout = ({ children }: LayoutProps) => {
             )}
           </Link>
         </div>
-        <AnimatePresence mode="wait">
-          <motion.main
-            key={router.asPath}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            transition={{
-              type: "spring",
-              damping: 30,
-              stiffness: 300,
-            }}
-            className="flex-1"
-          >
-            {children}
-          </motion.main>
-        </AnimatePresence>
+        <main className="flex-1">{children}</main>
         <Footer />
       </div>
     </>
