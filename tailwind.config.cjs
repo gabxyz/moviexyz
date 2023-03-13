@@ -10,13 +10,6 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-satoshi)", ...defaultTheme.fontFamily.sans],
       },
-      fontWeight: {
-        light: 350,
-        normal: 450,
-        medium: 550,
-        semibold: 650,
-        bold: 750,
-      },
       transitionTimingFunction: {
         /**
          * See: https://carbondesignsystem.com/guidelines/motion/overview/

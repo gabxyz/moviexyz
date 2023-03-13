@@ -52,10 +52,10 @@ const GenresToggle = () => {
           aria-label={label}
           className={clsx(
             "h-7 px-2.5 text-sm font-medium",
-            "rounded-xl border border-slate-7 bg-slate-3 text-slate-11 shadow",
-            "hover:border-slate-8 hover:bg-slate-4",
+            "rounded-xl border border-mauve-7 bg-mauve-3 text-mauve-11 shadow",
+            "hover:border-mauve-8 hover:bg-mauve-4",
             "motion-safe:duration-300 motion-safe:ease-productive-standard",
-            "rdx-state-on:border-slate-8 rdx-state-on:bg-slate-6 rdx-state-on:text-slate-12"
+            "rdx-state-on:border-mauve-8 rdx-state-on:bg-mauve-6 rdx-state-on:text-mauve-12"
           )}
         >
           {label}

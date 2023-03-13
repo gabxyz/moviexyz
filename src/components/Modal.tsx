@@ -27,7 +27,7 @@ const Modal = ({
         <Dialog.Trigger
           aria-label={title}
           className={clsx(
-            "overflow-hidden text-slate-12 opacity-70",
+            "overflow-hidden text-mauve-12 opacity-70",
             "hover:opacity-100",
             "motion-safe:duration-200 motion-safe:ease-productive-standard"
           )}
@@ -64,19 +64,19 @@ const Modal = ({
                       damping: 25,
                       stiffness: 300,
                     }}
-                    className="relative m-4 w-fit cursor-auto rounded-xl bg-slate-3 p-4
+                    className="relative m-4 w-fit cursor-auto rounded-xl bg-mauve-3 p-4
                   sm:mx-auto sm:my-8 sm:max-w-xl"
                   >
                     <div className="flex flex-col items-center text-center">
                       <Dialog.Title className="text-lg font-semibold">
                         {title}
                       </Dialog.Title>
-                      <Dialog.Description className="text-sm text-slate-11">
+                      <Dialog.Description className="text-sm text-mauve-11">
                         {description}
                       </Dialog.Description>
                     </div>
                     {children}
-                    <Dialog.Close className="absolute top-4 right-4 text-slate-11 hover:text-slate-12 motion-safe:duration-200 motion-safe:ease-productive-standard">
+                    <Dialog.Close className="absolute top-4 right-4 text-mauve-11 hover:text-mauve-12 motion-safe:duration-200 motion-safe:ease-productive-standard">
                       {closeIcon}
                     </Dialog.Close>
                   </motion.div>

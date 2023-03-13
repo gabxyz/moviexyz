@@ -1,7 +1,13 @@
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import {
+  IconCheck,
+  IconChevronDown,
+  IconDeviceDesktop,
+  IconMoon,
+  IconSun,
+} from "@tabler/icons-react";
 import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
-import { Check, ChevronDown, Monitor, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import type { ReactElement } from "react";
 import { useEffect, useState } from "react";
@@ -18,9 +24,9 @@ const SelectTheme = () => {
   };
 
   const themes: { value: string; icon: ReactElement }[] = [
-    { value: "system", icon: <Monitor size={15} /> },
-    { value: "dark", icon: <Moon size={15} /> },
-    { value: "light", icon: <Sun size={15} /> },
+    { value: "system", icon: <IconDeviceDesktop size={16} /> },
+    { value: "dark", icon: <IconMoon size={16} /> },
+    { value: "light", icon: <IconSun size={16} /> },
   ];
 
   useEffect(() => {
@@ -36,12 +42,12 @@ const SelectTheme = () => {
       <DropdownMenu.Trigger
         className={clsx(
           "flex h-7 items-center gap-1 px-2 text-sm font-medium",
-          "rounded-lg border border-slate-7 bg-slate-3 shadow",
-          "hover:border-slate-8 hover:bg-slate-4 motion-safe:duration-300 motion-safe:ease-productive-standard"
+          "rounded-lg border border-mauve-7 bg-mauve-3 shadow",
+          "hover:border-mauve-8 hover:bg-mauve-4 motion-safe:duration-300 motion-safe:ease-productive-standard"
         )}
       >
         {themes.find((theme) => theme.value === currValue)?.icon}
-        {<ChevronDown size={15} />}
+        {<IconChevronDown size={15} />}
       </DropdownMenu.Trigger>
       <AnimatePresence>
         {open && (
@@ -60,7 +66,7 @@ const SelectTheme = () => {
                 <DropdownMenu.RadioGroup
                   value={currValue}
                   onValueChange={setResolvedTheme}
-                  className="divide-y divide-slate-6 rounded-lg border border-slate-7 bg-slate-3 shadow"
+                  className="divide-y divide-mauve-6 rounded-lg border border-mauve-7 bg-mauve-3 shadow"
                 >
                   {themes.map(({ value, icon }) => (
                     <DropdownMenu.RadioItem
@@ -68,7 +74,7 @@ const SelectTheme = () => {
                       value={value}
                       className={clsx(
                         "group relative flex h-7 w-24 items-center justify-between gap-1 px-2 text-sm font-medium",
-                        "select-none hover:bg-slate-6",
+                        "select-none hover:bg-mauve-6",
                         "motion-safe:duration-300 motion-safe:ease-productive-standard"
                       )}
                     >
@@ -78,7 +84,7 @@ const SelectTheme = () => {
                       </div>
 
                       <DropdownMenu.ItemIndicator>
-                        <Check size={14} />
+                        <IconCheck size={14} />
                       </DropdownMenu.ItemIndicator>
                     </DropdownMenu.RadioItem>
                   ))}

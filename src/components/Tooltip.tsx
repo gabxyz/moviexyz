@@ -24,8 +24,8 @@ const Tooltip = ({
           align={align}
           sideOffset={7}
           className={clsx(
-            "inline-flex items-center px-2 py-1 text-sm font-semibold",
-            "rounded-xl bg-slate-6 shadow-md",
+            "inline-flex items-center px-3 py-1 text-sm font-semibold",
+            "rounded-full bg-mauve-6 shadow-md",
             "motion-safe:rdx-side-bottom:animate-slide-down-fade motion-safe:rdx-side-top:animate-slide-up-fade",
             "motion-safe:rdx-side-left:animate-slide-left-fade motion-safe:rdx-side-right:animate-slide-right-fade"
           )}
@@ -34,7 +34,7 @@ const Tooltip = ({
           <TooltipPrimitive.Arrow
             width={12}
             height={5}
-            className="fill-slate-6"
+            className="fill-mauve-6"
           />
         </TooltipPrimitive.Content>
       </TooltipPrimitive.Portal>

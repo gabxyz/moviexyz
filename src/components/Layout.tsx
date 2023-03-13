@@ -1,6 +1,6 @@
+import { IconLoader2 } from "@tabler/icons-react";
 import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
-import { Loader2 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useCallback, useMemo, useState } from "react";
@@ -36,7 +36,7 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <>
-      <div className="mx-auto flex min-h-screen max-w-3xl flex-col justify-between p-4">
+      <div className="mx-auto flex min-h-screen max-w-4xl flex-col justify-between p-4">
         <Header />
         <div className="my-6 self-center">
           <Link
@@ -45,13 +45,13 @@ const Layout = ({ children }: LayoutProps) => {
             className={clsx(
               isLoading && "pointer-events-none opacity-80",
               "flex h-8 items-center px-3 text-sm",
-              "rounded-lg border border-slate-7 bg-slate-4 shadow",
-              "hover:border-slate-8 hover:bg-slate-5",
+              "rounded-lg border border-mauve-7 bg-mauve-4 shadow",
+              "hover:border-mauve-8 hover:bg-mauve-5",
               "motion-safe:duration-200 motion-safe:ease-productive-standard"
             )}
           >
             {isLoading ? (
-              <Loader2 size={16} className="animate-spin" />
+              <IconLoader2 size={16} className="animate-spin" />
             ) : (
               <p>Pick random movie</p>
             )}

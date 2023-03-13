@@ -15,17 +15,13 @@ const withBundleAnalyzer = bundleAnalizer({
 const config = withBundleAnalyzer({
   reactStrictMode: true,
   swcMinify: true,
-  i18n: {
-    locales: ["en"],
-    defaultLocale: "en",
-  },
   images: {
     remotePatterns: [
       {
         protocol: "https",
         hostname: "image.tmdb.org",
         port: "",
-        pathname: "/t/p/w500/**",
+        pathname: "/t/p/w400/**",
       },
     ],
     unoptimized: true,

@@ -1,12 +1,12 @@
-import clsx from "clsx";
 import {
-  ArrowRight,
-  ArrowUpRight,
-  Github,
-  Info,
-  Twitter,
-  X,
-} from "lucide-react";
+  IconArrowRight,
+  IconArrowUpRight,
+  IconBrandGithub,
+  IconBrandTwitter,
+  IconInfoCircle,
+  IconX,
+} from "@tabler/icons-react";
+import clsx from "clsx";
 
 import Modal from "@/components/Modal";
 
@@ -54,8 +54,8 @@ const stack: Stack[] = [
         toolLink: "https://www.radix-ui.com/colors",
       },
       {
-        toolName: "Lucide Icons",
-        toolLink: "https://lucide.dev/",
+        toolName: "Tabler Icons",
+        toolLink: "https://tabler-icons.io/",
       },
     ],
   },
@@ -116,16 +116,16 @@ const stack: Stack[] = [
 const AboutModal = () => {
   return (
     <Modal
-      triggerIcon={<Info size={17} />}
-      closeIcon={<X size={16} />}
+      triggerIcon={<IconInfoCircle size={18} />}
+      closeIcon={<IconX size={18} />}
       title="About"
       description="Useful information and resources about this website"
     >
-      <div className="my-2 divide-y divide-slate-6">
+      <div className="my-2 divide-y divide-mauve-6">
         <div className="flex items-end justify-between">
           <div className="flex flex-col py-4">
             <h3 className="font-semibold">What and why</h3>
-            <p className="text-sm text-slate-11">
+            <p className="text-sm text-mauve-11">
               This is a website I built for people that, just like me, have
               trouble choosing a movie to watch. My motivation for building it
               was mainly to apply and improve my skills as a front-end developer
@@ -135,32 +135,32 @@ const AboutModal = () => {
         </div>
         <div className="flex flex-col justify-between py-4">
           <h3 className="font-semibold">Built with</h3>
-          <p className="text-sm text-slate-11">
+          <p className="text-sm text-mauve-11">
             Some of the tools I used to build Moviexyz.
           </p>
           <ul className="mt-2 text-sm">
             {stack.map(({ category, tools }) => (
               <li
                 key={category}
-                className="mt-1 flex flex-wrap items-center text-slate-12"
+                className="mt-1 flex flex-wrap items-center text-mauve-12"
               >
                 <span className="flex items-center font-medium">
                   {category}
-                  <ArrowRight className="mx-1" size={16} />
+                  <IconArrowRight className="mx-1" size={16} />
                 </span>
                 {tools.map(({ toolName, toolLink }) => (
-                  <div key={toolLink} className="text-slate-11">
+                  <div key={toolLink} className="text-mauve-11">
                     <a
                       key={toolLink}
                       target="_blank"
                       rel="noopener noreferrer"
                       href={toolLink}
-                      className="text-slate-11 hover:text-slate-12 motion-safe:duration-200 motion-safe:ease-productive-standard"
+                      className="text-mauve-11 hover:text-mauve-12 motion-safe:duration-200 motion-safe:ease-productive-standard"
                     >
                       {toolName}
                     </a>
                     {tools[tools.length - 1]?.toolName !== toolName && (
-                      <span className="mx-1 mb-0.5 inline-flex h-1 w-1 flex-none rounded-full bg-slate-11"></span>
+                      <span className="mx-1 mb-0.5 inline-flex h-1 w-1 flex-none rounded-full bg-mauve-11"></span>
                     )}
                   </div>
                 ))}
@@ -170,60 +170,60 @@ const AboutModal = () => {
         </div>
         <div className="py-4">
           <h3 className="font-semibold">Me</h3>
-          <p className="text-sm text-slate-11">
+          <p className="text-sm text-mauve-11">
             I'm Gabriel, an aspiring Front-end Developer with great interest in
             the UI/UX world and passionate about well-crafted, polished user
             interfaces and clean design.
           </p>
-          <div className="mt-2 flex gap-2 text-sm font-medium text-slate-11">
+          <div className="mt-2 flex gap-2 text-sm font-medium text-mauve-11">
             <a
               className={clsx(
                 "w-18 group flex h-8 items-center gap-1 px-3",
-                "cursor-pointer rounded-lg border border-slate-6 bg-slate-3 shadow",
-                "hover:border-slate-8 hover:bg-slate-4 hover:text-slate-12",
+                "cursor-pointer rounded-lg border border-mauve-6 bg-mauve-3 shadow",
+                "hover:border-mauve-8 hover:bg-mauve-4 hover:text-mauve-12",
                 "motion-safe:duration-200 motion-safe:ease-productive-standard"
               )}
               target="_blank"
               rel="noopener noreferrer"
               href="https://twitter.com/gabxyzdev"
             >
-              <Twitter size={15} />
+              <IconBrandTwitter size={16} />
               <p>Twitter</p>
-              <ArrowUpRight
-                size={15}
-                className="text-slate-11 group-hover:rotate-45 group-hover:text-slate-11 motion-safe:duration-200 motion-safe:ease-productive-standard"
+              <IconArrowUpRight
+                size={16}
+                className="text-mauve-11 group-hover:rotate-45 group-hover:text-mauve-11 motion-safe:duration-200 motion-safe:ease-productive-standard"
               />
             </a>
             <a
               className={clsx(
                 "w-18 group flex h-8 items-center gap-1 px-3",
-                "cursor-pointer rounded-lg border border-slate-6 bg-slate-3 shadow",
-                "hover:border-slate-8 hover:bg-slate-4 hover:text-slate-12",
+                "cursor-pointer rounded-lg border border-mauve-6 bg-mauve-3 shadow",
+                "hover:border-mauve-8 hover:bg-mauve-4 hover:text-mauve-12",
                 "motion-safe:duration-200 motion-safe:ease-productive-standard"
               )}
               target="_blank"
               rel="noopener noreferrer"
               href="https://github.com/gabxyz"
             >
-              <Github size={15} />
+              <IconBrandGithub size={16} />
               <p>Github</p>
-              <ArrowUpRight
-                size={15}
-                className="text-slate-11 group-hover:rotate-45 group-hover:text-slate-11 motion-safe:duration-200 motion-safe:ease-productive-standard"
+              <IconArrowUpRight
+                size={16}
+                className="text-mauve-11 group-hover:rotate-45 group-hover:text-mauve-11 motion-safe:duration-200 motion-safe:ease-productive-standard"
               />
             </a>
           </div>
         </div>
         <div className="py-4">
           <h3 className="font-semibold">Notes</h3>
-          <p className="text-sm text-slate-11">
+          <p className="text-sm text-mauve-11">
             You may have noticed that the text in this website is all lowercase.
             This is intentional. The reason is simply because I think it looks
             nicer. If dislike this, you can change it in the settings menu.
           </p>
         </div>
       </div>
-      <div className="flex items-center gap-2 text-xs text-slate-11">
+      <div className="flex items-center gap-2 text-xs text-mauve-11">
         <a
           target="_blank"
           rel="noopener noreferrer"
