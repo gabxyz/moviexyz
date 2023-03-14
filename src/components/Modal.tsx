@@ -27,10 +27,10 @@ const Modal = ({
         <Dialog.Trigger
           aria-label={title}
           className={clsx(
-            "overflow-hidden text-mauve-12 opacity-70",
-            "hover:opacity-100",
+            "text-mauve-12 opacity-70 hover:opacity-100",
             "motion-safe:duration-200 motion-safe:ease-productive-standard"
           )}
+          style={{ backfaceVisibility: "hidden" }}
         >
           {triggerIcon}
         </Dialog.Trigger>

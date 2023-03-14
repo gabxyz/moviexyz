@@ -10,7 +10,7 @@ const MoviePage = ({
   return (
     <>
       <Seo
-        title={`Moviexyz | ${movieData.title}`}
+        title={`moviexyz | ${movieData.title}`}
         description="explore and discover random movies"
         ogContent={`/movie-card?moviePoster=${movieData?.poster_path}&movieTitle=${movieData?.title}&movieOverview=${movieData?.overview}`}
       />

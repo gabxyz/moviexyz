@@ -41,7 +41,7 @@ const SelectTheme = () => {
     <DropdownMenu.Root open={open} onOpenChange={setOpen}>
       <DropdownMenu.Trigger
         className={clsx(
-          "flex h-7 items-center gap-1 px-2 text-sm font-medium",
+          "flex items-center gap-1 py-1 px-2 text-sm font-medium",
           "rounded-lg border border-mauve-7 bg-mauve-3 shadow",
           "hover:border-mauve-8 hover:bg-mauve-4 motion-safe:duration-300 motion-safe:ease-productive-standard"
         )}
@@ -73,12 +73,12 @@ const SelectTheme = () => {
                       key={value}
                       value={value}
                       className={clsx(
-                        "group relative flex h-7 w-24 items-center justify-between gap-1 px-2 text-sm font-medium",
+                        "group flex w-[108px] items-center justify-between gap-1 py-1 px-2 text-sm font-medium",
                         "select-none hover:bg-mauve-6",
                         "motion-safe:duration-300 motion-safe:ease-productive-standard"
                       )}
                     >
-                      <div className="flex items-center gap-1 group-active:scale-90  motion-safe:duration-75 motion-safe:ease-productive-standard">
+                      <div className="flex items-center gap-2 group-active:scale-90  motion-safe:duration-75 motion-safe:ease-productive-standard">
                         {icon}
                         {value[0]?.toUpperCase() + value.substring(1)}
                       </div>

@@ -116,7 +116,7 @@ const stack: Stack[] = [
 const AboutModal = () => {
   return (
     <Modal
-      triggerIcon={<IconInfoCircle size={18} />}
+      triggerIcon={<IconInfoCircle size={20} stroke={2} />}
       closeIcon={<IconX size={18} />}
       title="About"
       description="Useful information and resources about this website"
@@ -136,7 +136,7 @@ const AboutModal = () => {
         <div className="flex flex-col justify-between py-4">
           <h3 className="font-semibold">Built with</h3>
           <p className="text-sm text-mauve-11">
-            Some of the tools I used to build Moviexyz.
+            Some of the tools I used to build moviexyz.
           </p>
           <ul className="mt-2 text-sm">
             {stack.map(({ category, tools }) => (
@@ -206,7 +206,7 @@ const AboutModal = () => {
               href="https://github.com/gabxyz"
             >
               <IconBrandGithub size={16} />
-              <p>Github</p>
+              <p>GitHub</p>
               <IconArrowUpRight
                 size={16}
                 className="text-mauve-11 group-hover:rotate-45 group-hover:text-mauve-11 motion-safe:duration-200 motion-safe:ease-productive-standard"
@@ -260,7 +260,7 @@ const AboutModal = () => {
           </svg>
         </a>
         <p>
-          Moviexyz uses the TMDB API but is not endorsed or certified by TMDB.
+          moviexyz uses the TMDB API but is not endorsed or certified by TMDB.
         </p>
       </div>
     </Modal>

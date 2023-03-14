@@ -8,7 +8,7 @@ import ToggleLetter from "@/components/ToogleLetter";
 const SettingsModal = () => {
   return (
     <Modal
-      triggerIcon={<IconSettings size={18} />}
+      triggerIcon={<IconSettings size={20} />}
       closeIcon={<IconX size={18} />}
       title="Settings"
       description="Adjust website settings to your preferences"
