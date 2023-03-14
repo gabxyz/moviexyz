@@ -55,13 +55,13 @@ const Layout = ({ children }: LayoutProps) => {
               href={`/movie/${data?.id}`}
               onClick={handleClick}
               className={clsx(
-                "flex h-full w-full items-center overflow-hidden py-1 px-4 text-[15px] font-semibold text-mauve-11",
+                "flex h-7 w-full items-center px-4 text-[15px] font-semibold text-mauve-11",
                 "rounded-lg bg-mauve-4",
                 "motion-safe:duration-200 motion-safe:ease-productive-standard"
               )}
             >
               {isLoading ? (
-                <div className="flex h-[22.5px] items-center">
+                <div className="flex items-center">
                   <IconLoader2 size={16} className="animate-spin" />
                 </div>
               ) : (
