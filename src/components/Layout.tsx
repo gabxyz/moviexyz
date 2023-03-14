@@ -24,8 +24,7 @@ const Layout = ({ children }: LayoutProps) => {
 
   const { data, mutate } = useSWR(
     `/api/randomId?genresId=${genresParsed}`,
-    fetcher,
-    { revalidateOnMount: true }
+    fetcher
   );
 
   const handleClick = useCallback(async () => {
@@ -62,14 +61,13 @@ const Layout = ({ children }: LayoutProps) => {
               )}
             >
               {isLoading ? (
-                <IconLoader2
-                  size={18}
-                  className="h-[22.5px] w-full animate-spin"
-                />
+                <div className="flex h-[22.5px] items-center">
+                  <IconLoader2 size={16} className="animate-spin" />
+                </div>
               ) : (
                 <div className="flex items-center gap-2 text-mauve-12 opacity-70 group-hover:opacity-100 motion-safe:duration-200 motion-safe:ease-productive-standard">
                   <IconArrowsShuffle size={20} />
-                  <p className="">Click to Pick</p>
+                  <p>Click to Pick</p>
                 </div>
               )}
             </Link>
