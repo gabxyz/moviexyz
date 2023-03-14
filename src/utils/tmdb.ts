@@ -1,4 +1,8 @@
-import type { MovieResponse, VideosResponse } from "moviedb-promise";
+import type {
+  MovieRecommendationsResponse,
+  MovieResponse,
+  VideosResponse,
+} from "moviedb-promise";
 import { MovieDb } from "moviedb-promise";
 
 import { env } from "@/env/server.mjs";
@@ -20,7 +24,8 @@ export const getRandomMovieId = async (genresId: string) => {
 
 export const getMovieDetails = async (id: number) => {
   const {
-    videos: movieTrailer,
+    videos,
+    recommendations,
     poster_path,
     title,
     overview,
@@ -29,14 +34,18 @@ export const getMovieDetails = async (id: number) => {
     runtime,
   } = (await moviedb.movieInfo({
     id,
-    append_to_response: "videos",
-  })) as MovieResponse & { videos: VideosResponse };
+    append_to_response: "videos,recommendations",
+  })) as MovieResponse & {
+    videos: VideosResponse;
+    recommendations: MovieRecommendationsResponse;
+  };
 
-  if (movieTrailer.results) {
-    const trailer = movieTrailer.results.find(
-      (item) => item.type === "Trailer"
-    );
+  if (videos.results && recommendations.results) {
+    const trailer = videos.results.find((item) => item.type === "Trailer");
     const youtubeId = trailer ? trailer.key : "dQw4w9WgXcQ";
+    const recommendedMovies = recommendations.results
+      .slice(0, 3)
+      .map(({ id, title }) => ({ id, title }));
 
     const movieInfo = {
       poster_path,
@@ -50,6 +59,7 @@ export const getMovieDetails = async (id: number) => {
     return {
       ...movieInfo,
       movieTrailer: youtubeId,
+      recommendedMovies,
     };
   }
 };
