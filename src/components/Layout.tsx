@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import useSWR from "swr";
 
 import Footer from "@/components/Footer";
@@ -24,7 +24,8 @@ const Layout = ({ children }: LayoutProps) => {
 
   const { data, mutate } = useSWR(
     `/api/randomId?genresId=${genresParsed}`,
-    fetcher
+    fetcher,
+    { revalidateOnMount: true }
   );
 
   const handleClick = useCallback(async () => {
@@ -48,7 +49,7 @@ const Layout = ({ children }: LayoutProps) => {
           <div
             className={clsx(
               "group h-fit w-fit rounded-[9px] bg-gradient-to-r from-plum-7 via-indigo-7 to-grass-7 p-px shadow-md",
-              isLoading && "pointer-events-none opacity-75"
+              (isLoading || !data) && "pointer-events-none opacity-75"
             )}
           >
             <Link
