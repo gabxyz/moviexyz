@@ -39,7 +39,7 @@ const Layout = ({ children }: LayoutProps) => {
       <div className="mx-auto flex min-h-screen max-w-4xl flex-col justify-between p-4 pt-0">
         <Header />
         <div className="my-6 flex flex-col items-center gap-6">
-          <p className="text-center text-lg font-semibold leading-none opacity-90">
+          <p className="select-none text-center text-lg font-semibold leading-none opacity-90">
             Discover{" "}
             <span className="bg-gradient-to-l from-purple-11 to-indigo-11 bg-clip-text text-transparent">
               random movies

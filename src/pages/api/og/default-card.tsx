@@ -35,9 +35,9 @@ export default async function handler() {
         >
           <div tw="w-full h-full flex justify-between items-center rounded-2xl shadow-lg px-4 bg-[#202425] border-2 border-[#3a3f42]">
             <div tw="flex flex-col justify-between items-center mx-auto w-1/2 h-[484px]">
-              <div tw="flex flex-col items-center">
+              <div tw="flex flex-col items-center mt-20">
                 <h2
-                  tw="text-4xl"
+                  tw="text-4xl pb-2"
                   style={{
                     backgroundImage: "linear-gradient(90deg, #bf7af0, #849dff)",
                     backgroundClip: "text",
@@ -47,8 +47,8 @@ export default async function handler() {
                 >
                   moviexyz
                 </h2>
-                <p tw="-mt-2 text-2xl text-center max-w-[425px]">
-                  explore and discover random movies in the click of a button
+                <p tw="-mt-2 text-2xl text-center max-w-full">
+                  discover random movies at the click of a button!
                 </p>
               </div>
               <div

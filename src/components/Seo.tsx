@@ -39,9 +39,15 @@ const Seo = ({ title, description, ogContent, url }: SeoProps) => {
       openGraph={og}
       twitter={{
         handle: "@gabxyzdev",
-        site: "@gabxyzdev",
         cardType: "summary_large_image",
       }}
+      additionalLinkTags={[
+        {
+          rel: "icon",
+          href: "/favicon.png",
+          type: "image/png",
+        },
+      ]}
     />
   );
 };

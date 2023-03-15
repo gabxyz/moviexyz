@@ -11,7 +11,7 @@ const Header = () => {
         <Link
           href="/"
           className={clsx(
-            "w-fit text-xl font-bold leading-tight md:text-2xl",
+            "w-fit select-none text-xl font-bold leading-tight md:text-2xl",
             "bg-gradient-to-r from-purple-11 to-indigo-11 bg-clip-text text-transparent",
             "hover:opacity-80 motion-safe:duration-200 motion-safe:ease-productive-standard"
           )}

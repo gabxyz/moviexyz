@@ -46,7 +46,7 @@ export default async function handler(req: NextRequest) {
             <div tw="flex flex-col justify-between items-center mx-auto w-1/2 h-[484px]">
               <div tw="flex flex-col items-center">
                 <h2
-                  tw="text-4xl"
+                  tw="text-4xl pb-2"
                   style={{
                     backgroundImage: "linear-gradient(90deg, #bf7af0, #849dff)",
                     backgroundClip: "text",
@@ -56,7 +56,9 @@ export default async function handler(req: NextRequest) {
                 >
                   moviexyz
                 </h2>
-                <p tw="-mt-2 text-xl">explore and discover random movies</p>
+                <p tw="-mt-2 text-xl">
+                  discover random movies at the click of a button!
+                </p>
               </div>
               <div tw="flex flex-col items-center">
                 <h3 tw="text-xl text-[#ecedee]">{title}</h3>
