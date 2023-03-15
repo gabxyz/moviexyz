@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import useSWR from "swr";
 
 import Footer from "@/components/Footer";
@@ -56,7 +56,7 @@ const Layout = ({ children }: LayoutProps) => {
               href={`/movie/${data?.id}`}
               onClick={handleClick}
               className={clsx(
-                "flex h-7 w-full items-center px-4 text-[15px] font-semibold text-mauve-11",
+                "flex h-7 w-full items-center px-4 text-sm font-semibold text-mauve-11",
                 "rounded-lg bg-mauve-4",
                 "motion-safe:duration-200 motion-safe:ease-productive-standard"
               )}
