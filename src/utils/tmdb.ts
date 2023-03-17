@@ -16,10 +16,15 @@ export const getRandomMovieId = async (genresId: string) => {
     page: randomPage,
     with_genres: genresId,
   });
-  const randomMovie = pageResults.find(
+
+  const movies = pageResults.filter(
     (movie) => movie.poster_path && movie.title && movie.overview
   );
-  return randomMovie && randomMovie.id;
+
+  if (movies.length > 0) {
+    const randomIndex = Math.floor(Math.random() * movies.length);
+    return movies[randomIndex]?.id;
+  }
 };
 
 export const getMovieDetails = async (id: number) => {
