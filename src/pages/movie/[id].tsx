@@ -11,7 +11,7 @@ const MoviePage = ({
     <>
       <Seo
         title={`moviexyz | ${movieData.title}`}
-        description="explore and discover random movies"
+        description="discover random movies at the click of a button!"
         ogContent={`/movie-card?moviePoster=${movieData?.poster_path}&movieTitle=${movieData?.title}&movieOverview=${movieData?.overview}`}
       />
       <div className="mx-auto max-w-sm md:max-w-full">

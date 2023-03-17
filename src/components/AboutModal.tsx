@@ -222,7 +222,7 @@ const AboutModal = () => {
           <p className="text-sm text-mauve-11">
             You may have noticed that the text in this website is all lowercase.
             This is intentional. The reason is simply because I think it looks
-            nicer. If dislike this, you can change it in the settings menu.
+            nicer. If you dislike this, you can change it in the settings menu.
           </p>
         </div>
       </div>

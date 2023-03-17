@@ -38,7 +38,7 @@ const Seo = ({ title, description, ogContent, url }: SeoProps) => {
       }
       openGraph={og}
       twitter={{
-        handle: "@gabxyzdev",
+        handle: "@gabxyzz",
         cardType: "summary_large_image",
       }}
       additionalLinkTags={[
@@ -46,6 +46,14 @@ const Seo = ({ title, description, ogContent, url }: SeoProps) => {
           rel: "icon",
           href: "/favicon.png",
           type: "image/png",
+        },
+      ]}
+      canonical="https://moviexyz.vercel.app/"
+      nofollow={true}
+      additionalMetaTags={[
+        {
+          name: "keywords",
+          content: "Random Movies, Movie Recommendations, TMDb API",
         },
       ]}
     />

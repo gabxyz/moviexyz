@@ -68,7 +68,7 @@ const MovieCard = ({
                 aria-label={`Share ${title} on twitter`}
                 target="_blank"
                 rel="noopener noreferrer"
-                href={`https://twitter.com/intent/tweet?text=${title}%20%0A%0A&url=https://moviexyz.vercel.app${router.asPath}`}
+                href={`https://twitter.com/intent/tweet?text=${title}%0D%0Dhttps://moviexyz.vercel.app${router.asPath}`}
                 className={clsx(
                   "flex items-center gap-1 py-1 px-3 text-sm font-semibold text-mauve-12 opacity-70 hover:opacity-100",
                   "rounded-xl border border-mauve-7 bg-mauve-5 shadow hover:border-mauve-8",
