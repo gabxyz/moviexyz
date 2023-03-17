@@ -47,6 +47,7 @@ const Layout = ({ children }: LayoutProps) => {
             at the click of a button!
           </p>
           <div
+            aria-label="Button to pick a random movie"
             className={clsx(
               "group h-fit w-fit rounded-[9px] bg-gradient-to-r from-plum-7 via-indigo-7 to-grass-7 p-px shadow-md",
               (isLoading || !data) && "pointer-events-none opacity-75"

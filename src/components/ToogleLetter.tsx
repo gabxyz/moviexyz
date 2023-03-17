@@ -17,7 +17,6 @@ const ToggleLetter = () => {
   return (
     <ToggleGroup.Root
       type="single"
-      aria-label="Letter case"
       value={letterCase}
       onValueChange={(letterCase) => {
         if (letterCase) setLetterCase(letterCase);
@@ -26,14 +25,14 @@ const ToggleLetter = () => {
     >
       <ToggleGroup.Item
         value="lowercase"
-        aria-label="lowercase text"
+        aria-label="Toggle all lowercase text"
         className={toggleClass}
       >
         <span>aa</span>
       </ToggleGroup.Item>
       <ToggleGroup.Item
         value="none"
-        aria-label="capitalized text"
+        aria-label="Toggle normal, capitalized text"
         className={toggleClass}
       >
         <span className="capitalize">Aa</span>

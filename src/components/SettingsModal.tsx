@@ -27,7 +27,7 @@ const SettingsModal = () => {
           <div className="flex flex-col">
             <h3 className="font-semibold">Letter case</h3>
             <p className="text-sm text-mauve-11">
-              Choose between lowercase and normal-case text
+              Choose between normal, capitalized text or all lowercase text
             </p>
           </div>
           <ToggleLetter />

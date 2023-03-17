@@ -65,6 +65,7 @@ const MovieCard = ({
                 <p className="text-[15px] text-mauve-11">{genresArr}</p>
               </div>
               <a
+                aria-label={`Share ${title} on twitter`}
                 target="_blank"
                 rel="noopener noreferrer"
                 href={`https://twitter.com/intent/tweet?text=${title}%20%0A%0A&url=https://moviexyz.vercel.app${router.asPath}`}
@@ -94,11 +95,17 @@ const MovieCard = ({
           </div>
           <div className="flex w-full flex-col justify-between gap-6 text-mauve-11">
             <div className="flex gap-2">
-              <div className="flex items-center gap-1.5 rounded-2xl border border-mauve-6 bg-mauve-4 py-1 px-3 text-xs shadow">
+              <div
+                className="flex items-center gap-1.5 rounded-2xl border border-mauve-6 bg-mauve-4 py-1 px-3 text-xs shadow"
+                aria-label="Movie release date"
+              >
                 <IconCalendar size={15} />
                 <p>{release_date?.slice(0, 4)}</p>
               </div>
-              <div className="flex items-center gap-1.5 rounded-2xl border border-mauve-6 bg-mauve-4 py-1 px-3 text-xs shadow">
+              <div
+                className="flex items-center gap-1.5 rounded-2xl border border-mauve-6 bg-mauve-4 py-1 px-3 text-xs shadow"
+                aria-label="Movie duration time"
+              >
                 <IconHourglass size={15} />
                 <p>{runtime} min</p>
               </div>

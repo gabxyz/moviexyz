@@ -6,10 +6,10 @@ const Footer = () => {
           made by{" "}
           <a
             className="cursor-pointer font-semibold text-mauve-12 opacity-90 hover:opacity-75 motion-safe:duration-200 motion-safe:ease-productive-standard"
-            aria-label="twitter"
+            aria-label="Gabriel's twitter profile link"
             target="_blank"
             rel="noopener noreferrer"
-            href="https://twitter.com/gabxyzdev"
+            href="https://twitter.com/gabxyzz"
           >
             gabxyz
           </a>

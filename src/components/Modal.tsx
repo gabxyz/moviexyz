@@ -25,7 +25,7 @@ const Modal = ({
     <Dialog.Root modal onOpenChange={(o) => setOpen(o)}>
       <Tooltip content={title}>
         <Dialog.Trigger
-          aria-label={title}
+          aria-label={`Button to open ${title} modal`}
           className={clsx(
             "text-mauve-12 opacity-70 hover:opacity-100",
             "motion-safe:duration-200 motion-safe:ease-productive-standard"

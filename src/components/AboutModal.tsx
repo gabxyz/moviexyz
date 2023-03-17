@@ -22,7 +22,7 @@ interface Stack {
 
 const stack: Stack[] = [
   {
-    category: "Front-end",
+    category: "Main",
     tools: [
       {
         toolName: "Next.js",
@@ -36,10 +36,6 @@ const stack: Stack[] = [
         toolName: "TailwindCSS",
         toolLink: "https://tailwindcss.com/",
       },
-      {
-        toolName: "Vercel",
-        toolLink: "https://vercel.com/",
-      },
     ],
   },
   {
@@ -52,6 +48,10 @@ const stack: Stack[] = [
       {
         toolName: "Radix Colors",
         toolLink: "https://www.radix-ui.com/colors",
+      },
+      {
+        toolName: "Framer Motion",
+        toolLink: "https://www.framer.com/motion/",
       },
       {
         toolName: "Tabler Icons",
@@ -95,19 +95,20 @@ const stack: Stack[] = [
     ],
   },
   {
-    category: "Utilities",
+    category: "Utilities/Others",
     tools: [
       {
         toolName: "next-themes",
         toolLink: "https://github.com/pacocoursey/next-themes",
       },
       {
-        toolName: "Framer Motion",
-        toolLink: "https://www.framer.com/motion/",
-      },
-      {
         toolName: "clsx",
         toolLink: "https://github.com/lukeed/clsx",
+      },
+      {
+        toolName: "vercel/og",
+        toolLink:
+          "https://vercel.com/docs/concepts/functions/edge-functions/og-image-generation",
       },
     ],
   },
@@ -136,7 +137,7 @@ const AboutModal = () => {
         <div className="flex flex-col justify-between py-4">
           <h3 className="font-semibold">Built with</h3>
           <p className="text-sm text-mauve-11">
-            Some of the tools I used to build moviexyz.
+            Some of the tools I used to build moviexyz
           </p>
           <ul className="mt-2 text-sm">
             {stack.map(({ category, tools }) => (
@@ -183,9 +184,10 @@ const AboutModal = () => {
                 "hover:border-mauve-8 hover:bg-mauve-4 hover:text-mauve-12",
                 "motion-safe:duration-200 motion-safe:ease-productive-standard"
               )}
+              aria-label="Gabriel's twitter profile link"
               target="_blank"
               rel="noopener noreferrer"
-              href="https://twitter.com/gabxyzdev"
+              href="https://twitter.com/gabxyzz"
             >
               <IconBrandTwitter size={16} />
               <p>Twitter</p>
@@ -201,6 +203,7 @@ const AboutModal = () => {
                 "hover:border-mauve-8 hover:bg-mauve-4 hover:text-mauve-12",
                 "motion-safe:duration-200 motion-safe:ease-productive-standard"
               )}
+              aria-label="Gabriel's github profile link"
               target="_blank"
               rel="noopener noreferrer"
               href="https://github.com/gabxyz"
