@@ -8,7 +8,7 @@ const Home: NextPage = () => {
       <Seo
         title="moviexyz"
         description="discover random movies at the click of a button!"
-        ogContent={`/default-card?1=1`}
+        ogContent={`/default-card#wtf`}
       />
     </>
   );

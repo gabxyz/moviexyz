@@ -49,13 +49,6 @@ const Seo = ({ title, description, ogContent, url }: SeoProps) => {
         },
       ]}
       canonical="https://moviexyz.vercel.app/"
-      nofollow={true}
-      additionalMetaTags={[
-        {
-          name: "keywords",
-          content: "Random Movies, Movie Recommendations, TMDb API",
-        },
-      ]}
     />
   );
 };
