@@ -80,7 +80,7 @@ const MovieCard = ({
               </a>
             </div>
             {overview.length > 500 ? (
-              <p className="mt-4 text-[15px] text-mauve-11">
+              <p className="mt-2 text-[15px] text-mauve-11">
                 {!showMore ? shortOverview : overview}
                 <button
                   className="ml-1 text-sm font-semibold text-mauve-12 opacity-90 hover:opacity-70 motion-safe:duration-200 motion-safe:ease-productive-standard"
@@ -90,7 +90,7 @@ const MovieCard = ({
                 </button>
               </p>
             ) : (
-              <p className="mt-4 text-[15px] text-mauve-11">{overview}</p>
+              <p className="mt-2 text-[15px] text-mauve-11">{overview}</p>
             )}
           </div>
           <div className="flex w-full flex-col justify-between gap-6 text-mauve-11">

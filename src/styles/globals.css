@@ -12,5 +12,5 @@ html {
 }
 
 body {
-  @apply bg-mauve-2 text-mauve-12 selection:bg-sky-4;
+  @apply bg-mauve-2 text-mauve-12 selection:bg-sky-5;
 }

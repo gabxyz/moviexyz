@@ -128,9 +128,10 @@ const AboutModal = () => {
             <h3 className="font-semibold">What and why</h3>
             <p className="text-sm text-mauve-11">
               This is a website I built for people that, just like me, have
-              trouble choosing a movie to watch. My motivation for building it
-              was mainly to apply and improve my skills as a front-end developer
-              and mess around with UI/UX.
+              trouble choosing a movie to watch. My main motivation for building
+              it was to learn new technologies, apply and improve my skills as a
+              front-end developer, and build something on my own, from start to
+              finish.
             </p>
           </div>
         </div>
