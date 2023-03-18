@@ -24,6 +24,7 @@ const config = withBundleAnalyzer({
         pathname: "/t/p/w400/**",
       },
     ],
+    unoptimized: true,
   },
 });
 export default config;

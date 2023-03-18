@@ -83,7 +83,7 @@ The project was bootstrapped with [create-t3-app](https://create.t3.gg/).
 
 **Final Thoughts**
 
-Most of the stuff I've used to build this website was new to me, so I had to learn it and figure out how to apply to my use case, so I had a bit of a steep learning curve there, and this took some time. Due to my limited experience in building websites, I feel like this could probably have been achieved in simpler, more perfomant ways, but for what is worth, I did learned a lot of stuff building this and had a lot of fun figuring things out and getting everything to work the way I wanted it to.
+Most of the stuff I've used to build this website was new to me, so I had to learn it and figure out how to apply to my use case, so I had a bit of a steep learning curve there, and this took some time. Due to my limited experience in building websites, I feel like this could probably have been achieved in simpler, more performant ways, but for what is worth, I did learned a lot of stuff building this and had a lot of fun figuring things out and getting everything to work the way I wanted it to.
 
 I'm always looking for ways to improve my skills and learn new things, so if you have any feedback or suggestions for me, I'd love to hear them! In the meantime, thanks for checking out my site - I hope you enjoyed it as much as I enjoyed building it.
 
