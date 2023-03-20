@@ -54,7 +54,7 @@ const GenresToggle = () => {
             "h-7 px-2.5 text-sm font-medium",
             "rounded-xl border border-mauve-7 bg-mauve-3 text-mauve-11 shadow",
             "hover:border-mauve-8 hover:bg-mauve-4",
-            "motion-safe:duration-300 motion-safe:ease-productive-standard",
+            "motion-safe:duration-200 motion-safe:ease-productive-standard",
             "rdx-state-on:border-mauve-8 rdx-state-on:bg-mauve-6 rdx-state-on:text-mauve-12"
           )}
         >

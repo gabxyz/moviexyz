@@ -8,6 +8,7 @@ import {
 import clsx from "clsx";
 import type { MovieResponse, MovieResult } from "moviedb-promise";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
@@ -68,10 +69,11 @@ const MovieCard = ({
                 aria-label={`Share ${title} on twitter`}
                 target="_blank"
                 rel="noopener noreferrer"
-                href={`https://twitter.com/intent/tweet?text=${title}%0D%0Dhttps://moviexyz.vercel.app${router.asPath}`}
+                href={`https://twitter.com/intent/tweet?text=${title}+%7C+moviexyz%0D%0Dhttps://moviexyz.vercel.app${router.asPath}`}
                 className={clsx(
-                  "flex items-center gap-1 py-1 px-3 text-sm font-semibold text-mauve-12 opacity-70 hover:opacity-100",
-                  "rounded-xl border border-mauve-7 bg-mauve-5 shadow hover:border-mauve-8",
+                  "flex items-center gap-1 rounded-xl py-1 px-3 text-sm font-semibold",
+                  "border border-mauve-7 bg-mauve-5 text-mauve-12 opacity-70 shadow",
+                  "hover:border-mauve-8 hover:opacity-100",
                   "motion-safe:duration-200 motion-safe:ease-productive-standard"
                 )}
               >
@@ -112,8 +114,8 @@ const MovieCard = ({
             </div>
             <a
               className={clsx(
-                "group ml-1 inline-flex w-fit items-center truncate text-[15px] font-semibold text-mauve-12 opacity-70",
-                "border-b border-dotted border-mauve-10",
+                "group ml-1 inline-flex w-fit items-center truncate text-[15px] font-semibold",
+                "border-b border-dotted border-mauve-10 text-mauve-12 opacity-70",
                 "hover:opacity-90 motion-safe:duration-200 motion-safe:ease-productive-standard"
               )}
               aria-label={`Watch ${title}'s trailer on youtube`}
@@ -125,7 +127,7 @@ const MovieCard = ({
               <p className="mx-1 truncate">Watch the trailer</p>
               <IconArrowRight
                 size={16}
-                className="flex-none text-mauve-11 group-hover:-rotate-45  motion-safe:duration-200 motion-safe:ease-productive-standard"
+                className="flex-none text-mauve-11 group-hover:-rotate-45 motion-safe:duration-200 motion-safe:ease-productive-standard"
               />
             </a>
           </div>
@@ -136,7 +138,7 @@ const MovieCard = ({
               </h3>
               <div className="mb-1.5 flex flex-col gap-3 md:mb-0">
                 {recommendedMovies.map((movie) => (
-                  <a
+                  <Link
                     key={movie.id}
                     className={clsx(
                       "group inline-flex w-fit max-w-full items-center justify-start truncate text-[15px] font-medium opacity-70",
@@ -144,16 +146,14 @@ const MovieCard = ({
                       "hover:opacity-90 motion-safe:duration-200 motion-safe:ease-productive-standard"
                     )}
                     aria-label={movie.title}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={`https://moviexyz.vercel.app/movie/${movie.id}`}
+                    href={`/movie/${movie.id}`}
                   >
                     <p className="mr-1 truncate">{movie.title}</p>
                     <IconArrowRight
                       size={16}
                       className="mr-3 flex-none text-mauve-11 group-hover:translate-x-1 motion-safe:duration-200 motion-safe:ease-productive-standard"
                     />
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>

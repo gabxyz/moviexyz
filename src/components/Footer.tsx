@@ -5,7 +5,7 @@ const Footer = () => {
         <p>
           made by{" "}
           <a
-            className="cursor-pointer font-semibold text-mauve-12 opacity-90 hover:opacity-75 motion-safe:duration-200 motion-safe:ease-productive-standard"
+            className="cursor-pointer font-semibold text-mauve-12 underline underline-offset-2 opacity-90 hover:opacity-75 motion-safe:duration-200 motion-safe:ease-productive-standard"
             aria-label="Gabriel's twitter profile link"
             target="_blank"
             rel="noopener noreferrer"

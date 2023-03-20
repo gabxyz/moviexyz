@@ -106,6 +106,10 @@ const stack: Stack[] = [
         toolLink: "https://github.com/lukeed/clsx",
       },
       {
+        toolName: "next-seo",
+        toolLink: "https://github.com/garmeeh/next-seo",
+      },
+      {
         toolName: "vercel/og",
         toolLink:
           "https://vercel.com/docs/concepts/functions/edge-functions/og-image-generation",
