@@ -73,7 +73,7 @@ export default async function handler(req: NextRequest) {
                   color: "transparent",
                 }}
               >
-                moviexyz.vercel.app
+                movie-xyz.netlify.app
               </div>
             </div>
             <div tw="flex items-center justify-center">
