@@ -3,6 +3,8 @@ import type { OpenGraph } from "next-seo/lib/types";
 
 import useLetterCaseState from "@/hooks/useLetterCaseState";
 
+const SITE_URL = "https://movie-xyz.netlify.app";
+
 interface SeoProps {
   title: string;
   description: string;
@@ -14,7 +16,7 @@ const Seo = ({ title, description, ogContent, url }: SeoProps) => {
   const { letterCase } = useLetterCaseState();
 
   const og: OpenGraph = {
-    url: `https://moviexyz.vercel.app${url ? "/" + url : "/"}`,
+    url: `${SITE_URL}${url ? "/" + url : "/"}`,
     title: title.toLowerCase(),
     description: description,
     siteName: "moviexyz | random movies",
@@ -22,7 +24,7 @@ const Seo = ({ title, description, ogContent, url }: SeoProps) => {
   Object.assign(og, {
     images: [
       {
-        url: new URL(`https://moviexyz.vercel.app/api/og${ogContent}`),
+        url: new URL(`${SITE_URL}/api/og${ogContent}`),
         width: 1200,
         height: 630,
         alt: title,
@@ -48,7 +50,7 @@ const Seo = ({ title, description, ogContent, url }: SeoProps) => {
           type: "image/png",
         },
       ]}
-      canonical="https://moviexyz.vercel.app/"
+      canonical={`${SITE_URL}/`}
     />
   );
 };
