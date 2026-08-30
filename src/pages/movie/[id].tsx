@@ -24,7 +24,17 @@ const MoviePage = ({
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { id } = context.query;
   const parsedId = Number(id);
+
+  if (!id || Number.isNaN(parsedId)) {
+    return { notFound: true };
+  }
+
   const movieData = await getMovieDetails(parsedId);
+
+  context.res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=86400, stale-while-revalidate=604800"
+  );
 
   return {
     props: {
