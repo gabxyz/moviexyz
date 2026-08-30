@@ -4,7 +4,7 @@
 
 moviexyz is a website I built for people who have trouble choosing a movie to watch. My motivation for building this was to apply and improve my skills as a front-end developer and break out of tutorial hell by building something on my own, from start to finish.
 
-**Check out the [Live Website](https://moviexyz.vercel.app/)**
+**Check out the [Live Website](https://movie-xyz.netlify.app/)**
 
 ## How it works
 
