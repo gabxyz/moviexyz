@@ -103,6 +103,9 @@ export default async function handler(req: NextRequest) {
             weight: 700,
           },
         ],
+        headers: {
+          "Cache-Control": "public, immutable, no-transform, max-age=31536000",
+        },
       }
     );
   } catch (e: any) {
