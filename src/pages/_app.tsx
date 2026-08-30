@@ -2,8 +2,8 @@ import "@/styles/globals.css";
 
 import localFont from "@next/font/local";
 import * as Tooltip from "@radix-ui/react-tooltip";
-import { Analytics } from "@vercel/analytics/react";
 import { type AppType } from "next/dist/shared/lib/utils";
+import Script from "next/script";
 import { ThemeProvider } from "next-themes";
 
 import Layout from "@/components/Layout";
@@ -36,8 +36,12 @@ const App: AppType = ({ Component, pageProps }) => {
         </style>
         <Layout>
           <Component {...pageProps} />
-          <Analytics />
         </Layout>
+        <Script
+          strategy="afterInteractive"
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "11303c17d67f408fbda5c1b3c6900fd8"}'
+        />
       </Tooltip.Provider>
     </ThemeProvider>
   );
