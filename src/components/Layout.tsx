@@ -25,7 +25,11 @@ const Layout = ({ children }: LayoutProps) => {
   const { data, mutate } = useSWR(
     `/api/randomId?genresId=${genresParsed}`,
     fetcher,
-    { revalidateOnMount: true }
+    {
+      revalidateOnMount: true,
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+    }
   );
 
   const handleClick = useCallback(async () => {
