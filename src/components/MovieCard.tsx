@@ -69,7 +69,7 @@ const MovieCard = ({
                 aria-label={`Share ${title} on twitter`}
                 target="_blank"
                 rel="noopener noreferrer"
-                href={`https://twitter.com/intent/tweet?text=${title}+%7C+moviexyz%0D%0Dhttps://moviexyz.vercel.app${router.asPath}`}
+                href={`https://twitter.com/intent/tweet?text=${title}+%7C+moviexyz%0D%0Dhttps://movie-xyz.netlify.app${router.asPath}`}
                 className={clsx(
                   "flex items-center gap-1 rounded-xl py-1 px-3 text-sm font-semibold",
                   "border border-mauve-7 bg-mauve-5 text-mauve-12 opacity-70 shadow",
