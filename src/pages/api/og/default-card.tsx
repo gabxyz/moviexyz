@@ -60,7 +60,7 @@ export default async function handler() {
                   color: "transparent",
                 }}
               >
-                moviexyz.vercel.app
+                movie-xyz.netlify.app
               </div>
             </div>
             <div tw="flex items-center justify-center w-[350px] h-[500px] bg-[#26292b] rounded-lg border-2 border-[#313538]">
