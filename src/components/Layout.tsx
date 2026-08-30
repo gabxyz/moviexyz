@@ -34,7 +34,11 @@ const Layout = ({ children }: LayoutProps) => {
 
   const handleClick = useCallback(async () => {
     setIsLoading(true);
-    await mutate(`/api/randomId?genresId=${genresParsed}`);
+    const minDelay = new Promise((resolve) => setTimeout(resolve, 300));
+    await Promise.all([
+      mutate(`/api/randomId?genresId=${genresParsed}`),
+      minDelay,
+    ]);
     setIsLoading(false);
   }, [genresParsed, mutate]);
 
