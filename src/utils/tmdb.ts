@@ -45,26 +45,27 @@ export const getMovieDetails = async (id: number) => {
     recommendations: MovieRecommendationsResponse;
   };
 
-  if (videos.results && recommendations.results) {
-    const trailer = videos.results.find((item) => item.type === "Trailer");
-    const youtubeId = trailer ? trailer.key : "dQw4w9WgXcQ";
-    const recommendedMovies = recommendations.results
-      .slice(0, 3)
-      .map(({ id, title }) => ({ id, title }));
+  // Some movies on TMDB have no trailer and/or no recommendations at all.
+  // Fall back to empty defaults instead of returning undefined, which
+  // would otherwise crash getServerSideProps trying to serialize it.
+  const trailer = videos?.results?.find((item) => item.type === "Trailer");
+  const youtubeId = trailer ? trailer.key : "dQw4w9WgXcQ";
+  const recommendedMovies = (recommendations?.results ?? [])
+    .slice(0, 3)
+    .map(({ id, title }) => ({ id, title }));
 
-    const movieInfo = {
-      poster_path,
-      title,
-      overview,
-      genres,
-      release_date,
-      runtime,
-    };
+  const movieInfo = {
+    poster_path,
+    title,
+    overview,
+    genres,
+    release_date,
+    runtime,
+  };
 
-    return {
-      ...movieInfo,
-      movieTrailer: youtubeId,
-      recommendedMovies,
-    };
-  }
+  return {
+    ...movieInfo,
+    movieTrailer: youtubeId,
+    recommendedMovies,
+  };
 };
