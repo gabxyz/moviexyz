@@ -3,6 +3,7 @@ import type { OpenGraph } from "next-seo/lib/types";
 
 import useLetterCaseState from "@/hooks/useLetterCaseState";
 
+// Update this if the site ever moves to a different domain again.
 const SITE_URL = "https://movie-xyz.netlify.app";
 
 interface SeoProps {
@@ -32,26 +33,40 @@ const Seo = ({ title, description, ogContent, url }: SeoProps) => {
     ],
   });
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "moviexyz",
+    url: SITE_URL,
+    description: "discover random movies at the click of a button!",
+  };
+
   return (
-    <NextSeo
-      title={letterCase === "lowercase" ? title.toLowerCase() : title}
-      description={
-        letterCase === "lowercase" ? description.toLowerCase() : description
-      }
-      openGraph={og}
-      twitter={{
-        handle: "@gabxyzz",
-        cardType: "summary_large_image",
-      }}
-      additionalLinkTags={[
-        {
-          rel: "icon",
-          href: "/favicon.png",
-          type: "image/png",
-        },
-      ]}
-      canonical={`${SITE_URL}/`}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <NextSeo
+        title={letterCase === "lowercase" ? title.toLowerCase() : title}
+        description={
+          letterCase === "lowercase" ? description.toLowerCase() : description
+        }
+        openGraph={og}
+        twitter={{
+          handle: "@gabxyzz",
+          cardType: "summary_large_image",
+        }}
+        additionalLinkTags={[
+          {
+            rel: "icon",
+            href: "/favicon.png",
+            type: "image/png",
+          },
+        ]}
+        canonical={`${SITE_URL}/`}
+      />
+    </>
   );
 };
 
